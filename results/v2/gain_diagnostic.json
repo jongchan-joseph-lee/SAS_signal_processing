@@ -1,0 +1,43 @@
+{
+  "rows": [
+    {
+      "scene": "scene00",
+      "uncompensated": {
+        "complex_correlation": 0.5005176587722638,
+        "amplitude_correlation": 0.5967220020167581,
+        "aligned_nrmse": 0.8657538344144405,
+        "scale_real": 1.14034566163274,
+        "scale_imag": 1.1173597229128267
+      },
+      "fixed_r2": {
+        "complex_correlation": 0.5391172957816855,
+        "amplitude_correlation": 0.5917841184714462,
+        "aligned_nrmse": 0.8422635012506264,
+        "scale_real": 0.000865356085607896,
+        "scale_imag": 0.0008515580362312386
+      },
+      "status": "post-hoc diagnostic, not primary frozen validation",
+      "gain": "y^2 + h^2, h=6m, exponent fixed=1"
+    },
+    {
+      "scene": "scene01",
+      "uncompensated": {
+        "complex_correlation": 0.7534999607802568,
+        "amplitude_correlation": 0.7226563158606517,
+        "aligned_nrmse": 0.6575997345078637,
+        "scale_real": 1.0874263949224416,
+        "scale_imag": 1.0742203222150648
+      },
+      "fixed_r2": {
+        "complex_correlation": 0.8643200512774073,
+        "amplitude_correlation": 0.8907252817083221,
+        "aligned_nrmse": 0.5032032074620238,
+        "scale_real": 0.000515949862073998,
+        "scale_imag": 0.0005083277307493316
+      },
+      "status": "post-hoc diagnostic, not primary frozen validation",
+      "gain": "y^2 + h^2, h=6m, exponent fixed=1"
+    }
+  ],
+  "interpretation": "Compatible with missing amplitude normalization, but does not establish the exact ASASIN processing recipe"
+}

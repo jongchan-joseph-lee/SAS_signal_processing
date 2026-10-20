@@ -1,0 +1,12 @@
+scene,family,split,object_placements
+scene00,isolated_points,beamformer_development,0
+scene01,uniform,validation,9
+scene02,rough_uniform,train,9
+scene03,rough_uniform,train,9
+scene04,ripple,test,9
+scene05,mixed_uniform_ripple,test,9
+scene06,uniform,validation,9
+scene07,rough_uniform,train,9
+scene08,rough_uniform,train,9
+scene09,ripple,test,9
+scene10,mixed_uniform_ripple,test,9

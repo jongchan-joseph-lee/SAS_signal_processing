@@ -1,0 +1,15 @@
+Raw (100, 36, 10942), kernel 300 samples
+{
+  "raw_shape": [
+    100,
+    36,
+    10942
+  ],
+  "compressed_shape": [
+    3600,
+    11241
+  ],
+  "pulse_compression": "FFT convolution with conjugate-reversed supplied kernel",
+  "sample_offset_initial": 299,
+  "seconds": 1.6417566909985908
+}

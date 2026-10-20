@@ -1,0 +1,936 @@
+{
+  "protocol_sha256": "80a0bd96ba9bc32f2578bc2adb7ee62fb2971ec110bad6998c07273a04bb95e9",
+  "rows": [
+    {
+      "image": "clean_bp",
+      "clean_bp_complex": {
+        "complex_correlation": 1.0,
+        "amplitude_correlation": 1.0,
+        "aligned_nrmse": 0.0,
+        "scale_real": 1.0,
+        "scale_imag": 0.0
+      },
+      "official_reference_complex": {
+        "complex_correlation": 0.6660012199837214,
+        "amplitude_correlation": 0.5546949461587711,
+        "aligned_nrmse": 0.746011698090246,
+        "scale_real": 1.0911002064037862,
+        "scale_imag": 1.0775306582331405
+      },
+      "detection": {
+        "threshold": 0.8452806686328542,
+        "tp": 3,
+        "fp": 5,
+        "total": 9,
+        "recall": 0.3333333333333333,
+        "fp_per_scene": 5.0,
+        "fp_per_km2": 1190.4761549972359,
+        "wilson95": [
+          0.12058381838691423,
+          0.6457978644195965
+        ],
+        "scenes": [
+          {
+            "scene": 4,
+            "tp": 3,
+            "fp": 5,
+            "total": 9,
+            "matches": [
+              [
+                119,
+                6,
+                0.9830755007608191
+              ],
+              [
+                122,
+                4,
+                0.8701845023633658
+              ],
+              [
+                100,
+                5,
+                0.3864560744914398
+              ]
+            ]
+          }
+        ],
+        "class_recall": [
+          {
+            "class": "trap",
+            "tp": 0,
+            "total": 3,
+            "wilson95": [
+              0.0,
+              0.561497031755032
+            ]
+          },
+          {
+            "class": "rock",
+            "tp": 2,
+            "total": 3,
+            "wilson95": [
+              0.20765960080205476,
+              0.9385080552796012
+            ]
+          },
+          {
+            "class": "cylinder",
+            "tp": 1,
+            "total": 3,
+            "wilson95": [
+              0.061491944720398706,
+              0.7923403991979452
+            ]
+          }
+        ],
+        "confusion_rows_truth_columns_background_trap_rock_cylinder": [
+          [
+            3,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "bp_seconds": 103.85583199499888
+    },
+    {
+      "image": "corrupted_bp",
+      "clean_bp_complex": {
+        "complex_correlation": 0.18345590170546053,
+        "amplitude_correlation": 0.7397264918203093,
+        "aligned_nrmse": 0.9830279406656888,
+        "scale_real": 0.1757017537537783,
+        "scale_imag": 0.055875921744213575
+      },
+      "official_reference_complex": {
+        "complex_correlation": 0.11765181093879527,
+        "amplitude_correlation": 0.3670482542298614,
+        "aligned_nrmse": 0.9930563403719257,
+        "scale_real": 0.07819028892569631,
+        "scale_imag": 0.2607798214090601
+      },
+      "detection": {
+        "threshold": 0.8452806686328542,
+        "tp": 4,
+        "fp": 2,
+        "total": 9,
+        "recall": 0.4444444444444444,
+        "fp_per_scene": 2.0,
+        "fp_per_km2": 476.1904619988944,
+        "wilson95": [
+          0.18877852109766918,
+          0.733348706504501
+        ],
+        "scenes": [
+          {
+            "scene": 4,
+            "tp": 4,
+            "fp": 2,
+            "total": 9,
+            "matches": [
+              [
+                121,
+                4,
+                0.9024809505671847
+              ],
+              [
+                109,
+                6,
+                0.39299150477134315
+              ],
+              [
+                99,
+                3,
+                0.8379269365019137
+              ],
+              [
+                97,
+                5,
+                0.3912778691189939
+              ]
+            ]
+          }
+        ],
+        "class_recall": [
+          {
+            "class": "trap",
+            "tp": 0,
+            "total": 3,
+            "wilson95": [
+              0.0,
+              0.561497031755032
+            ]
+          },
+          {
+            "class": "rock",
+            "tp": 3,
+            "total": 3,
+            "wilson95": [
+              0.4385029682449681,
+              1.0
+            ]
+          },
+          {
+            "class": "cylinder",
+            "tp": 1,
+            "total": 3,
+            "wilson95": [
+              0.061491944720398706,
+              0.7923403991979452
+            ]
+          }
+        ],
+        "confusion_rows_truth_columns_background_trap_rock_cylinder": [
+          [
+            3,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            3,
+            0
+          ],
+          [
+            2,
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "bp_seconds": 101.85970131199974
+    },
+    {
+      "image": "automatic_entropy_bp",
+      "clean_bp_complex": {
+        "complex_correlation": 0.13795984694498875,
+        "amplitude_correlation": 0.7567987691596946,
+        "aligned_nrmse": 0.9904378226980795,
+        "scale_real": 0.13674677856930767,
+        "scale_imag": 0.022351990951338965
+      },
+      "official_reference_complex": {
+        "complex_correlation": 0.06722213921138666,
+        "amplitude_correlation": 0.3986773209522476,
+        "aligned_nrmse": 0.9977384995179529,
+        "scale_real": 0.1024464582154809,
+        "scale_imag": 0.11692375763650768
+      },
+      "detection": {
+        "threshold": 0.8452806686328542,
+        "tp": 3,
+        "fp": 4,
+        "total": 9,
+        "recall": 0.3333333333333333,
+        "fp_per_scene": 4.0,
+        "fp_per_km2": 952.3809239977888,
+        "wilson95": [
+          0.12058381838691423,
+          0.6457978644195965
+        ],
+        "scenes": [
+          {
+            "scene": 4,
+            "tp": 3,
+            "fp": 4,
+            "total": 9,
+            "matches": [
+              [
+                122,
+                4,
+                0.9024809505671847
+              ],
+              [
+                112,
+                6,
+                0.968600808669813
+              ],
+              [
+                99,
+                5,
+                0.3912778691189939
+              ]
+            ]
+          }
+        ],
+        "class_recall": [
+          {
+            "class": "trap",
+            "tp": 0,
+            "total": 3,
+            "wilson95": [
+              0.0,
+              0.561497031755032
+            ]
+          },
+          {
+            "class": "rock",
+            "tp": 2,
+            "total": 3,
+            "wilson95": [
+              0.20765960080205476,
+              0.9385080552796012
+            ]
+          },
+          {
+            "class": "cylinder",
+            "tp": 1,
+            "total": 3,
+            "wilson95": [
+              0.061491944720398706,
+              0.7923403991979452
+            ]
+          }
+        ],
+        "confusion_rows_truth_columns_background_trap_rock_cylinder": [
+          [
+            3,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "bp_seconds": 77.69371778099958
+    }
+  ],
+  "automatic_patches": [
+    {
+      "position": [
+        30.066254043020308,
+        3.912500058300793
+      ],
+      "range_band": 0,
+      "active_pings": [
+        49
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        37.866254159249365,
+        4.112500061281025
+      ],
+      "range_band": 0,
+      "active_pings": [
+        62
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        33.66625409666449,
+        3.862500057555735
+      ],
+      "range_band": 0,
+      "active_pings": [
+        55
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        48.666254320181906,
+        3.762500056065619
+      ],
+      "range_band": 0,
+      "active_pings": [
+        80
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        56.46625443641096,
+        3.062500045634806
+      ],
+      "range_band": 0,
+      "active_pings": [
+        93
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        52.26625437382609,
+        5.0125000746920705
+      ],
+      "range_band": 0,
+      "active_pings": [
+        86
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        20.46625389996916,
+        5.0125000746920705
+      ],
+      "range_band": 0,
+      "active_pings": [
+        33
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        46.26625428441912,
+        5.0125000746920705
+      ],
+      "range_band": 0,
+      "active_pings": [
+        76
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        8.466253721155226,
+        4.062500060535967
+      ],
+      "range_band": 0,
+      "active_pings": [
+        13
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        23.466253944672644,
+        5.0125000746920705
+      ],
+      "range_band": 0,
+      "active_pings": [
+        38
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        25.266253971494734,
+        4.062500060535967
+      ],
+      "range_band": 0,
+      "active_pings": [
+        41
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        40.26625419501215,
+        4.962500073947012
+      ],
+      "range_band": 0,
+      "active_pings": [
+        66
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        43.266254239715636,
+        5.0625000754371285
+      ],
+      "range_band": 0,
+      "active_pings": [
+        71
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        14.466253810562193,
+        5.112500076182187
+      ],
+      "range_band": 0,
+      "active_pings": [
+        23
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        27.66625400725752,
+        5.0125000746920705
+      ],
+      "range_band": 0,
+      "active_pings": [
+        45
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        10.866253756918013,
+        4.912500073201954
+      ],
+      "range_band": 0,
+      "active_pings": [
+        17
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        55.81625442672521,
+        5.662500084377825
+      ],
+      "range_band": 0,
+      "active_pings": [
+        92
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        16.266253837384284,
+        4.062500060535967
+      ],
+      "range_band": 0,
+      "active_pings": [
+        26
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        18.066253864206374,
+        5.712500085122883
+      ],
+      "range_band": 0,
+      "active_pings": [
+        29
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        36.616254140622914,
+        5.712500085122883
+      ],
+      "range_band": 0,
+      "active_pings": [
+        60
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        31.866254069842398,
+        5.0625000754371285
+      ],
+      "range_band": 0,
+      "active_pings": [
+        52
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        16.466253840364516,
+        49.212500733323395
+      ],
+      "range_band": 1,
+      "active_pings": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "phase": [
+        -1.1922383122141818,
+        0.5928950487680995,
+        1.520656142547439,
+        3.9239092888136593,
+        -3.9041778830154685,
+        -2.0641136842707377,
+        -0.7172852435932056,
+        -0.11221907095567661,
+        1.9525737139200725
+      ],
+      "optimizer": {
+        "iterations": 31,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+      }
+    },
+    {
+      "position": [
+        35.96625413093716,
+        67.31250100303441
+      ],
+      "range_band": 2,
+      "active_pings": [
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "phase": [
+        4.228272535613154,
+        4.210799126361017,
+        -4.324900968333359,
+        -2.0272670697544086,
+        -0.5969689972011838,
+        -0.09658992383817253,
+        -2.3696315939600767,
+        -3.5743976666757,
+        -2.0731067394774323,
+        0.799426591052486,
+        2.0477943139484696,
+        3.776570392265206
+      ],
+      "optimizer": {
+        "iterations": 44,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+      }
+    },
+    {
+      "position": [
+        20.46625389996916,
+        3.012500044889748
+      ],
+      "range_band": 0,
+      "active_pings": [
+        33
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        23.06625393871218,
+        58.31250086892396
+      ],
+      "range_band": 2,
+      "active_pings": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "phase": [
+        1.84826026104371,
+        1.5842134630399658,
+        0.07214374728481235,
+        -0.5779743042277226,
+        -1.5371472934061867,
+        -2.0105722149939416,
+        -1.5665611688419636,
+        -2.774349247271207,
+        -0.3688031312654627,
+        5.3307898886379945
+      ],
+      "optimizer": {
+        "iterations": 30,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+      }
+    },
+    {
+      "position": [
+        43.266254239715636,
+        3.012500044889748
+      ],
+      "range_band": 0,
+      "active_pings": [
+        71
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        40.86625420395285,
+        3.012500044889748
+      ],
+      "range_band": 0,
+      "active_pings": [
+        67
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        45.66625427547842,
+        3.012500044889748
+      ],
+      "range_band": 0,
+      "active_pings": [
+        75
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        13.866253801621497,
+        3.012500044889748
+      ],
+      "range_band": 0,
+      "active_pings": [
+        22
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    },
+    {
+      "position": [
+        54.06625440064818,
+        3.012500044889748
+      ],
+      "range_band": 0,
+      "active_pings": [
+        89
+      ],
+      "phase": [
+        0.0
+      ],
+      "optimizer": {
+        "iterations": 0,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+      }
+    }
+  ],
+  "range_edges": [
+    0,
+    35,
+    55,
+    90.1
+  ],
+  "preparation_seconds": 29.064316771999074,
+  "autofocus_seconds": 1.187334603000636,
+  "total_seconds": 320.83023399100057,
+  "status": "single held-out scene controlled-error handoff diagnostic, not 4-scene generalization or primary adoption evidence",
+  "warning": "Phase-only local-to-band pooling can fail on distributed speckle. Results kept even when entropy improves but NCC or detection worsens.",
+  "execution_detector_selection_sha256": "abe9f7360dade1067b73fbdf4ccd12ea2576cb39909ecb483ff9c9fe27a44641",
+  "execution_autofocus_selection_sha256": "6f75882ee868ae06ea957472abed28af56e0ef13bef45dbaec205b9ecaa09144"
+}

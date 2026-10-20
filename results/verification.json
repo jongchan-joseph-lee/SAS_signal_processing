@@ -1,0 +1,11 @@
+{
+  "passed": 5,
+  "checks": [
+    "Public raw-IQ held-out point localization, dev exclusion, fixed world grid",
+    "Fine-tune spatial separation and scene-disjoint test protocol",
+    "Known inverse-phase recovery and energy conservation",
+    "Checkpoint reload gives identical CPU inference",
+    "All locally available public inputs match pinned SHA-256"
+  ],
+  "note": "No test asserts that the learned model must beat the classical baseline."
+}

@@ -1,0 +1,82 @@
+{
+  "rows": [
+    {
+      "scene": "scene00",
+      "family": "isolated_points",
+      "split": "beamformer_development",
+      "object_placements": 0
+    },
+    {
+      "scene": "scene01",
+      "family": "uniform",
+      "split": "validation",
+      "object_placements": 9
+    },
+    {
+      "scene": "scene02",
+      "family": "rough_uniform",
+      "split": "train",
+      "object_placements": 9
+    },
+    {
+      "scene": "scene03",
+      "family": "rough_uniform",
+      "split": "train",
+      "object_placements": 9
+    },
+    {
+      "scene": "scene04",
+      "family": "ripple",
+      "split": "test",
+      "object_placements": 9
+    },
+    {
+      "scene": "scene05",
+      "family": "mixed_uniform_ripple",
+      "split": "test",
+      "object_placements": 9
+    },
+    {
+      "scene": "scene06",
+      "family": "uniform",
+      "split": "validation",
+      "object_placements": 9
+    },
+    {
+      "scene": "scene07",
+      "family": "rough_uniform",
+      "split": "train",
+      "object_placements": 9
+    },
+    {
+      "scene": "scene08",
+      "family": "rough_uniform",
+      "split": "train",
+      "object_placements": 9
+    },
+    {
+      "scene": "scene09",
+      "family": "ripple",
+      "split": "test",
+      "object_placements": 9
+    },
+    {
+      "scene": "scene10",
+      "family": "mixed_uniform_ripple",
+      "split": "test",
+      "object_placements": 9
+    }
+  ],
+  "counts": {
+    "train": 36,
+    "validation": 18,
+    "test": 36
+  },
+  "status": "Frozen plan for subsequent object model experiments; no detector trained in this checkpoint",
+  "caveats": [
+    "Only 90 placements, not 90 proven independent target designs",
+    "Mixed terrain shares a uniform/ripple constituent; family-disjoint is not independence of every physical factor",
+    "CSV gives insertion positions and Euler rotations, not box/mask/visible-shadow extents",
+    "Point-distance FROC can be defined; bbox mAP requires independently checked box annotations"
+  ]
+}

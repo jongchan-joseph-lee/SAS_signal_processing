@@ -1,0 +1,8 @@
+{
+  "date_utc": "2026-10-20",
+  "single_command": "OPENBLAS_NUM_THREADS=4 OMP_NUM_THREADS=4 NUMBA_NUM_THREADS=8 python src/run_all.py",
+  "single_command_exit_code": 0,
+  "download_test": "Removed one 6.3 MB scene00 GDF temporarily; actual public form download, gzip extraction and pinned checksum passed; source restored",
+  "html_checks": "Python source parsed; embedded ZIP decoded and byte-compared; ZIP CRC and safe member paths checked; plot images inspected",
+  "browser_render": "Not completed: headless browser unavailable and browser package download failed; no browser-render verification claim"
+}

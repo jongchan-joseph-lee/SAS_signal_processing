@@ -1,0 +1,10 @@
+autofocus dev 1 None
+autofocus dev 1 7001
+autofocus dev 1 7002
+autofocus dev 2 None
+autofocus dev 2 7001
+autofocus dev 2 7002
+autofocus dev 4 None
+autofocus dev 4 7001
+autofocus dev 4 7002
+AUTOF0CUS SELECTED {'local_gpga': {'iterations': 1}, 'per_ping_entropy': {'regularization': 0.0001, 'maxiter': 100}} [{'method': 'local_gpga', 'config': {'iterations': 1}, 'clean_worst_loss': 6.139373039171225e-06, 'corrupt_mean_ncc': 0.4024556312944858}, {'method': 'local_gpga', 'config': {'iterations': 3}, 'clean_worst_loss': 5.1867014818296475e-05, 'corrupt_mean_ncc': 0.40099414729930344}, {'method': 'per_ping_entropy', 'config': {'regularization': 0.0001, 'maxiter': 100}, 'clean_worst_loss': 0.00020770315618090507, 'corrupt_mean_ncc': 0.9222343582693608}, {'method': 'per_ping_entropy', 'config': {'regularization': 0.001, 'maxiter': 100}, 'clean_worst_loss': 0.0001878683040443807, 'corrupt_mean_ncc': 0.8162091560768702}]

@@ -1,0 +1,25 @@
+autofocus test point 6 rows 18
+autofocus test point 8 rows 36
+autofocus test point 16 rows 54
+autofocus test point 17 rows 72
+autofocus test point 20 rows 90
+autofocus test point 21 rows 108
+autofocus test point 23 rows 126
+autofocus test point 25 rows 144
+autofocus test point 26 rows 162
+autofocus test point 31 rows 180
+autofocus test point 33 rows 198
+autofocus test point 35 rows 216
+autofocus test point 37 rows 234
+autofocus test point 38 rows 252
+autofocus test point 40 rows 270
+autofocus test point 41 rows 288
+autofocus test point 42 rows 306
+autofocus test point 43 rows 324
+autofocus test point 47 rows 342
+autofocus test point 48 rows 360
+autofocus test point 49 rows 378
+autofocus test point 55 rows 396
+autofocus test point 56 rows 414
+autofocus test point 59 rows 432
+AUTOF0CUS SUCCESS {'local_gpga': {'corrupt_median_ncc': 0.5331285976236075, 'clean_max_ncc_loss': 0.13690913911857394, 'corrupt_pass': False, 'clean_pass': False, 'overall_pass': False, 'cases_ncc_ge_0_9': 17, 'total': 120}, 'per_ping_entropy': {'corrupt_median_ncc': 0.8295566358161567, 'clean_max_ncc_loss': 0.0009117103762976697, 'corrupt_pass': False, 'clean_pass': True, 'overall_pass': False, 'cases_ncc_ge_0_9': 48, 'total': 120}}

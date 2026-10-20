@@ -1,0 +1,365 @@
+{
+  "protocol_sha256": "379538584c25be0b9c94b7b49c4f4d4ec680f1f83d16ceb209981e6c25e57d96",
+  "selected_min_samples_leaf": 5,
+  "rf_threshold": 0.8452806686328542,
+  "proposal_threshold": 11.62448310852051,
+  "grid": [
+    {
+      "min_samples_leaf": 2,
+      "validation": {
+        "threshold": 0.7615952305302944,
+        "tp": 7,
+        "fp": 6,
+        "total": 18,
+        "recall": 0.3888888888888889,
+        "fp_per_scene": 3.0,
+        "fp_per_km2": 714.2856929983416,
+        "wilson95": [
+          0.20305246572164004,
+          0.6138095839776154
+        ],
+        "scenes": [
+          {
+            "scene": 1,
+            "tp": 3,
+            "fp": 3,
+            "total": 9,
+            "matches": [
+              [
+                57,
+                4,
+                0.9470595235665998
+              ],
+              [
+                75,
+                6,
+                0.5636185477958834
+              ],
+              [
+                60,
+                7,
+                0.5035354482751849
+              ]
+            ]
+          },
+          {
+            "scene": 6,
+            "tp": 4,
+            "fp": 3,
+            "total": 9,
+            "matches": [
+              [
+                58,
+                7,
+                0.5891295843013349
+              ],
+              [
+                55,
+                4,
+                0.9599198147643034
+              ],
+              [
+                8,
+                5,
+                0.19549780700085914
+              ],
+              [
+                192,
+                8,
+                0.695046646966506
+              ]
+            ]
+          }
+        ],
+        "class_recall": [
+          {
+            "class": "trap",
+            "tp": 0,
+            "total": 6,
+            "wilson95": [
+              0.0,
+              0.39033428790215224
+            ]
+          },
+          {
+            "class": "rock",
+            "tp": 3,
+            "total": 6,
+            "wilson95": [
+              0.18761630648265576,
+              0.8123836935173443
+            ]
+          },
+          {
+            "class": "cylinder",
+            "tp": 4,
+            "total": 6,
+            "wilson95": [
+              0.29999331513839955,
+              0.9032285888942164
+            ]
+          }
+        ],
+        "confusion_rows_truth_columns_background_trap_rock_cylinder": [
+          [
+            6,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            3,
+            0
+          ],
+          [
+            2,
+            0,
+            3,
+            1
+          ]
+        ]
+      },
+      "fit_seconds": 2.1779372849996435
+    },
+    {
+      "min_samples_leaf": 5,
+      "validation": {
+        "threshold": 0.8452806686328542,
+        "tp": 7,
+        "fp": 6,
+        "total": 18,
+        "recall": 0.3888888888888889,
+        "fp_per_scene": 3.0,
+        "fp_per_km2": 714.2856929983416,
+        "wilson95": [
+          0.20305246572164004,
+          0.6138095839776154
+        ],
+        "scenes": [
+          {
+            "scene": 1,
+            "tp": 3,
+            "fp": 3,
+            "total": 9,
+            "matches": [
+              [
+                57,
+                4,
+                0.9470595235665998
+              ],
+              [
+                75,
+                6,
+                0.5636185477958834
+              ],
+              [
+                60,
+                7,
+                0.5035354482751849
+              ]
+            ]
+          },
+          {
+            "scene": 6,
+            "tp": 4,
+            "fp": 3,
+            "total": 9,
+            "matches": [
+              [
+                58,
+                7,
+                0.5891295843013349
+              ],
+              [
+                55,
+                4,
+                0.9599198147643034
+              ],
+              [
+                8,
+                5,
+                0.19549780700085914
+              ],
+              [
+                192,
+                8,
+                0.695046646966506
+              ]
+            ]
+          }
+        ],
+        "class_recall": [
+          {
+            "class": "trap",
+            "tp": 0,
+            "total": 6,
+            "wilson95": [
+              0.0,
+              0.39033428790215224
+            ]
+          },
+          {
+            "class": "rock",
+            "tp": 3,
+            "total": 6,
+            "wilson95": [
+              0.18761630648265576,
+              0.8123836935173443
+            ]
+          },
+          {
+            "class": "cylinder",
+            "tp": 4,
+            "total": 6,
+            "wilson95": [
+              0.29999331513839955,
+              0.9032285888942164
+            ]
+          }
+        ],
+        "confusion_rows_truth_columns_background_trap_rock_cylinder": [
+          [
+            6,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            3,
+            0
+          ],
+          [
+            2,
+            0,
+            3,
+            1
+          ]
+        ]
+      },
+      "fit_seconds": 2.0723535180004546
+    }
+  ],
+  "proposal_validation": {
+    "threshold": 11.62448310852051,
+    "tp": 0,
+    "fp": 0,
+    "total": 18,
+    "recall": 0.0,
+    "fp_per_scene": 0.0,
+    "fp_per_km2": 0.0,
+    "wilson95": [
+      0.0,
+      0.17587922364664965
+    ],
+    "scenes": [
+      {
+        "scene": 1,
+        "tp": 0,
+        "fp": 0,
+        "total": 9,
+        "matches": []
+      },
+      {
+        "scene": 6,
+        "tp": 0,
+        "fp": 0,
+        "total": 9,
+        "matches": []
+      }
+    ],
+    "class_recall": [
+      {
+        "class": "trap",
+        "tp": 0,
+        "total": 6,
+        "wilson95": [
+          0.0,
+          0.39033428790215224
+        ]
+      },
+      {
+        "class": "rock",
+        "tp": 0,
+        "total": 6,
+        "wilson95": [
+          0.0,
+          0.39033428790215224
+        ]
+      },
+      {
+        "class": "cylinder",
+        "tp": 0,
+        "total": 6,
+        "wilson95": [
+          0.0,
+          0.39033428790215224
+        ]
+      }
+    ],
+    "confusion_rows_truth_columns_background_trap_rock_cylinder": [
+      [
+        6,
+        0,
+        0,
+        0
+      ],
+      [
+        6,
+        0,
+        0,
+        0
+      ],
+      [
+        6,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "training": [
+    {
+      "scene": 2,
+      "positive_candidates": 10,
+      "background_candidates": 577,
+      "GT_jitter_crops": 81,
+      "unique_objects": 9
+    },
+    {
+      "scene": 3,
+      "positive_candidates": 7,
+      "background_candidates": 581,
+      "GT_jitter_crops": 81,
+      "unique_objects": 9
+    },
+    {
+      "scene": 7,
+      "positive_candidates": 6,
+      "background_candidates": 581,
+      "GT_jitter_crops": 81,
+      "unique_objects": 9
+    },
+    {
+      "scene": 8,
+      "positive_candidates": 6,
+      "background_candidates": 583,
+      "GT_jitter_crops": 81,
+      "unique_objects": 9
+    }
+  ],
+  "feature_count": 632,
+  "training_samples": 2675,
+  "class_order": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "model": "Original local-contrast + patch statistics RandomForest baseline, no paper reproduction or pretrained weights",
+  "test_not_used": true,
+  "model_sha256": "9bcd062f05619746ef0dcd68b56b7660c73a7c4b4e02fd0845f0cbbf3a193f81"
+}

@@ -1,0 +1,9 @@
+[
+  {
+    "member": "MGDS_Download/PoSSM_SAS/scene04-STARBOARD-000000.gdf.gz",
+    "compressed_bytes": 32484388,
+    "uncompressed_bytes": 50426856,
+    "retry_sha256": "148b54de02e819b832bf4afe2bde44e941dc40660b93964a63e8ad21a544b722",
+    "same_as_first_download": false
+  }
+]

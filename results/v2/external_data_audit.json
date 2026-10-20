@@ -1,0 +1,67 @@
+{
+  "air_sas": {
+    "signature": "894844460d0a1a0a",
+    "groups": [
+      "ch1",
+      "ch2",
+      "ch3",
+      "ch4",
+      "na"
+    ],
+    "ts_shape": [
+      1001,
+      3000
+    ],
+    "format": "HDF5; real voltage time series, not PoSSM GDF",
+    "source": "https://www.nature.com/articles/s41597-024-04050-0",
+    "gdf_parser": "rejected as expected: Invalid GDF block at sas_signal_reproduction/data_audit/scenes/t1e4_01.h5:0"
+  },
+  "sctd3": {
+    "contents": [
+      "LICENSE",
+      "README.md"
+    ],
+    "releases": [],
+    "checked_date": "2026-10-20",
+    "download": "No dataset URL in README; no release assets",
+    "data_license": "Unverified; repository MIT does not establish dataset license",
+    "paper_categories_240k": [
+      "scatter",
+      "cone",
+      "cube",
+      "cylinder",
+      "sphere",
+      "ring",
+      "irregular",
+      "square_pyramid",
+      "cone_resonant",
+      "cube_resonant",
+      "cuboid_resonant",
+      "cylinder_resonant",
+      "sphere_resonant"
+    ],
+    "paper_categories_450k": [
+      "scatter",
+      "cone",
+      "cube",
+      "cylinder",
+      "sphere",
+      "ring",
+      "line",
+      "irregular",
+      "cylinder_resonant",
+      "cone_resonant"
+    ]
+  },
+  "aperturelab_v1_1": {
+    "repo": "idg101/Aperture_Lab_Synthetic_Aperture_Sonar_v1_1",
+    "manifest_rows": 1000,
+    "private": false,
+    "gated": false,
+    "image_http": 206,
+    "image_header_hex": "49492a00080000001500000104000100",
+    "content_range": "bytes 0-15/23922732",
+    "license": "ALSD-1.0; named-party/program/contract exclusion; inspect primary license",
+    "status": "Catalog and file access checked; not used for model training in this checkpoint"
+  }
+}

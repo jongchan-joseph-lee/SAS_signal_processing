@@ -1,0 +1,462 @@
+{
+  "corrupted": {
+    "complex_correlation": {
+      "mean": 0.7601515650749207,
+      "median": 0.7749108076095581
+    },
+    "aligned_nrmse": {
+      "mean": 0.6024904847145081,
+      "median": 0.6320687532424927
+    },
+    "entropy": {
+      "mean": 6.752211093902588,
+      "median": 7.020633697509766
+    }
+  },
+  "entropy": {
+    "complex_correlation": {
+      "mean": 0.9487407803535461,
+      "median": 0.9975013732910156
+    },
+    "aligned_nrmse": {
+      "mean": 0.16577154397964478,
+      "median": 0.07062005996704102
+    },
+    "entropy": {
+      "mean": 6.633642673492432,
+      "median": 6.8604021072387695
+    }
+  },
+  "procedural_model": {
+    "complex_correlation": {
+      "mean": 0.7550483345985413,
+      "median": 0.7665956020355225
+    },
+    "aligned_nrmse": {
+      "mean": 0.6075236797332764,
+      "median": 0.6421248912811279
+    },
+    "entropy": {
+      "mean": 6.75644063949585,
+      "median": 7.002940654754639
+    }
+  },
+  "finetuned": {
+    "complex_correlation": {
+      "mean": 0.761725127696991,
+      "median": 0.7715775966644287
+    },
+    "aligned_nrmse": {
+      "mean": 0.5998220443725586,
+      "median": 0.6361286640167236
+    },
+    "entropy": {
+      "mean": 6.7519097328186035,
+      "median": 6.991755485534668
+    }
+  },
+  "training_scene": "scene00",
+  "train_point_indices_0based": [
+    6,
+    17,
+    47,
+    48,
+    56,
+    57,
+    70,
+    84,
+    91,
+    109,
+    118,
+    135,
+    171,
+    181,
+    182,
+    184,
+    187,
+    210,
+    216,
+    238,
+    262,
+    263,
+    266,
+    268,
+    282,
+    300,
+    302,
+    303,
+    309,
+    313,
+    325,
+    328,
+    330,
+    331
+  ],
+  "validation_point_indices_0based": [
+    55,
+    60,
+    75,
+    186,
+    240,
+    250
+  ],
+  "train_source_patches": 34,
+  "validation_source_patches": 6,
+  "train_augmented": 1024,
+  "validation_augmented": 256,
+  "split_seeds": {
+    "train": 4401,
+    "validation": 4402,
+    "test": 4404
+  },
+  "test_scene": "scene01",
+  "test_source_patches": 24,
+  "injections_per_patch": 4,
+  "test_cases": 96,
+  "test_manifest": [
+    {
+      "name": "object_1_type_1",
+      "xy_m": [
+        45.0,
+        38.96
+      ],
+      "pixel_bounds_xy": [
+        1588,
+        1652,
+        1526,
+        1590
+      ]
+    },
+    {
+      "name": "object_2_type_1",
+      "xy_m": [
+        27.42,
+        40.06
+      ],
+      "pixel_bounds_xy": [
+        885,
+        949,
+        1570,
+        1634
+      ]
+    },
+    {
+      "name": "object_3_type_1",
+      "xy_m": [
+        31.37,
+        61.17
+      ],
+      "pixel_bounds_xy": [
+        1043,
+        1107,
+        2415,
+        2479
+      ]
+    },
+    {
+      "name": "object_4_type_2",
+      "xy_m": [
+        44.39,
+        65.29
+      ],
+      "pixel_bounds_xy": [
+        1563,
+        1627,
+        2580,
+        2644
+      ]
+    },
+    {
+      "name": "object_5_type_2",
+      "xy_m": [
+        13.06,
+        49.64
+      ],
+      "pixel_bounds_xy": [
+        310,
+        374,
+        1954,
+        2018
+      ]
+    },
+    {
+      "name": "object_6_type_2",
+      "xy_m": [
+        47.33,
+        53.55
+      ],
+      "pixel_bounds_xy": [
+        1681,
+        1745,
+        2110,
+        2174
+      ]
+    },
+    {
+      "name": "object_7_type_3",
+      "xy_m": [
+        36.76,
+        75.11
+      ],
+      "pixel_bounds_xy": [
+        1258,
+        1322,
+        2972,
+        3036
+      ]
+    },
+    {
+      "name": "object_8_type_3",
+      "xy_m": [
+        27.26,
+        70.31
+      ],
+      "pixel_bounds_xy": [
+        878,
+        942,
+        2780,
+        2844
+      ]
+    },
+    {
+      "name": "object_9_type_3",
+      "xy_m": [
+        37.12,
+        43.91
+      ],
+      "pixel_bounds_xy": [
+        1273,
+        1337,
+        1724,
+        1788
+      ]
+    },
+    {
+      "name": "grid_0",
+      "xy_m": [
+        12.0,
+        12.0
+      ],
+      "pixel_bounds_xy": [
+        268,
+        332,
+        448,
+        512
+      ]
+    },
+    {
+      "name": "grid_1",
+      "xy_m": [
+        12.0,
+        26.0
+      ],
+      "pixel_bounds_xy": [
+        268,
+        332,
+        1008,
+        1072
+      ]
+    },
+    {
+      "name": "grid_2",
+      "xy_m": [
+        12.0,
+        44.0
+      ],
+      "pixel_bounds_xy": [
+        268,
+        332,
+        1728,
+        1792
+      ]
+    },
+    {
+      "name": "grid_3",
+      "xy_m": [
+        12.0,
+        62.0
+      ],
+      "pixel_bounds_xy": [
+        268,
+        332,
+        2448,
+        2512
+      ]
+    },
+    {
+      "name": "grid_4",
+      "xy_m": [
+        12.0,
+        78.0
+      ],
+      "pixel_bounds_xy": [
+        268,
+        332,
+        3088,
+        3152
+      ]
+    },
+    {
+      "name": "grid_5",
+      "xy_m": [
+        28.0,
+        12.0
+      ],
+      "pixel_bounds_xy": [
+        908,
+        972,
+        448,
+        512
+      ]
+    },
+    {
+      "name": "grid_6",
+      "xy_m": [
+        28.0,
+        26.0
+      ],
+      "pixel_bounds_xy": [
+        908,
+        972,
+        1008,
+        1072
+      ]
+    },
+    {
+      "name": "grid_7",
+      "xy_m": [
+        28.0,
+        44.0
+      ],
+      "pixel_bounds_xy": [
+        908,
+        972,
+        1728,
+        1792
+      ]
+    },
+    {
+      "name": "grid_8",
+      "xy_m": [
+        28.0,
+        62.0
+      ],
+      "pixel_bounds_xy": [
+        908,
+        972,
+        2448,
+        2512
+      ]
+    },
+    {
+      "name": "grid_9",
+      "xy_m": [
+        28.0,
+        78.0
+      ],
+      "pixel_bounds_xy": [
+        908,
+        972,
+        3088,
+        3152
+      ]
+    },
+    {
+      "name": "grid_10",
+      "xy_m": [
+        44.0,
+        12.0
+      ],
+      "pixel_bounds_xy": [
+        1548,
+        1612,
+        448,
+        512
+      ]
+    },
+    {
+      "name": "grid_11",
+      "xy_m": [
+        44.0,
+        26.0
+      ],
+      "pixel_bounds_xy": [
+        1548,
+        1612,
+        1008,
+        1072
+      ]
+    },
+    {
+      "name": "grid_12",
+      "xy_m": [
+        44.0,
+        44.0
+      ],
+      "pixel_bounds_xy": [
+        1548,
+        1612,
+        1728,
+        1792
+      ]
+    },
+    {
+      "name": "grid_13",
+      "xy_m": [
+        44.0,
+        62.0
+      ],
+      "pixel_bounds_xy": [
+        1548,
+        1612,
+        2448,
+        2512
+      ]
+    },
+    {
+      "name": "grid_14",
+      "xy_m": [
+        44.0,
+        78.0
+      ],
+      "pixel_bounds_xy": [
+        1548,
+        1612,
+        3088,
+        3152
+      ]
+    }
+  ],
+  "fine_tuning": {
+    "lr": 0.0001,
+    "max_epochs": 30,
+    "patience": 8,
+    "best_epoch": 30,
+    "best_validation_loss": 0.02139417827129364,
+    "seconds": 6.21467621499869,
+    "optimizer": "AdamW; weight decay 1e-4"
+  },
+  "runtime_seconds": {
+    "procedural_model_including_features": 0.026445285000590957,
+    "finetuned_including_features": 0.01578739499927906,
+    "entropy": 1.138815212998452
+  },
+  "already_focused_control": {
+    "procedural_model": {
+      "complex_correlation": 0.9171956181526184,
+      "aligned_nrmse": 0.35472193360328674,
+      "entropy": 6.692183971405029
+    },
+    "finetuned": {
+      "complex_correlation": 0.8900017738342285,
+      "aligned_nrmse": 0.41476568579673767,
+      "entropy": 6.704893589019775
+    },
+    "entropy": {
+      "complex_correlation": 0.9696248173713684,
+      "aligned_nrmse": 0.14607928693294525,
+      "entropy": 6.634809970855713
+    }
+  },
+  "scope": "Model-derived public SLC with injected quadratic/cubic along-track spectral phase. Single held-out scene; no mine detection or measured underwater accuracy claim."
+}

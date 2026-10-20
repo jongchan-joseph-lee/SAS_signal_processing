@@ -1,0 +1,65 @@
+{
+  "corrupted": {
+    "complex_correlation": {
+      "mean": 0.8350310921669006,
+      "median": 0.8512392640113831
+    },
+    "aligned_nrmse": {
+      "mean": 0.5116826295852661,
+      "median": 0.5247777700424194
+    },
+    "entropy": {
+      "mean": 4.104613304138184,
+      "median": 4.162738800048828
+    }
+  },
+  "entropy": {
+    "complex_correlation": {
+      "mean": 0.9995723962783813,
+      "median": 0.9999421834945679
+    },
+    "aligned_nrmse": {
+      "mean": 0.016607951372861862,
+      "median": 0.010745290666818619
+    },
+    "entropy": {
+      "mean": 3.7807955741882324,
+      "median": 3.846679925918579
+    }
+  },
+  "learned": {
+    "complex_correlation": {
+      "mean": 0.9699757099151611,
+      "median": 0.9847593307495117
+    },
+    "aligned_nrmse": {
+      "mean": 0.20225770771503448,
+      "median": 0.17392191290855408
+    },
+    "entropy": {
+      "mean": 3.8229446411132812,
+      "median": 3.890573740005493
+    }
+  },
+  "training_scenes": 1024,
+  "validation_scenes": 128,
+  "test_scenes": 256,
+  "split_seeds": {
+    "train": 1101,
+    "validation": 2202,
+    "test": 3303
+  },
+  "best_epoch": 14,
+  "best_validation_loss": 0.054877761751413345,
+  "model_parameters": 69266,
+  "training_seconds": 5.295019519000562,
+  "learned_forward_and_correction_seconds_256": 0.05127009200077737,
+  "classical_optimization_seconds_256": 2.6507390610004222,
+  "classical_steps": 70,
+  "classical_starts": [
+    -3,
+    0,
+    3
+  ],
+  "scope": "Procedural sparse complex images and injected 2-coefficient phase errors; no measured-data generalization claim"
+}

@@ -1,0 +1,32 @@
+raw bridge clean/corrupted formed {'clean_bp': 103.85583199499888, 'corrupted_bp': 101.85970131199974}
+raw bridge automatic patch 1
+raw bridge automatic patch 2
+raw bridge automatic patch 3
+raw bridge automatic patch 4
+raw bridge automatic patch 5
+raw bridge automatic patch 6
+raw bridge automatic patch 7
+raw bridge automatic patch 8
+raw bridge automatic patch 9
+raw bridge automatic patch 10
+raw bridge automatic patch 11
+raw bridge automatic patch 12
+raw bridge automatic patch 13
+raw bridge automatic patch 14
+raw bridge automatic patch 15
+raw bridge automatic patch 16
+raw bridge automatic patch 17
+raw bridge automatic patch 18
+raw bridge automatic patch 19
+raw bridge automatic patch 20
+raw bridge automatic patch 21
+raw bridge automatic patch 22
+raw bridge automatic patch 23
+raw bridge automatic patch 24
+raw bridge automatic patch 25
+raw bridge automatic patch 26
+raw bridge automatic patch 27
+raw bridge automatic patch 28
+raw bridge automatic patch 29
+raw bridge automatic patch 30
+RAW BRIDGE RESULTS [('clean_bp', 3, 5, 1.0), ('corrupted_bp', 4, 2, 0.18345590170546053), ('automatic_entropy_bp', 3, 4, 0.13795984694498875)]

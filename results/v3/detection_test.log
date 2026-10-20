@@ -1,0 +1,5 @@
+detector test scene 4
+detector test scene 5
+detector test scene 9
+detector test scene 10
+DETECTION TEST 9 36 FP 11 success {'recall_pass': False, 'fp_pass': True, 'overall_pass': False}

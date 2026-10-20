@@ -1,0 +1,65 @@
+[
+  {
+    "point_id": 1,
+    "receiver_speed_mps": 0.0,
+    "dx_m": -0.027499999999999858,
+    "dy_m": 0.0,
+    "peak": 2316.0270380051015
+  },
+  {
+    "point_id": 1,
+    "receiver_speed_mps": 0.6,
+    "dx_m": 0.0,
+    "dy_m": 0.0,
+    "peak": 2352.0285189845704
+  },
+  {
+    "point_id": 1,
+    "receiver_speed_mps": -0.6,
+    "dx_m": -0.054999999999999716,
+    "dy_m": 0.0,
+    "peak": 2209.1863192298415
+  },
+  {
+    "point_id": 2,
+    "receiver_speed_mps": 0.0,
+    "dx_m": -0.012500000000002842,
+    "dy_m": 0.0,
+    "peak": 14396.471192356928
+  },
+  {
+    "point_id": 2,
+    "receiver_speed_mps": 0.6,
+    "dx_m": 0.0,
+    "dy_m": 0.0,
+    "peak": 14624.717888456626
+  },
+  {
+    "point_id": 2,
+    "receiver_speed_mps": -0.6,
+    "dx_m": -0.022500000000000853,
+    "dy_m": 0.0,
+    "peak": 13772.468184000702
+  },
+  {
+    "point_id": 4,
+    "receiver_speed_mps": 0.0,
+    "dx_m": -0.02499999999999858,
+    "dy_m": 0.0,
+    "peak": 3361.761707124647
+  },
+  {
+    "point_id": 4,
+    "receiver_speed_mps": 0.6,
+    "dx_m": 0.0,
+    "dy_m": 0.0,
+    "peak": 3416.8251960634784
+  },
+  {
+    "point_id": 4,
+    "receiver_speed_mps": -0.6,
+    "dx_m": -0.04749999999999943,
+    "dy_m": 0.0,
+    "peak": 3203.4919766194726
+  }
+]

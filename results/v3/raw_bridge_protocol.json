@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-10-20T09:52:40.953387+00:00",
+  "protocol": {
+    "scene": 4,
+    "navigation": "sway 2mm RMS, seed7101, unchanged IQ",
+    "beamformer": "frozen v2 Hann60 / horizontal Gaussian / 8x; native 2.5cm, intensity 2x2 mean to 5cm",
+    "autofocus": "top30 corrupted-image contrast candidates; separation 2m; no GT; 0.4m square, 5mm grid",
+    "phase_estimator": "same fixed per-ping entropy setting selected on development points; no object-specific retuning",
+    "pooling": "circular average adjacent-ping phase gradients, weighted by patch contribution energy; 3 fixed range bands [0,35,55,90.1]; integrate and remove constant/linear phase",
+    "detector": "frozen official-SLC-trained RF and frozen validation threshold; no training on own BP",
+    "evaluation": "whole valid image, point match radius1m, exact same mask as primary; no GT crops for detector or correction",
+    "status": "single held-out scene controlled-error handoff diagnostic, not 4-scene generalization or primary adoption evidence"
+  },
+  "detector_selection_sha256": "abe9f7360dade1067b73fbdf4ccd12ea2576cb39909ecb483ff9c9fe27a44641",
+  "autofocus_selection_sha256": "6f75882ee868ae06ea957472abed28af56e0ef13bef45dbaec205b9ecaa09144"
+}

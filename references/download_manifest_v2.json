@@ -1,0 +1,439 @@
+{
+  "repository": "https://www.marine-geo.org/tools/files/31898",
+  "license": "CC BY-NC-SA 3.0",
+  "retrieved_utc_date": "2026-10-20",
+  "files": [
+    {
+      "data_uid": 3210116,
+      "source_gz": "scene00-STARBOARD-000000.gdf.gz",
+      "path": "data/possm_scene00/scene00-STARBOARD-000000.gdf",
+      "bytes": 50426856,
+      "sha256": "36b4164c0c6d395169d7931b394f2e1b8f26e19dd5a1176a40c0d0ac309fbd23"
+    },
+    {
+      "data_uid": 3210117,
+      "source_gz": "scene00-STARBOARD-000001.gdf.gz",
+      "path": "data/possm_scene00/scene00-STARBOARD-000001.gdf",
+      "bytes": 50426856,
+      "sha256": "c83f1d4e13c9c513ccdb989b99cadc2c3b174f40449d96b03e6001bbe9b98a95"
+    },
+    {
+      "data_uid": 3210118,
+      "source_gz": "scene00-STARBOARD-000002.gdf.gz",
+      "path": "data/possm_scene00/scene00-STARBOARD-000002.gdf",
+      "bytes": 50426856,
+      "sha256": "31028c2ac42f6060c43bbce59edb7a4025e74e1bc1ac147c1737d829d1446cbc"
+    },
+    {
+      "data_uid": 3210119,
+      "source_gz": "scene00-STARBOARD-000003.gdf.gz",
+      "path": "data/possm_scene00/scene00-STARBOARD-000003.gdf",
+      "bytes": 6305912,
+      "sha256": "9ac2ec4373d18423deabba01417f5a3525ee213d8bc5c34b575b081f004ca815"
+    },
+    {
+      "data_uid": 3210160,
+      "source_gz": "PoSSM-scene00-scene00-starboard-0.science.hdf5.gz",
+      "path": "data/possm_reference/PoSSM-scene00-scene00-starboard-0.science.hdf5",
+      "bytes": 64550720,
+      "sha256": "3017b252d160ac4377b5e56e7053c03c91727099b158129b8413cf04a89097fe"
+    },
+    {
+      "data_uid": 3210120,
+      "source_gz": "scene01-STARBOARD-000000.gdf.gz",
+      "path": "data/possm_scene01/scene01-STARBOARD-000000.gdf",
+      "bytes": 50426856,
+      "sha256": "ed449a503b35864dc6ef1202a71e4e10c84b07eec0576da0eb4e453e1870b276"
+    },
+    {
+      "data_uid": 3210121,
+      "source_gz": "scene01-STARBOARD-000001.gdf.gz",
+      "path": "data/possm_scene01/scene01-STARBOARD-000001.gdf",
+      "bytes": 50426856,
+      "sha256": "3e242a418c45162c304bdecf84d7190cd32a112f7c1fd99120f8bac4c3241680"
+    },
+    {
+      "data_uid": 3210122,
+      "source_gz": "scene01-STARBOARD-000002.gdf.gz",
+      "path": "data/possm_scene01/scene01-STARBOARD-000002.gdf",
+      "bytes": 50426856,
+      "sha256": "c4183877ceb6a71d51f07cde55fc559e547f5d2eece1bd5e6a43960c96823f2c"
+    },
+    {
+      "data_uid": 3210123,
+      "source_gz": "scene01-STARBOARD-000003.gdf.gz",
+      "path": "data/possm_scene01/scene01-STARBOARD-000003.gdf",
+      "bytes": 6305912,
+      "sha256": "0dab29ff8c33a59b006f75e0a2a2c7a505f20aabf4658180cebd233c6163abda"
+    },
+    {
+      "data_uid": 3210161,
+      "source_gz": "PoSSM-scene01-scene01-starboard-0.science.hdf5.gz",
+      "path": "data/possm_reference/PoSSM-scene01-scene01-starboard-0.science.hdf5",
+      "bytes": 64550720,
+      "sha256": "4c3cfea89e2b930390b6ea1088902a21638ed29eaa8afd0b6720a6b849a67f28"
+    },
+    {
+      "data_uid": 3210124,
+      "source_gz": "scene02-STARBOARD-000000.gdf.gz",
+      "path": "data/possm_scene02/scene02-STARBOARD-000000.gdf",
+      "scene": "scene02",
+      "bytes": 50431464,
+      "sha256": "5cfc87851efb2195b0bc12ecd30573d45fa2be82695e2652f24637928950ca5d"
+    },
+    {
+      "data_uid": 3210125,
+      "source_gz": "scene02-STARBOARD-000001.gdf.gz",
+      "path": "data/possm_scene02/scene02-STARBOARD-000001.gdf",
+      "scene": "scene02",
+      "bytes": 50431464,
+      "sha256": "c15d525591200927da44defbdf6a6363295ea5b33447d32c8b9d120277345b74"
+    },
+    {
+      "data_uid": 3210126,
+      "source_gz": "scene02-STARBOARD-000002.gdf.gz",
+      "path": "data/possm_scene02/scene02-STARBOARD-000002.gdf",
+      "scene": "scene02",
+      "bytes": 50431464,
+      "sha256": "9c69b0def071bba7b3dba628429323fe15654ad75ef86366445e2e0829299a1b"
+    },
+    {
+      "data_uid": 3210127,
+      "source_gz": "scene02-STARBOARD-000003.gdf.gz",
+      "path": "data/possm_scene02/scene02-STARBOARD-000003.gdf",
+      "scene": "scene02",
+      "bytes": 6306488,
+      "sha256": "db28f0e353e89c0894db91d8e78a45cde720b41880e9bb38875f2086d72de381"
+    },
+    {
+      "data_uid": 3210162,
+      "source_gz": "PoSSM-scene02-scene02-starboard-0.science.hdf5.gz",
+      "path": "data/possm_reference/PoSSM-scene02-scene02-starboard-0.science.hdf5",
+      "scene": "scene02",
+      "bytes": 64550720,
+      "sha256": "54a080c2527f65d1a5bd74fe9e2f7661f215359dd33b5ffb54c405ed19969aef"
+    },
+    {
+      "data_uid": 3210128,
+      "source_gz": "scene03-STARBOARD-000000.gdf.gz",
+      "path": "data/possm_scene03/scene03-STARBOARD-000000.gdf",
+      "scene": "scene03",
+      "bytes": 50431464,
+      "sha256": "0a8a0788f822bd6e890cc475e28d323e352efc994882e9a7decf80b81a5fd007"
+    },
+    {
+      "data_uid": 3210129,
+      "source_gz": "scene03-STARBOARD-000001.gdf.gz",
+      "path": "data/possm_scene03/scene03-STARBOARD-000001.gdf",
+      "scene": "scene03",
+      "bytes": 50431464,
+      "sha256": "15e450c7329ef009e850a25f4f118e8261646d3b5c0f713f2b9cbf5422a3f00d"
+    },
+    {
+      "data_uid": 3210130,
+      "source_gz": "scene03-STARBOARD-000002.gdf.gz",
+      "path": "data/possm_scene03/scene03-STARBOARD-000002.gdf",
+      "scene": "scene03",
+      "bytes": 50431464,
+      "sha256": "235dd3c89bf26304cc826a20e604f9dc5f1dba1a1b4b75727e745035975e928f"
+    },
+    {
+      "data_uid": 3210131,
+      "source_gz": "scene03-STARBOARD-000003.gdf.gz",
+      "path": "data/possm_scene03/scene03-STARBOARD-000003.gdf",
+      "scene": "scene03",
+      "bytes": 6306488,
+      "sha256": "1a6677a5f9e07b39cff917a19d0e82a11e1183a663b01eb1919109770e82d608"
+    },
+    {
+      "data_uid": 3210163,
+      "source_gz": "PoSSM-scene03-scene03-starboard-0.science.hdf5.gz",
+      "path": "data/possm_reference/PoSSM-scene03-scene03-starboard-0.science.hdf5",
+      "scene": "scene03",
+      "bytes": 64550720,
+      "sha256": "7687877c2fa3da7ef86ebe15c8e79f2525e0581e84acd02b3e5a8b0cdbafae6a"
+    },
+    {
+      "data_uid": 3210132,
+      "source_gz": "scene04-STARBOARD-000000.gdf.gz",
+      "path": "data/possm_scene04/scene04-STARBOARD-000000.gdf",
+      "scene": "scene04",
+      "bytes": 50426856,
+      "sha256": "148b54de02e819b832bf4afe2bde44e941dc40660b93964a63e8ad21a544b722",
+      "retry_replaced": true
+    },
+    {
+      "data_uid": 3210133,
+      "source_gz": "scene04-STARBOARD-000001.gdf.gz",
+      "path": "data/possm_scene04/scene04-STARBOARD-000001.gdf",
+      "scene": "scene04",
+      "bytes": 50426856,
+      "sha256": "406e2e02abc9e25e854ca921901bdc7c9389fe1d343071c0d145376657f85ae3"
+    },
+    {
+      "data_uid": 3210134,
+      "source_gz": "scene04-STARBOARD-000002.gdf.gz",
+      "path": "data/possm_scene04/scene04-STARBOARD-000002.gdf",
+      "scene": "scene04",
+      "bytes": 50426856,
+      "sha256": "7af6cbc3df65ccd1ade557e55bf5450d219fdac6fda9278e533250dc3087f3e6"
+    },
+    {
+      "data_uid": 3210135,
+      "source_gz": "scene04-STARBOARD-000003.gdf.gz",
+      "path": "data/possm_scene04/scene04-STARBOARD-000003.gdf",
+      "scene": "scene04",
+      "bytes": 6305912,
+      "sha256": "aa24d1f42b2af0d1daf01dae999b680c9476e4aea7e289efcce84d1e45635646"
+    },
+    {
+      "data_uid": 3210164,
+      "source_gz": "PoSSM-scene04-scene04-starboard-0.science.hdf5.gz",
+      "path": "data/possm_reference/PoSSM-scene04-scene04-starboard-0.science.hdf5",
+      "scene": "scene04",
+      "bytes": 64550720,
+      "sha256": "a71c0dd1ccd34c665f878d715bc6d739c84ef9273d0dda54780e906a2a8ea44f"
+    },
+    {
+      "data_uid": 3210136,
+      "source_gz": "scene05-STARBOARD-000000.gdf.gz",
+      "path": "data/possm_scene05/scene05-STARBOARD-000000.gdf",
+      "scene": "scene05",
+      "bytes": 50436072,
+      "sha256": "be1e6bb81d9b194a58e8ee7b1c951ebe5a0e77bcb8dd9391e37012c0297011d9"
+    },
+    {
+      "data_uid": 3210137,
+      "source_gz": "scene05-STARBOARD-000001.gdf.gz",
+      "path": "data/possm_scene05/scene05-STARBOARD-000001.gdf",
+      "scene": "scene05",
+      "bytes": 50436072,
+      "sha256": "aa68eec352cd2fd4ae8b0f167b2e9ccbb4aa516f2e9ca31476bd50c2cd0f75ae"
+    },
+    {
+      "data_uid": 3210138,
+      "source_gz": "scene05-STARBOARD-000002.gdf.gz",
+      "path": "data/possm_scene05/scene05-STARBOARD-000002.gdf",
+      "scene": "scene05",
+      "bytes": 50436072,
+      "sha256": "b2fc0da5f1c9f33042786e7b69a58e08255fcb678cc2c4e93d962dd49b8b5a66"
+    },
+    {
+      "data_uid": 3210139,
+      "source_gz": "scene05-STARBOARD-000003.gdf.gz",
+      "path": "data/possm_scene05/scene05-STARBOARD-000003.gdf",
+      "scene": "scene05",
+      "bytes": 6307064,
+      "sha256": "214fba852c43d0a011a597eee14cd66d0eeae4b97b99f21fa841bb11b7ebff83"
+    },
+    {
+      "data_uid": 3210165,
+      "source_gz": "PoSSM-scene05-scene05-starboard-0.science.hdf5.gz",
+      "path": "data/possm_reference/PoSSM-scene05-scene05-starboard-0.science.hdf5",
+      "scene": "scene05",
+      "bytes": 64550720,
+      "sha256": "8377aef30510d282c0a29f6252ecfec8ae691c7ad4ed8b5038a576ac685be09f"
+    },
+    {
+      "data_uid": 3210140,
+      "source_gz": "scene06-STARBOARD-000000.gdf.gz",
+      "path": "data/possm_scene06/scene06-STARBOARD-000000.gdf",
+      "scene": "scene06",
+      "bytes": 50426856,
+      "sha256": "a768320315e7b709eaf07b84fbd84c0431fc49146e49ac9c83e648da167e9b5f"
+    },
+    {
+      "data_uid": 3210141,
+      "source_gz": "scene06-STARBOARD-000001.gdf.gz",
+      "path": "data/possm_scene06/scene06-STARBOARD-000001.gdf",
+      "scene": "scene06",
+      "bytes": 50426856,
+      "sha256": "1e284fce53553022e098e22f34610aeb5a523717a5f26241809a758b371e4b63"
+    },
+    {
+      "data_uid": 3210142,
+      "source_gz": "scene06-STARBOARD-000002.gdf.gz",
+      "path": "data/possm_scene06/scene06-STARBOARD-000002.gdf",
+      "scene": "scene06",
+      "bytes": 50426856,
+      "sha256": "318dc9e9a12d30ccb663c0ada7c6f389c06eccdb065815d67bb613f1385e26cb"
+    },
+    {
+      "data_uid": 3210143,
+      "source_gz": "scene06-STARBOARD-000003.gdf.gz",
+      "path": "data/possm_scene06/scene06-STARBOARD-000003.gdf",
+      "scene": "scene06",
+      "bytes": 6305912,
+      "sha256": "b5e445cf17b3869cf18e46e63286c624d338af233bc8000902656f45a093b9ce"
+    },
+    {
+      "data_uid": 3210166,
+      "source_gz": "PoSSM-scene06-scene06-starboard-0.science.hdf5.gz",
+      "path": "data/possm_reference/PoSSM-scene06-scene06-starboard-0.science.hdf5",
+      "scene": "scene06",
+      "bytes": 64550720,
+      "sha256": "dc134b670fc47de579ee4f09933e00984809df35dc39e9577eef32ce57c3da9f"
+    },
+    {
+      "data_uid": 3210144,
+      "source_gz": "scene07-STARBOARD-000000.gdf.gz",
+      "path": "data/possm_scene07/scene07-STARBOARD-000000.gdf",
+      "scene": "scene07",
+      "bytes": 50431464,
+      "sha256": "b0b05c15ec6de81166faaf9bcf81ecfdf9ebab3638848eedebfdc4fdd8aedf2e"
+    },
+    {
+      "data_uid": 3210145,
+      "source_gz": "scene07-STARBOARD-000001.gdf.gz",
+      "path": "data/possm_scene07/scene07-STARBOARD-000001.gdf",
+      "scene": "scene07",
+      "bytes": 50431464,
+      "sha256": "bd685261d9248bd6403c2229e703ff9218ddc07ce72ff416fcaefc99b0d10ccd"
+    },
+    {
+      "data_uid": 3210146,
+      "source_gz": "scene07-STARBOARD-000002.gdf.gz",
+      "path": "data/possm_scene07/scene07-STARBOARD-000002.gdf",
+      "scene": "scene07",
+      "bytes": 50431464,
+      "sha256": "19ea4686c74e4af8f49da4b29b9462f76f0bc56026543041ffb88a83d6961359"
+    },
+    {
+      "data_uid": 3210147,
+      "source_gz": "scene07-STARBOARD-000003.gdf.gz",
+      "path": "data/possm_scene07/scene07-STARBOARD-000003.gdf",
+      "scene": "scene07",
+      "bytes": 6306488,
+      "sha256": "9f2f1d6a4d3900c8bec44220db4ee857614aeae1c445f183c61cec5556a54552"
+    },
+    {
+      "data_uid": 3210167,
+      "source_gz": "PoSSM-scene07-scene07-starboard-0.science.hdf5.gz",
+      "path": "data/possm_reference/PoSSM-scene07-scene07-starboard-0.science.hdf5",
+      "scene": "scene07",
+      "bytes": 64550720,
+      "sha256": "5f403812d18ff6ebd3cdb650921e88e9b05b7f681370412b40b4ebebc10d5ce7"
+    },
+    {
+      "data_uid": 3210148,
+      "source_gz": "scene08-STARBOARD-000000.gdf.gz",
+      "path": "data/possm_scene08/scene08-STARBOARD-000000.gdf",
+      "scene": "scene08",
+      "bytes": 50431464,
+      "sha256": "def065c5da0e9d577c0ef49770ca434338e7e89610e7a4bcb3b2aaa5155bd9d8"
+    },
+    {
+      "data_uid": 3210149,
+      "source_gz": "scene08-STARBOARD-000001.gdf.gz",
+      "path": "data/possm_scene08/scene08-STARBOARD-000001.gdf",
+      "scene": "scene08",
+      "bytes": 50431464,
+      "sha256": "2508cccc95e77f014b714a3caee7264549b9d897740057983edf312ca3d8aa14"
+    },
+    {
+      "data_uid": 3210150,
+      "source_gz": "scene08-STARBOARD-000002.gdf.gz",
+      "path": "data/possm_scene08/scene08-STARBOARD-000002.gdf",
+      "scene": "scene08",
+      "bytes": 50431464,
+      "sha256": "9e9e435a683fd7bb07f74c7bc45db7377d9385b61095226cb06dc06402b3a241"
+    },
+    {
+      "data_uid": 3210151,
+      "source_gz": "scene08-STARBOARD-000003.gdf.gz",
+      "path": "data/possm_scene08/scene08-STARBOARD-000003.gdf",
+      "scene": "scene08",
+      "bytes": 6306488,
+      "sha256": "d3a365837bfc8b779026095abad13132d3293f044f9c2456d4b8c3b18bab3065"
+    },
+    {
+      "data_uid": 3210168,
+      "source_gz": "PoSSM-scene08-scene08-starboard-0.science.hdf5.gz",
+      "path": "data/possm_reference/PoSSM-scene08-scene08-starboard-0.science.hdf5",
+      "scene": "scene08",
+      "bytes": 64550720,
+      "sha256": "7652f72067eaa93a9378031a367f133a09fac2f29c447152af36ce2b40314058"
+    },
+    {
+      "data_uid": 3210152,
+      "source_gz": "scene09-STARBOARD-000000.gdf.gz",
+      "path": "data/possm_scene09/scene09-STARBOARD-000000.gdf",
+      "scene": "scene09",
+      "bytes": 50426856,
+      "sha256": "1b293c424d1e28f77834d393ce8520b71772e4cd8c3abc2e60bd58eb828f4fdd"
+    },
+    {
+      "data_uid": 3210153,
+      "source_gz": "scene09-STARBOARD-000001.gdf.gz",
+      "path": "data/possm_scene09/scene09-STARBOARD-000001.gdf",
+      "scene": "scene09",
+      "bytes": 50426856,
+      "sha256": "e6ff938dedc759f2a974e047d8f8c65ed0974ad2c72865c92833e7dacf95cf8f"
+    },
+    {
+      "data_uid": 3210154,
+      "source_gz": "scene09-STARBOARD-000002.gdf.gz",
+      "path": "data/possm_scene09/scene09-STARBOARD-000002.gdf",
+      "scene": "scene09",
+      "bytes": 50426856,
+      "sha256": "702546ca2346122674f62fc481e813b36847aff560cba1bde0607ce66cbd40be"
+    },
+    {
+      "data_uid": 3210155,
+      "source_gz": "scene09-STARBOARD-000003.gdf.gz",
+      "path": "data/possm_scene09/scene09-STARBOARD-000003.gdf",
+      "scene": "scene09",
+      "bytes": 6305912,
+      "sha256": "a3a9df0450d7930d5f6f32398218ce8e58246be8750112cc53947afcbccd07ad"
+    },
+    {
+      "data_uid": 3210169,
+      "source_gz": "PoSSM-scene09-scene09-starboard-0.science.hdf5.gz",
+      "path": "data/possm_reference/PoSSM-scene09-scene09-starboard-0.science.hdf5",
+      "scene": "scene09",
+      "bytes": 64550720,
+      "sha256": "3fd14eee489abf9e4321ea3c736875f0a87c53cbdf5517e2311d4482b26057a5"
+    },
+    {
+      "data_uid": 3210156,
+      "source_gz": "scene10-STARBOARD-000000.gdf.gz",
+      "path": "data/possm_scene10/scene10-STARBOARD-000000.gdf",
+      "scene": "scene10",
+      "bytes": 50436072,
+      "sha256": "d022a33702bb0c6f460f3272496a50e5a120b30c371bf45268639c6f383b5171"
+    },
+    {
+      "data_uid": 3210157,
+      "source_gz": "scene10-STARBOARD-000001.gdf.gz",
+      "path": "data/possm_scene10/scene10-STARBOARD-000001.gdf",
+      "scene": "scene10",
+      "bytes": 50436072,
+      "sha256": "f92c443962a7e0e5dd8db23f714057e569963168704379e9a93a98082a52836f"
+    },
+    {
+      "data_uid": 3210158,
+      "source_gz": "scene10-STARBOARD-000002.gdf.gz",
+      "path": "data/possm_scene10/scene10-STARBOARD-000002.gdf",
+      "scene": "scene10",
+      "bytes": 50436072,
+      "sha256": "e1af4b6c1a3f5d48c015695e467fddec394a46412bc4ea8ee936905ee2138ead"
+    },
+    {
+      "data_uid": 3210159,
+      "source_gz": "scene10-STARBOARD-000003.gdf.gz",
+      "path": "data/possm_scene10/scene10-STARBOARD-000003.gdf",
+      "scene": "scene10",
+      "bytes": 6307064,
+      "sha256": "6c4b0568224e1fc539008cd460c8f447544af7b7425cbe4d56005c080b604df7"
+    },
+    {
+      "data_uid": 3210170,
+      "source_gz": "PoSSM-scene10-scene10-starboard-0.science.hdf5.gz",
+      "path": "data/possm_reference/PoSSM-scene10-scene10-starboard-0.science.hdf5",
+      "scene": "scene10",
+      "bytes": 57638744,
+      "sha256": "1cfb8dc672a5b6150344805ce4d4af64779ad2dcab21996a158bf11b3110f05d"
+    }
+  ],
+  "scope": "All eleven scenes; raw 44 GDF and 11 SLC files; hashes pinned at retrieval, not publisher signatures"
+}

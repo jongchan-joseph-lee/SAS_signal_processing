@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "Frozen protocol unchanged; development and test identifiers disjoint",
+    "Saved full-image predictions independently reproduce 36-object counts, intervals and frozen-threshold metrics",
+    "Point-FROC duplicate penalty, threshold inclusion and wrong-class handling verified on toy geometry",
+    "Complete FROC curves have monotonic false-positive counts; no test-derived operating threshold",
+    "24 isolated points \u00d7 (5 held-out navigation paths + clean) \u00d7 3 methods completed; ping stack agrees with frozen BP",
+    "Analytic minimum-entropy gradient agrees with finite differences",
+    "Autofocus success/failure uses preregistered 0.90 NCC and 0.01 clean-loss limits",
+    "Held-out raw-to-BP-to-detector bridge covers all 9 objects and 30 automatically selected autofocus patches",
+    "All exported v3 JSON files contain finite standard JSON numbers"
+  ],
+  "passed": true,
+  "scope": "Numerical/evaluation integrity only; does not imply empirical success",
+  "protocol_sha256": "379538584c25be0b9c94b7b49c4f4d4ec680f1f83d16ceb209981e6c25e57d96"
+}

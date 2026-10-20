@@ -1,0 +1,77 @@
+{
+  "repository": "https://www.marine-geo.org/tools/files/31898",
+  "license": "CC BY-NC-SA 3.0",
+  "retrieved_utc_date": "2026-10-20",
+  "files": [
+    {
+      "data_uid": 3210116,
+      "source_gz": "scene00-STARBOARD-000000.gdf.gz",
+      "path": "data/possm_scene00/scene00-STARBOARD-000000.gdf",
+      "bytes": 50426856,
+      "sha256": "36b4164c0c6d395169d7931b394f2e1b8f26e19dd5a1176a40c0d0ac309fbd23"
+    },
+    {
+      "data_uid": 3210117,
+      "source_gz": "scene00-STARBOARD-000001.gdf.gz",
+      "path": "data/possm_scene00/scene00-STARBOARD-000001.gdf",
+      "bytes": 50426856,
+      "sha256": "c83f1d4e13c9c513ccdb989b99cadc2c3b174f40449d96b03e6001bbe9b98a95"
+    },
+    {
+      "data_uid": 3210118,
+      "source_gz": "scene00-STARBOARD-000002.gdf.gz",
+      "path": "data/possm_scene00/scene00-STARBOARD-000002.gdf",
+      "bytes": 50426856,
+      "sha256": "31028c2ac42f6060c43bbce59edb7a4025e74e1bc1ac147c1737d829d1446cbc"
+    },
+    {
+      "data_uid": 3210119,
+      "source_gz": "scene00-STARBOARD-000003.gdf.gz",
+      "path": "data/possm_scene00/scene00-STARBOARD-000003.gdf",
+      "bytes": 6305912,
+      "sha256": "9ac2ec4373d18423deabba01417f5a3525ee213d8bc5c34b575b081f004ca815"
+    },
+    {
+      "data_uid": 3210160,
+      "source_gz": "PoSSM-scene00-scene00-starboard-0.science.hdf5.gz",
+      "path": "data/possm_reference/PoSSM-scene00-scene00-starboard-0.science.hdf5",
+      "bytes": 64550720,
+      "sha256": "3017b252d160ac4377b5e56e7053c03c91727099b158129b8413cf04a89097fe"
+    },
+    {
+      "data_uid": 3210120,
+      "source_gz": "scene01-STARBOARD-000000.gdf.gz",
+      "path": "data/possm_scene01/scene01-STARBOARD-000000.gdf",
+      "bytes": 50426856,
+      "sha256": "ed449a503b35864dc6ef1202a71e4e10c84b07eec0576da0eb4e453e1870b276"
+    },
+    {
+      "data_uid": 3210121,
+      "source_gz": "scene01-STARBOARD-000001.gdf.gz",
+      "path": "data/possm_scene01/scene01-STARBOARD-000001.gdf",
+      "bytes": 50426856,
+      "sha256": "3e242a418c45162c304bdecf84d7190cd32a112f7c1fd99120f8bac4c3241680"
+    },
+    {
+      "data_uid": 3210122,
+      "source_gz": "scene01-STARBOARD-000002.gdf.gz",
+      "path": "data/possm_scene01/scene01-STARBOARD-000002.gdf",
+      "bytes": 50426856,
+      "sha256": "c4183877ceb6a71d51f07cde55fc559e547f5d2eece1bd5e6a43960c96823f2c"
+    },
+    {
+      "data_uid": 3210123,
+      "source_gz": "scene01-STARBOARD-000003.gdf.gz",
+      "path": "data/possm_scene01/scene01-STARBOARD-000003.gdf",
+      "bytes": 6305912,
+      "sha256": "0dab29ff8c33a59b006f75e0a2a2c7a505f20aabf4658180cebd233c6163abda"
+    },
+    {
+      "data_uid": 3210161,
+      "source_gz": "PoSSM-scene01-scene01-starboard-0.science.hdf5.gz",
+      "path": "data/possm_reference/PoSSM-scene01-scene01-starboard-0.science.hdf5",
+      "bytes": 64550720,
+      "sha256": "4c3cfea89e2b930390b6ea1088902a21638ed29eaa8afd0b6720a6b849a67f28"
+    }
+  ]
+}

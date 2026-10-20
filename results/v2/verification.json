@@ -1,0 +1,12 @@
+{
+  "passed": 6,
+  "checks": [
+    "All packaged Python sources parse",
+    "11 complete raw scenes parsed with navigation checksum validation; 55 pinned input hashes audited",
+    "Proposed train/validation/test have disjoint named seabed families",
+    "24 points exclude development points; four primary maps evaluated on all 8,064,000 native pixels",
+    "Stochastic navigation stress:24 points x5 seeds x4 magnitudes x3 axes; plus96 deterministic sound-speed cases",
+    "Optimized v2 beam-gating preserves v1 unweighted BP (relative difference 0.0)"
+  ],
+  "scope": "No assertion that v2 exactly reproduces ASASIN or that any detector/autofocus estimator was improved"
+}

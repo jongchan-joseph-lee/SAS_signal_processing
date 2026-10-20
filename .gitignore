@@ -1,0 +1,8 @@
+# raw PoSSM downloads and caches are not redistributed here
+data/
+cache/
+*.gdf
+*.h5
+*.hdf5
+__pycache__/
+.venv/

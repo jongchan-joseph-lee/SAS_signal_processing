@@ -1,0 +1,266 @@
+[
+  {
+    "scene": "scene00",
+    "status": "ok",
+    "pings": 100,
+    "channels": 36,
+    "samples": [
+      10942
+    ],
+    "ping_min": 1,
+    "ping_max": 100,
+    "gdf_files": 4,
+    "slc_shape": [
+      2240,
+      3600,
+      1
+    ],
+    "image_bounds_xy_m": [
+      4.503753662109375,
+      60.47875449620187,
+      0.0,
+      89.97500134073198
+    ],
+    "in_frame_insertion_points": 0
+  },
+  {
+    "scene": "scene01",
+    "status": "ok",
+    "pings": 100,
+    "channels": 36,
+    "samples": [
+      10942
+    ],
+    "ping_min": 1,
+    "ping_max": 100,
+    "gdf_files": 4,
+    "slc_shape": [
+      2240,
+      3600,
+      1
+    ],
+    "image_bounds_xy_m": [
+      4.503753662109375,
+      60.47875449620187,
+      0.0,
+      89.97500134073198
+    ],
+    "in_frame_insertion_points": 9
+  },
+  {
+    "scene": "scene02",
+    "status": "ok",
+    "pings": 100,
+    "channels": 36,
+    "samples": [
+      10943
+    ],
+    "ping_min": 1,
+    "ping_max": 100,
+    "gdf_files": 4,
+    "slc_shape": [
+      2240,
+      3600,
+      1
+    ],
+    "image_bounds_xy_m": [
+      4.503753662109375,
+      60.47875449620187,
+      0.0,
+      89.97500134073198
+    ],
+    "in_frame_insertion_points": 9
+  },
+  {
+    "scene": "scene03",
+    "status": "ok",
+    "pings": 100,
+    "channels": 36,
+    "samples": [
+      10943
+    ],
+    "ping_min": 1,
+    "ping_max": 100,
+    "gdf_files": 4,
+    "slc_shape": [
+      2240,
+      3600,
+      1
+    ],
+    "image_bounds_xy_m": [
+      4.503753662109375,
+      60.47875449620187,
+      0.0,
+      89.97500134073198
+    ],
+    "in_frame_insertion_points": 9
+  },
+  {
+    "scene": "scene04",
+    "status": "ok",
+    "pings": 100,
+    "channels": 36,
+    "samples": [
+      10942
+    ],
+    "ping_min": 1,
+    "ping_max": 100,
+    "gdf_files": 4,
+    "slc_shape": [
+      2240,
+      3600,
+      1
+    ],
+    "image_bounds_xy_m": [
+      4.503753662109375,
+      60.47875449620187,
+      0.0,
+      89.97500134073198
+    ],
+    "in_frame_insertion_points": 9
+  },
+  {
+    "scene": "scene05",
+    "status": "ok",
+    "pings": 100,
+    "channels": 36,
+    "samples": [
+      10944
+    ],
+    "ping_min": 1,
+    "ping_max": 100,
+    "gdf_files": 4,
+    "slc_shape": [
+      2240,
+      3600,
+      1
+    ],
+    "image_bounds_xy_m": [
+      4.503753662109375,
+      60.47875449620187,
+      0.0,
+      89.97500134073198
+    ],
+    "in_frame_insertion_points": 9
+  },
+  {
+    "scene": "scene06",
+    "status": "ok",
+    "pings": 100,
+    "channels": 36,
+    "samples": [
+      10942
+    ],
+    "ping_min": 1,
+    "ping_max": 100,
+    "gdf_files": 4,
+    "slc_shape": [
+      2240,
+      3600,
+      1
+    ],
+    "image_bounds_xy_m": [
+      4.503753662109375,
+      60.47875449620187,
+      0.0,
+      89.97500134073198
+    ],
+    "in_frame_insertion_points": 9
+  },
+  {
+    "scene": "scene07",
+    "status": "ok",
+    "pings": 100,
+    "channels": 36,
+    "samples": [
+      10943
+    ],
+    "ping_min": 1,
+    "ping_max": 100,
+    "gdf_files": 4,
+    "slc_shape": [
+      2240,
+      3600,
+      1
+    ],
+    "image_bounds_xy_m": [
+      4.503753662109375,
+      60.47875449620187,
+      0.0,
+      89.97500134073198
+    ],
+    "in_frame_insertion_points": 9
+  },
+  {
+    "scene": "scene08",
+    "status": "ok",
+    "pings": 100,
+    "channels": 36,
+    "samples": [
+      10943
+    ],
+    "ping_min": 1,
+    "ping_max": 100,
+    "gdf_files": 4,
+    "slc_shape": [
+      2240,
+      3600,
+      1
+    ],
+    "image_bounds_xy_m": [
+      4.503753662109375,
+      60.47875449620187,
+      0.0,
+      89.97500134073198
+    ],
+    "in_frame_insertion_points": 9
+  },
+  {
+    "scene": "scene09",
+    "status": "ok",
+    "pings": 100,
+    "channels": 36,
+    "samples": [
+      10942
+    ],
+    "ping_min": 1,
+    "ping_max": 100,
+    "gdf_files": 4,
+    "slc_shape": [
+      2240,
+      3600,
+      1
+    ],
+    "image_bounds_xy_m": [
+      4.503753662109375,
+      60.47875449620187,
+      0.0,
+      89.97500134073198
+    ],
+    "in_frame_insertion_points": 9
+  },
+  {
+    "scene": "scene10",
+    "status": "ok",
+    "pings": 100,
+    "channels": 36,
+    "samples": [
+      10944
+    ],
+    "ping_min": 1,
+    "ping_max": 100,
+    "gdf_files": 4,
+    "slc_shape": [
+      2000,
+      3600,
+      1
+    ],
+    "image_bounds_xy_m": [
+      4.503753662109375,
+      54.478754406794906,
+      0.0,
+      89.97500134073198
+    ],
+    "in_frame_insertion_points": 9
+  }
+]
