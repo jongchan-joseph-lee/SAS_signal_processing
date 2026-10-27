@@ -24,8 +24,16 @@
 
 기준을 통과하지 못한 보정기와 탐지기도 결과를 그대로 남겼습니다. 위치 편향의 부화소 수치는 이상적인 고립점 조건의 값으로, 실해역 정확도로 해석하지 않습니다.
 
-![영상 형성과 검증](docs/figures/overview_imaging_validation.png)
-![항법 오차 보정과 탐지](docs/figures/overview_autofocus_detection.png)
+<p align="center"><img src="docs/figures/overview_imaging_validation.png" width="95%" alt="Raw signal to image formation and validation"></p>
+<p align="center"><sub>원시 신호 → 정합필터 → 역투영 영상, 수신기 이동 반영 · 처리 설정 개선 효과</sub></p>
+
+<details>
+<summary><b>그림 더 보기</b> — 항법 오차 보정 · 객체 탐지</summary>
+
+<p align="center"><img src="docs/figures/overview_autofocus_detection.png" width="95%" alt="Autofocus and object detection results"></p>
+<p align="center"><sub>항법 오차 보정(기준 미달 · 미채택)과 객체 위치 탐지(기준 미달 · 미채택)</sub></p>
+
+</details>
 
 ## 처리 흐름
 
