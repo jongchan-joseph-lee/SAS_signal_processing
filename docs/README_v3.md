@@ -2,7 +2,7 @@
 
 공개 합성 PoSSM의 남은 실험을 실행한 결과입니다. **수중 실측이나 실제 기뢰 탐지 성능이 아닙니다.** 학습 모델과 보정기가 기준에 실패하더라도 수치와 예측을 유지합니다. 1차 CNN을 다시 학습하지 않았습니다.
 
-`report_v3/report.html`은 오프라인 보고서입니다. `report_v3/figures/SAS_Appendix_One_Page.png`는 부록 한 장 초안입니다. 원래 포트폴리오 PPT를 수정한 파일은 아닙니다.
+`report_v3/report.html`은 오프라인 보고서입니다.
 
 ## 실행
 
@@ -62,7 +62,7 @@ python src/build_report_v3.py --bundle
 - `results/v3/detection_results.json`: 곡선, 고정 운영점, 탐지 개수, 클래스·장면 결과, Wilson/cluster-bootstrap.
 - `results/v3/raw_bridge_results.json`: raw→자체 BP→고정 탐지기 연결 시험.
 - `results/v3/verification.json`, `environment.json`: 무결성·실행 환경.
-- 결과 배열과 모든 그림. 원시자료 제외. v2 부록 재생성용 결과도 포함.
+- 결과 배열과 모든 그림. 원시자료 제외. v2 수치 재생성용 결과도 포함.
 
 ## 해석과 라이선스
 

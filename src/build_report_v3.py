@@ -1,4 +1,4 @@
-"""Offline Korean report, executed results + reproducibility ZIP + appendix PNG."""
+"""Offline Korean report, executed results + reproducibility ZIP."""
 from pathlib import Path
 import argparse,base64,hashlib,html,json,zipfile
 import numpy as np
@@ -78,38 +78,6 @@ def figures(af,det,bridge,common):
   label={'clean_bp':'무오차 자체 BP','corrupted_bp':'항법 오차 BP','automatic_entropy_bp':'자동 후보 기반 entropy'}[name]
   op=row['detection'];ax.set_title(f'{label}\n{op["tp"]}/9 탐지 · {op["fp"]} 오탐');ax.set_xlabel('Along track (m)')
  axs[0].set_ylabel('Cross track (m)');fig.colorbar(im,ax=axs,shrink=.7,label='무오차 BP의 거리별 median power 기준 dB · 표시용');figsave(fig,'raw_bridge.png')
- appendix(af,det)
-
-
-def appendix(af,det):
- """One-page scientific figure; no unavailable portfolio edited."""
- v=json.loads((ROOT/'results/v2/validation_results.json').read_text());s=json.loads((ROOT/'results/v2/stress_results.json').read_text())
- fig=plt.figure(figsize=(11.7,8.3),facecolor='white');gs=fig.add_gridspec(2,3,left=.065,right=.96,top=.75,bottom=.22,hspace=.65,wspace=.35,height_ratios=[1,1])
- fig.text(.065,.93,'공개 합성 SAS 원시 신호 처리·검증',size=23,weight='bold',color='#203344')
- fig.text(.065,.875,'GDF 해석 → 매치드필터 → bistatic BP → 항법 오차 검증 → 객체 위치 탐지',size=13,color='#356778')
- fig.text(.065,.82,'PoSSM · 무잡음 시뮬레이션 · 11장면 / 90배치 · 실측 수중 SAS 및 실제 기뢰 자료 아님',size=10,color='#566d7d')
- ax=fig.add_subplot(gs[:,0]);e=np.load(ROOT/'results/v2/point_validation_examples.npz');x=e['dense_x'];center=x[len(x)//2]
- for key,label,col in [('moving_dense','기존 처리','#8b99a5'),('v2_dense','Hann + Gaussian','#16788a')]:
-  z=e[key];iy=abs(z).max(1).argmax();ax.plot((x-center)*1000,db(z[iy],abs(z).max()),label=label,color=col)
- ax.set(xlim=(-75,75),ylim=(-45,1),xlabel='Along-track offset (mm)',ylabel='Normalized amplitude (dB)',title='PSF: 부엽 감소·주엽 확대');ax.legend(frameon=False,fontsize=8)
- ax=fig.add_subplot(gs[0,1]);r=v['point_rows'];a=[z['native_legacy']['complex_correlation'] for z in r];b=[z['native_v2']['complex_correlation'] for z in r]
- ax.scatter(a,b,s=25,color='#16788a');ax.plot([0,1],[0,1],ls=':',color='#9aa8b3');ax.set(xlim=(0,1),ylim=(0,1),xlabel='기존 complex NCC',ylabel='v2 complex NCC',title='미사용 24점 · 원래 SLC 격자')
- ax=fig.add_subplot(gs[0,2]);
- for kind,label,col in [('surge','진행 오차','#8b99a5'),('sway','측면 오차','#16788a')]:
-  rows=[r for r in s['summary'] if r['kind']==kind];ax.plot([r['amount']*1000 for r in rows],[r['complex_correlation']['mean'] for r in rows],'o-',ms=4,label=label,color=col)
- ax.set(ylim=(0,1.05),xlabel='항법 오차 RMS (mm)',ylabel='무오차 BP와 평균 NCC',title='24점 × 경로 5개 · 방향별 민감도');ax.legend(frameon=False,fontsize=8)
- ax=fig.add_subplot(gs[1,1:]);ax.axis('off');en=af['success']['per_ping_entropy'];op=det['operating_point_rf']
- text=f'v2 검증  |  24점 complex NCC 중앙값 0.672 → 0.875 / 진폭 상관 ≥0.9: 22/24\n\n'
- baseline=next(r['complex_correlation']['median'] for r in af['summary'] if r['method']=='uncorrected' and r['amount']==.002 and r['range_bin'] is None)
- text+=f'v3 보정  |  측면2mm: NCC 중앙값 {baseline:.3f} → {en["corrupt_median_ncc"]:.3f} (entropy)\n'
- text+=f'             무오차 NCC 최대 감소 {en["clean_max_ncc_loss"]:.4f} / 사전 기준 '+('통과' if en['overall_pass'] else '미달')+'\n\n'
- text+=f'v3 탐지  |  {op["tp"]}/36 위치 탐지 / {op["fp"]} 오탐 / Wilson95% {interval(op["wilson95"])}\n'
- text+='             해저 family 분리 시험 · 탐지 채택 기준 미달'
- ax.text(0,1,text,va='top',size=10.5,linespacing=1.55,color='#203344')
- fig.text(.065,.13,'해석 범위: 기준 영상과의 유사도는 영상 품질과 다름. 실제로 입증한 것은 약16mm 위치 편향 제거와 합성 오차 검증.',size=10,color='#566d7d')
- fig.text(.065,.085,'GT 삽입점 기반 point-FROC · bbox mAP 아님 · 동일 형상 재사용 / 작은 표본 / 실해역 일반화 미확인',size=10,color='#566d7d')
- fig.text(.065,.035,'자료: Philtron · Johnson · Brown / MGDS PoSSM, CC BY-NC-SA 3.0 US. 원본 Python 코드: MIT. 2026-10-20',size=8.5,color='#728491')
- figsave(fig,'SAS_Appendix_One_Page.png')
 
 
 def body(af,det,bridge,common):
@@ -142,9 +110,9 @@ def body(af,det,bridge,common):
  style='''*{box-sizing:border-box}body{margin:0;background:#f2f5f7;color:#203344;font:16px/1.8 system-ui,-apple-system,"Noto Sans CJK KR",sans-serif}header{background:#203344;color:white;padding:42px max(24px,calc((100vw - 1120px)/2))}header p{color:#d1e2e9;max-width:1000px}h1{font-size:clamp(27px,4vw,42px);line-height:1.35;margin:12px 0}.eyebrow{font-size:12px;letter-spacing:.13em;color:#8ec9d4}main{max-width:1170px;padding:24px;margin:auto}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card,section{background:white;border:1px solid #dce5eb;border-radius:12px;padding:24px}section{margin:22px 0}.value{font-size:28px;font-weight:750;line-height:1.3}.label,.small,figcaption{font-size:13px;color:#607587}h2{font-size:24px;margin:0 0 16px}h2 small{display:block;font-size:12px;letter-spacing:.1em;color:#16788a;margin-bottom:6px}h3{font-size:19px;margin:24px 0 10px}a{color:#16788a}.note{padding:15px 18px;background:#fbf5e9;border-left:4px solid #bd995b;margin:18px 0}.ok{background:#edf6f7;border-color:#16788a}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:14px;text-align:left}th{background:#eff4f7;white-space:nowrap}th,td{padding:10px;border-bottom:1px solid #dce5eb;vertical-align:top}.plot{width:100%;height:auto;display:block}figure{margin:22px 0}figcaption{margin-top:7px}nav{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;margin-bottom:22px}pre{background:#172b39;color:#e4eef4;padding:19px;border-radius:8px;overflow:auto;font-size:13px}code{font-size:12px;overflow-wrap:anywhere}button{background:#16788a;color:white;border:0;border-radius:6px;padding:12px 16px;font:inherit;cursor:pointer}footer{font-size:12px;color:#687e8d;padding:15px 0 40px}.tag{font-size:12px;color:#8e4f36}details{margin:14px 0}summary{cursor:pointer}@media(max-width:720px){.cards{grid-template-columns:repeat(2,1fr)}section{padding:17px}main{padding:15px}}@media print{nav,.download{display:none}section{break-inside:avoid;border:0}.cards{grid-template-columns:repeat(4,1fr)}header{background:white;color:#203344;padding:15px}header p{color:#203344}}'''
  return f'''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SAS Focus Benchmark v3 · 보정과 탐지 검증</title><style>{style}</style></head><body>
 <header><div class="eyebrow">SAS FOCUS BENCHMARK / EXECUTED V3</div><h1>보정 성능과 탐지 성능을<br>분리해 검증했다</h1><p>공개 합성 SAS 원시 신호에 항법 오차를 주입하고, 국소 GPGA 계열·핑별 엔트로피 보정을 비교했습니다. 전체 영상 후보 생성과 RF 분류도 실행했으며, 시험 결과가 채택 기준에 못 미친 부분을 그대로 남겼습니다.</p></header><main>
-<nav><a href="#decision">판정</a><a href="#protocol">사전 기준</a><a href="#focus">보정</a><a href="#detection">point-FROC</a><a href="#bridge">원시→탐지</a><a href="#appendix">부록 1장</a><a href="#repro">재현 묶음</a></nav>
+<nav><a href="#decision">판정</a><a href="#protocol">사전 기준</a><a href="#focus">보정</a><a href="#detection">point-FROC</a><a href="#bridge">원시→탐지</a><a href="#next">다음 단계</a><a href="#repro">재현 묶음</a></nav>
 <div class="cards"><div class="card"><div class="value">{en['corrupt_median_ncc']:.3f}</div><div class="label">entropy · 2mm 오차 NCC 중앙값<br>미사용24점 × 새 경로5개</div></div><div class="card"><div class="value">{en['clean_max_ncc_loss']:.4f}</div><div class="label">entropy · 무오차 NCC 최대 감소<br>허용값 ≤0.01</div></div><div class="card"><div class="value">{op['tp']}/36</div><div class="label">시험4장면 · RF 위치 탐지<br>고정 임계값 / 오탐 {op['fp']}개</div></div><div class="card"><div class="value">{ca['tp']}/36</div><div class="label">위치와 클래스 모두 일치<br>통발·암석·원통 / 실제 기뢰 아님</div></div></div>
-<section id="decision"><h2><small>01 / DECISION</small>쓸 수 있는 성과와 채택하지 않을 모델</h2><p><strong>v2의 “공개 합성 SAS 원시 신호 처리·검증”은 부록에 쓸 근거가 있습니다.</strong> v3는 이 위에 오차 보정과 탐지의 실제 시험 결과를 추가합니다. 점별 보정 성공이 해저 배경에서의 자동 탐지 성공을 의미하지는 않습니다.</p>
+<section id="decision"><h2><small>01 / DECISION</small>채택한 처리와 채택하지 않은 방법</h2><p><strong>v2에서 원시 신호 처리와 기준 영상 비교를 검증했습니다.</strong> v3는 이 위에 오차 보정과 탐지의 실제 시험 결과를 추가합니다. 점별 보정 성공이 해저 배경에서의 자동 탐지 성공을 의미하지는 않습니다.</p>
 {table(['항목','실행·판정'],[['원시 처리·기준 비교','GDF–매치드필터–bistatic BP. v2 24점 native NCC 중앙값0.672→0.875. 전체 scene00 NCC0.50은 잔여 차이로 유지.'],['국소 GPGA 계열', '사전 성공 기준 '+('통과' if af['success']['local_gpga']['overall_pass'] else '미달')+'; 본 구현의 국소·인접 핑 추정 결과이며 모든 PGA의 한계라는 결론은 아님.'],['핑별 엔트로피','사전 성공 기준 '+('통과' if en['overall_pass'] else '미달')+'; 알려진 고립점 ROI 내부의 blind 추정. 전체 장면 자동 보정과 구분.'],['RF 탐지·분류','학습과 4장면 시험 완료. 재현율80% 기준 미달, 배포·성능 개선 모델로 채택하지 않음.'],['CNN','후속 의견을 반영해 이번 단계 재학습하지 않음.']])}
 <div class="note">전체 자료는 무잡음 수중 음향 <strong>시뮬레이션</strong>입니다. 90개 배치는90개의 독립 객체 설계가 아닙니다. 실제 기뢰 식별·실해역 일반화·작전 성능을 입증한 결과로 표현하지 않습니다.</div></section>
 <section id="protocol"><h2><small>02 / FROZEN BEFORE TEST</small>결과를 보기 전에 정한 조건</h2>
@@ -181,9 +149,7 @@ def body(af,det,bridge,common):
 {picture('raw_bridge.png','scene04 원시 신호에서 직접 만든 영상의 연결 시험. 원은 GT, 십자는 고정 임계값의 탐지')}
 <p>자동 후보는 고립점과 달리 분산 산란·표면·그림자를 포함합니다. 국소 entropy의 위상해를 거리 구간에 공유하는 과정은 잘못된 위상 보정이나 표적 이동을 만들 수 있습니다. 위 표의 결과를 보정 채택 근거로 과장하지 않습니다. 1장면·1오차 경로로 보정 후 탐지 일반화를 입증하지 못합니다.</p>
 <p class="small">range compression·8× 준비 {bridge['preparation_seconds']:.1f}s, 자동30patch 위상 추정 {bridge['autofocus_seconds']:.1f}s. CPU 환경에서 측정했으며 현장 실시간성 검증이 아닙니다.</p></section>
-<section id="appendix"><h2><small>06 / PORTFOLIO APPENDIX</small>부록 1장 초안과 다음 보완 방향</h2>
-{picture('SAS_Appendix_One_Page.png','PSF·24점 비교·오차 민감도와 v3 판정을 한 장에 담은 부록용 그림')}
-<p><a id="appendix-download" download="SAS_Appendix_One_Page.png" href="data:image/png;base64,{base64.b64encode((FIG/'SAS_Appendix_One_Page.png').read_bytes()).decode()}">부록 그림 PNG 내려받기</a>. 원본 포트폴리오 파일은 수정하지 않았습니다. 이 초안을 부록⑨ 다음에 넣을 수 있습니다.</p>
+<section id="next"><h2><small>06 / NEXT STEPS</small>다음 보완 방향</h2>
 <ol><li><strong>주 성과는 원시 처리·검증으로 유지:</strong> v2 PSF의 부엽 감소와 주엽 확대를 같이 표시합니다. ASASIN과의 일치도와 영상 품질 향상을 같은 주장으로 쓰지 않습니다.</li><li><strong>탐지 입력부터 보완:</strong> 현재 제안 단계 ceiling이 낮습니다. 동일 시험4장면을 계속 튜닝에 쓰지 말고 새로운 개발·시험 장면을 확보한 뒤, highlight·shadow·bbox를 검수해 후보 생성부터 바꿔야 합니다.</li><li><strong>자료의 독립성 확대:</strong> 동일 mesh의90배치에 증강을 더하는 것으로 새 형상·해저·항차의 일반화를 증명할 수 없습니다. 다른 형상·환경·센서 조건이 포함된 자료를 독립 시험에 둡니다.</li><li><strong>보정은 단계적으로:</strong> 고립점 ROI 성공, 자동 산란점 선택 성공, 거리별 위상 공유 성공, 탐지 개선을 차례로 분리합니다. 원시 항법 오차 영상과 충분한 학습 장면이 마련되기 전에는 작은 CNN을 다시 얹지 않습니다.</li></ol></section>
 <section id="repro"><h2><small>07 / REPRODUCIBILITY</small>실행 코드·RF 가중치·예측·수치 포함</h2><div class="download" id="zip-slot"></div>
 <pre>python -m venv .venv
@@ -193,7 +159,7 @@ python src/run_v3.py --download
 
 # 포함된 결과로 HTML·그림만 다시 만들기
 python src/run_v3.py --report-only</pre>
-<p>원시 파일은 용량상 묶음에서 제외했습니다. 공개 다운로드 코드와55개 파일의 hash manifest, 사전 설정, 개발 선택 기록,432개 점·오차·방법 결과,4장면의 후보·점수 전부,RF 가중치,환경·검증 기록을 포함했습니다. v2 수치와 부록 재생성에 필요한 배열도 포함합니다. 원시 자료 취득 후 CPU에서 재실행할 수 있으며 전체 행렬 처리에는 메모리 여유가 필요합니다.</p>
+<p>원시 파일은 용량상 묶음에서 제외했습니다. 공개 다운로드 코드와55개 파일의 hash manifest, 사전 설정, 개발 선택 기록,432개 점·오차·방법 결과,4장면의 후보·점수 전부,RF 가중치,환경·검증 기록을 포함했습니다. v2 수치 재생성에 필요한 배열도 포함합니다. 원시 자료 취득 후 CPU에서 재실행할 수 있으며 전체 행렬 처리에는 메모리 여유가 필요합니다.</p>
 <details><summary>통과한 수치·평가 무결성 검사 {len(verify['checks'])}개</summary><ul>{''.join('<li>'+html.escape(c)+'</li>' for c in verify['checks'])}</ul><p>무결성 검사 통과는 모델 채택 기준 통과를 뜻하지 않습니다. 각 단계를 실제 실행했으며, 통합 실행 명령 전체를 다시 처음부터 돌린 결과라고 주장하지 않습니다.</p></details>
 <h3>1차 출처·방법론</h3><ul><li>Philtron·Johnson·Brown / MGDS <a href="https://www.marine-geo.org/tools/files/31898">PoSSM raw GDF</a> · <a href="https://www.marine-geo.org/tools/files/31899">SLC</a>. CC BY-NC-SA3.0US.</li><li>Wahl·Eichel·Ghiglia·Jakowatz, <a href="https://doi.org/10.1109/7.303752">Phase gradient autofocus</a>, 1994. Evers·Jackson, <a href="https://doi.org/10.1109/TCI.2019.2899453">Generalized PGA</a>, 2019 / <a href="https://scholar.afit.edu/etd/2240/">저자 학위논문</a>.</li><li>Henrik Forsten, <a href="https://hforsten.com/synthetic-aperture-radar-autofocus-and-calibration.html">BP 기여분의 GPGA 설명·직접 구현 결과</a>. 원 저자의 레이더 결과가 본 SAS 자료의 성능을 보장하지는 않습니다.</li><li><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.ensemble.RandomForestClassifier.html">scikit-learn1.8 RandomForest 문서</a>. CPU 저표본 자체 기준선 구현에 사용.</li><li>Gerg et al., <a href="https://arxiv.org/abs/2101.05888">ASASIN 영상 형성 연구</a>. 센서 이동·bistatic 기하 참고; 정확한 제품 설정 재현이라는 주장은 유지하지 않음.</li></ul>
 <p class="small">원본 Python 코드 MIT. PoSSM 파생 수치·가중치·그림·HTML은 CC BY-NC-SA3.0US 조건을 구분합니다. 별도 대형 데이터나 외부 사전학습 가중치는 이번 실행에 사용하지 않았습니다.</p></section>
