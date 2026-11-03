@@ -28,15 +28,15 @@ SAS는 플랫폼이 이동하며 받은 여러 핑(ping)을 위상까지 맞춰 
 
 | 단계 | 내용 | 수행 범위 | 근거 |
 |---|---|---|---|
-| 1. 자료 확보 | PoSSM 11장면 내려받기, SHA-256 대조, GDF 형식 해석 | 수행 (구현 확인) | [`src/download_possm.py`](src/download_possm.py), [`src/acquire_all_scenes.py`](src/acquire_all_scenes.py), [`src/gdf.py`](src/gdf.py) |
-| 2. 정합필터 | 송신 펄스 복제 신호 상관으로 펄스 압축 | 수행 (구현 확인) | [`src/imaging.py`](src/imaging.py) |
-| 3. 역투영 영상 형성 | 송수신 분리(bistatic) 경로 지연 · 위상 보정 합산, 음파 왕복 중 수신기 이동 반영 | 수행 — 조건은 개발용 산란체 3개로 정하고 나머지 24개로 평가 | [`src/imaging.py`](src/imaging.py), [`src/imaging_v2.py`](src/imaging_v2.py) |
-| 4. 기준 영상 비교 · 처리 설정 | 기준 SLC와 complex NCC, PSF 비교. 보간 배율 · 거리 주파수 창(Hann) · 방위 Gaussian 가중 비교 | 수행 — 설정은 개발용 3점으로 정하고 시험 24점에서 다시 고르지 않음 | [`src/validate_slc_v2.py`](src/validate_slc_v2.py), [`src/diagnose_taper.py`](src/diagnose_taper.py) |
-| 5. 항법 오차 민감도 | 원시 IQ는 고정하고 처리에 쓰는 가정 항적 · 음속만 바꿔 영상 품질 변화 측정 | 수행 (24점 × 5경로) | [`src/stress_points_v2.py`](src/stress_points_v2.py) |
-| 6. 항법 오차 보정 | 국소 위상 기울기 보정(local GPGA)과 핑별 엔트로피 최소화 비교 | 사전 고정 시험 — 성공 기준 미달 | [`src/autofocus_v3.py`](src/autofocus_v3.py), [`src/evaluate_autofocus_v3.py`](src/evaluate_autofocus_v3.py) |
-| 7. 객체 위치 탐지 | 전체 영상 후보 생성 + Random Forest, 점 단위 FROC | 사전 고정 시험 — 성공 기준 미달 | [`src/point_detection_v3.py`](src/point_detection_v3.py) |
-| 8. 원시 신호 → 탐지 연결 | 직접 만든 역투영 영상에 고정된 탐지기를 그대로 적용 | 탐색적 (1장면, 9개 객체) | [`src/raw_detection_bridge_v3.py`](src/raw_detection_bridge_v3.py) |
-| 9. 잡음 · 실측 자료 · 실시간 | 잡음 포함 자료, 실해역 SAS, 탑재 처리 | 미수행 | — |
+| 1. 자료 확보 (Data acquisition) | PoSSM 11장면 내려받기, SHA-256 대조, GDF 형식 해석 | 수행 (구현 확인) | [`src/download_possm.py`](src/download_possm.py), [`src/acquire_all_scenes.py`](src/acquire_all_scenes.py), [`src/gdf.py`](src/gdf.py) |
+| 2. 정합필터 (Matched filtering) | 송신 펄스 복제 신호 상관으로 펄스 압축 | 수행 (구현 확인) | [`src/imaging.py`](src/imaging.py) |
+| 3. 역투영 영상 형성 (Backprojection imaging) | 송수신 분리(bistatic) 경로 지연 · 위상 보정 합산, 음파 왕복 중 수신기 이동 반영 | 수행 — 조건은 개발용 산란체 3개로 정하고 나머지 24개로 평가 | [`src/imaging.py`](src/imaging.py), [`src/imaging_v2.py`](src/imaging_v2.py) |
+| 4. 기준 영상 비교 · 처리 설정 (Reference SLC comparison and windowing) | 기준 SLC와 complex NCC, PSF 비교. 보간 배율 · 거리 주파수 창(Hann) · 방위 Gaussian 가중 비교 | 수행 — 설정은 개발용 3점으로 정하고 시험 24점에서 다시 고르지 않음 | [`src/validate_slc_v2.py`](src/validate_slc_v2.py), [`src/diagnose_taper.py`](src/diagnose_taper.py) |
+| 5. 항법 오차 민감도 (Navigation-error sensitivity) | 원시 IQ는 고정하고 처리에 쓰는 가정 항적 · 음속만 바꿔 영상 품질 변화 측정 | 수행 (24점 × 5경로) | [`src/stress_points_v2.py`](src/stress_points_v2.py) |
+| 6. 항법 오차 보정 (Autofocus) | 국소 위상 기울기 보정(local GPGA)과 핑별 엔트로피 최소화 비교 | 사전 고정 시험 — 성공 기준 미달 | [`src/autofocus_v3.py`](src/autofocus_v3.py), [`src/evaluate_autofocus_v3.py`](src/evaluate_autofocus_v3.py) |
+| 7. 객체 위치 탐지 (Point detection) | 전체 영상 후보 생성 + Random Forest, 점 단위 FROC | 사전 고정 시험 — 성공 기준 미달 | [`src/point_detection_v3.py`](src/point_detection_v3.py) |
+| 8. 원시 신호 → 탐지 연결 (Raw-to-detection bridge) | 직접 만든 역투영 영상에 고정된 탐지기를 그대로 적용 | 탐색적 (1장면, 9개 객체) | [`src/raw_detection_bridge_v3.py`](src/raw_detection_bridge_v3.py) |
+| 9. 잡음 · 실측 자료 · 실시간 (Noise, measured data and real-time processing) | 잡음 포함 자료, 실해역 SAS, 탑재 처리 | 미수행 | — |
 
 ### 평가 규약에서 정한 것
 - **사전 고정 조건**: 보정 · 탐지 단계의 개발/시험 점 · 장면, 하이퍼파라미터 후보, 성공 기준을 시험 결과를 보기 전에 [`results/v3/protocol.json`](results/v3/protocol.json)에 기록했습니다. 외부 기관에 등록한 사전등록(preregistration)은 아닙니다.
@@ -63,6 +63,7 @@ python src/evaluate_autofocus_v3.py --stage test    # 6. 시험 24점 × 5경로
 python src/point_detection_v3.py --stage test       # 7. 시험 4장면 1회 평가
 python src/raw_detection_bridge_v3.py               # 8. 직접 만든 역투영 영상에 고정 탐지기 적용
 python src/verify_v3.py                             # 결과 파일 · 해시 점검
+python src/readme_figures.py                        # README 그림(영문, docs/figures) 재생성
 ```
 
 - 원시 자료(압축 해제 기준 약 2.4 GB)는 저장소에 포함하지 않으며 실행 시 MGDS에서 내려받습니다.
@@ -82,14 +83,14 @@ python src/verify_v3.py                             # 결과 파일 · 해시 �
 
 근거: [`results/v2/`](results/v2/) (기준 영상 비교 · 위치 · 민감도: `stress_results.json`), [`results/v3/autofocus_results.json`](results/v3/autofocus_results.json), [`results/v3/detection_results.json`](results/v3/detection_results.json). 위치 오차 수치는 [`report_v2/report.html`](report_v2/report.html)의 PSF · 부화소 위치 표와 같습니다.
 
-<p align="center"><img src="docs/figures/scene_comparison.png" width="95%" alt="Provided ASASIN SLC versus own backprojection before and after window settings"></p>
-<p align="center"><sub>제공 기준 영상(ASASIN SLC)과 직접 구현한 역투영 영상. 1차 처리와 Hann + Gaussian 설정 적용 결과 (scene00, native 격자)</sub></p>
+<p align="center"><img src="docs/figures/scene_comparison.png" width="95%" alt="Provided ASASIN SLC, own backprojection, and own backprojection with 2 mm sway error"></p>
+<p align="center"><sub>시험 장면 04: (a) 제공 기준 영상(ASASIN SLC), (b) 원시 신호에서 직접 만든 역투영 영상, (c) 좌우 2 mm RMS 항법 오차를 넣은 역투영 영상. 표시용으로 거리별 중앙값 기준 dB</sub></p>
 
 <p align="center"><img src="docs/figures/motion_compensation.png" width="95%" alt="Position error of 24 scatterers with stop-and-hop versus receiver-motion model"></p>
-<p align="center"><sub>정지 가정(stop-and-hop)과 수신기 이동 반영 모델의 위치 오차. 조건 결정에 쓰지 않은 산란체 24개, 5 mm 격자</sub></p>
+<p align="center"><sub>(a) 정지 가정(stop-and-hop)과 수신기 이동 반영 모델의 위치 오차, 조건 결정에 쓰지 않은 산란체 24개 · 5 mm 격자. (b) 첫 검증 점의 진행 방향 단면</sub></p>
 
 <p align="center"><img src="docs/figures/autofocus_by_range.png" width="95%" alt="Autofocus NCC by range band and clean-input protection"></p>
-<p align="center"><sub>항법 오차 보정의 거리 구간별 결과(왼쪽)와 오차가 없는 입력에서의 NCC 손실(오른쪽). 점선은 사전 고정 기준</sub></p>
+<p align="center"><sub>(a) 좌우 2 mm RMS 오차에서 보정 방법별 거리 구간 결과, (b) 오차가 없는 입력에서의 NCC 손실. 붉은 점선은 사전 고정 기준</sub></p>
 
 <details>
 <summary><b>그림 더 보기</b> — 처리 설정 · PSF · 민감도 · 탐지</summary>
@@ -98,19 +99,19 @@ python src/verify_v3.py                             # 결과 파일 · 해시 �
 <p align="center"><sub>개발용 3점에서 보간 배율과 창 설정 비교 (이 결과로 설정을 정함)</sub></p>
 
 <p align="center"><img src="docs/figures/window_test_points.png" width="95%" alt="Test-point complex and amplitude correlation before and after window settings"></p>
-<p align="center"><sub>시험 24점의 복소수 상관(왼쪽)과 진폭 상관(오른쪽), 1차 처리 vs Hann + Gaussian</sub></p>
+<p align="center"><sub>시험 24점의 (a) 복소수 상관과 (b) 진폭 상관, 1차 처리 vs Hann + Gaussian</sub></p>
 
 <p align="center"><img src="docs/figures/psf_window.png" width="95%" alt="Point spread function before and after window settings"></p>
-<p align="center"><sub>첫 검증 점의 PSF (1 mm 격자). 창 적용으로 부엽은 낮아지고 주엽은 넓어짐</sub></p>
+<p align="center"><sub>첫 검증 점의 PSF, (a) 진행 방향 · (b) 거리 방향 (1 mm 격자). 창 적용으로 부엽은 낮아지고 주엽은 넓어짐. 점선은 −3 dB</sub></p>
 
 <p align="center"><img src="docs/figures/navigation_sensitivity.png" width="95%" alt="NCC versus navigation error and sound speed bias"></p>
-<p align="center"><sub>항적 오차(진행 · 좌우 · 동시)와 음속 편향에 따른 영상 일치도. 24점 × 5경로, 음영은 사분위</sub></p>
+<p align="center"><sub>(a) 항적 오차(진행 · 좌우 · 동시)와 (b) 음속 편향에 따른 영상 일치도. 24점 × 5경로, 선은 평균 · 음영은 사분위</sub></p>
 
 <p align="center"><img src="docs/figures/detection_froc.png" width="95%" alt="Point FROC on four test scenes"></p>
-<p align="center"><sub>시험 4장면 점 단위 FROC. 검은 점은 검증 장면에서 고정한 운영점과 Wilson 95% 구간</sub></p>
+<p align="center"><sub>시험 4장면 점 단위 FROC, (a) 선형 축 · (b) 로그 축. 붉은 점은 검증 장면에서 고정한 운영점과 Wilson 95% 구간</sub></p>
 
 <p align="center"><img src="docs/figures/detection_map.png" width="95%" alt="Candidate detections on a test scene and class confusion"></p>
-<p align="center"><sub>시험 장면 탐지 예시(왼쪽)와 1 m 위치 일치 이후 클래스 결과(오른쪽)</sub></p>
+<p align="center"><sub>(a) 시험 장면 04의 탐지 예시, (b) 시험 4장면 36개 객체의 1 m 위치 일치 이후 클래스 결과</sub></p>
 
 </details>
 
