@@ -58,7 +58,15 @@
 
 </details>
 
+- 처리 설정 후 기준 영상과의 일치도가 오른 것(0.672 → 0.875)은 기준 영상이 비슷한 창 처리를 거쳤을 가능성을 시사하며, 영상 품질이 좋아졌다는 뜻은 아닙니다. 창 적용으로 주엽은 넓어졌습니다(진행 방향 3 dB 폭 24.4 → 26.8 mm).
+- 보정 효과는 거리가 멀수록 줄었습니다: NCC 0.977 (15–35 m), 0.726 (35–55 m), 0.594 (55–80 m).
 - 결과 수치: [`results/v2/`](results/v2/), [`results/v3/`](results/v3/) · 사전 고정 조건: [`results/v3/protocol.json`](results/v3/protocol.json) · 보고서: [`report_v3/report.html`](report_v3/report.html)
+
+## Next Steps
+
+1. 먼 거리(35 m 이상)에서 보정 효과가 줄어드는 원인 분석
+2. 잡음을 넣은 시뮬레이션으로 같은 처리 순서 재평가, 이후 실측 SAS 자료로 확장
+3. 기준 영상과 장면 전체 차이를 만드는 처리 단계(거리별 진폭 규약, 보간, 창) 분리
 
 ## Dataset
 
@@ -75,7 +83,7 @@ python src/run_v3.py --download      # 자료 취득부터 보정 · 탐지 · �
 python src/run_v3.py --report-only   # 저장된 결과로 보고서만 다시 생성
 ```
 
-Python 3.12, CPU, RAM 약 10 GB 기준입니다. 단계별 실행 방법은 [`docs/README_v3.md`](docs/README_v3.md)에 있습니다.
+현재 버전은 v3이며 `requirements_v3.txt`를 씁니다(`requirements.txt`는 v1 · v2 재현용). Python 3.12, CPU, RAM 약 10 GB 기준이고, 단계별 실행 방법은 [`docs/README_v3.md`](docs/README_v3.md)에 있습니다.
 
 ## Project Structure
 
@@ -83,7 +91,7 @@ Python 3.12, CPU, RAM 약 10 GB 기준입니다. 단계별 실행 방법은 [`do
 |---|---|
 | `src` | 자료 취득, 영상 형성, 보정, 탐지, 검증 스크립트 |
 | `results` | 결과 수치 (JSON · NPZ), 사전 고정 조건, 소규모 탐지기 |
-| `report_v1`–`report_v3` | 단계별 오프라인 보고서 (HTML) |
+| `report_v3` | 현재 결과 보고서 (HTML). `report_v1` · `report_v2`는 이전 단계 기록 |
 | `docs` | 그림, 단계별 상세 문서 |
 | `references` | 자료 설명서, 객체 위치표 |
 
