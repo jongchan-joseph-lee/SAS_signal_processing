@@ -1,12 +1,12 @@
 # SAS Signal Processing
 
-공개 합성개구 소나(Synthetic Aperture Sonar, SAS) 시뮬레이션 자료(PoSSM)의 원시 신호(raw IQ)로 영상 형성, 항법 오차 보정, 객체 탐지를 직접 구현하고 기준 영상과 비교해 검증한 프로젝트입니다.
+공개 합성개구 소나(Synthetic Aperture Sonar, SAS) 시뮬레이션 자료(PoSSM)의 원시 신호(raw IQ)로 영상 형성과 항법 오차 보정을 직접 구현하고, 기준 영상과 비교해 처리 단계별로 검증한 프로젝트입니다.
 
 ## Overview
 
 - **문제**: 공개 SAS 자료는 대부분 처리된 영상만 제공해 처리 체인 자체를 검증하기 어렵습니다. PoSSM은 원시 신호, 기준 영상(ASASIN SLC), 산란체 · 객체 정답 위치를 함께 제공합니다.
-- **방법**: 정합필터 → 송수신 분리(bistatic) 역투영 → 항법 오차 보정(local GPGA, 핑별 엔트로피 최소화) → 후보 생성 + Random Forest 탐지. 보정과 탐지는 개발용 자료로 조건과 성공 기준을 정한 뒤 시험 자료로 한 번 평가했습니다.
-- **결과**: 수신기 이동을 반영해 산란체 위치 오차를 15.1 mm에서 1.8 mm로 줄였고, 처리 설정으로 기준 영상과의 일치도(complex NCC)를 0.672에서 0.875로 높였습니다. 보정과 탐지는 사전 기준에 미달해 채택하지 않았습니다.
+- **방법**: 정합필터 → 송수신 분리(bistatic) 역투영 → 항법 오차 민감도 분석 → 항법 오차 보정(local GPGA, 핑별 엔트로피 최소화). 보정은 개발용 자료로 조건과 성공 기준을 정한 뒤 시험 자료로 한 번 평가했습니다.
+- **결과**: 수신기 이동을 반영해 산란체 위치 오차를 15.1 mm에서 1.8 mm로 줄였습니다. 좌우 방향 항법 오차 2 mm RMS만으로 영상 일치도(complex NCC)가 0.50까지 떨어졌고, 보정은 NCC를 0.442에서 0.830으로 회복했지만 거리가 멀수록 효과가 줄었습니다(사전 기준 0.90 미달).
 
 <p align="center"><img src="docs/figures/scene_comparison.png" width="95%" alt="Provided ASASIN SLC, own backprojection, and own backprojection with 2 mm sway error"></p>
 
@@ -18,7 +18,6 @@
 | 처리 설정 (Hann + Gaussian) | 기준 영상 NCC 0.672 → 0.875 | — |
 | 항법 오차 민감도 | 좌우 2 mm RMS에서 NCC 0.50 (진행 방향 0.99) | — |
 | 항법 오차 보정 (핑별 엔트로피) | NCC 0.442 → 0.830 | 0.90 미달, 미채택 |
-| 객체 탐지 | 재현율 0.25 (36개 중 9개), 장면당 오경보 2.75 | 0.8 미달, 미채택 |
 
 <details>
 <summary>영상 형성 · 처리 설정</summary>
@@ -37,18 +36,16 @@
 
 </details>
 
-<p align="center"><img src="docs/figures/autofocus_by_range.png" width="95%" alt="Autofocus NCC by range band and clean-input protection"></p>
-
-<details>
-<summary>항법 오차 민감도</summary>
-
 <p align="center"><img src="docs/figures/navigation_sensitivity.png" width="95%" alt="NCC versus navigation error and sound speed bias"></p>
 <p align="center"><sub>항적 오차(진행 · 좌우 · 동시)와 음속 편향에 따른 영상 일치도 (24점 × 5경로)</sub></p>
 
-</details>
+<p align="center"><img src="docs/figures/autofocus_by_range.png" width="95%" alt="Autofocus NCC by range band and clean-input protection"></p>
+<p align="center"><sub>거리 구간별 항법 오차 보정 결과</sub></p>
 
 <details>
-<summary>객체 탐지</summary>
+<summary>부록: 객체 탐지 시도 (사전 기준 미달)</summary>
+
+후보 생성 + Random Forest로 시험 4장면 물체 36개 중 9개를 찾았습니다(재현율 0.25, 장면당 오경보 2.75, 사전 기준 0.8 미달).
 
 <p align="center"><img src="docs/figures/detection_froc.png" width="95%" alt="Point FROC on four test scenes"></p>
 <p align="center"><sub>시험 4장면 점 단위 FROC와 고정 운영점</sub></p>
@@ -99,7 +96,7 @@ python src/run_v3.py --report-only   # 저장된 결과로 보고서만 다시 �
 
 - 무잡음 시뮬레이션 자료 한 종류의 결과입니다. 실측 SAS, 잡음 환경, 실제 기뢰는 다루지 않았습니다.
 - 항법 오차는 원시 신호가 아닌 처리용 가정 항적을 바꿔 만들었습니다.
-- 탐지 시험은 4장면 36개 객체로 표본이 작습니다.
+- 부록의 탐지 시험은 4장면 36개 객체로 표본이 작습니다.
 
 ## License
 
