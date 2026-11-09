@@ -20,13 +20,15 @@ ALT = 6.0
 def load(split):
     items = []
     for scene in PROTOCOL['scene_split'][split]:
-        d = np.load(CACHE / f'{split}_{scene}.npz')
+        with np.load(CACHE / f'{split}_{scene}.npz') as z:
+            d = {k: z[k] for k in z.files}                       # read each array once
         for i in range(len(d['centers'])):
             n = int(d['n_pings'][i]); it = {'scene': scene, 'i': i, 'y': float(d['centers'][i, 1]), 'first': int(d['first_ping'][i]),
-                                            'clean': d['clean'][i, :n]}
-            for k in d.files:
-                if k.startswith('corrupt_'): it[k] = d[k][i, :n]
+                                            'clean': d['clean'][i, :n].copy()}
+            for k in d:
+                if k.startswith('corrupt_'): it[k] = d[k][i, :n].copy()
             items.append(it)
+        del d
     return items
 
 
