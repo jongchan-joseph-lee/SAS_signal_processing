@@ -7,6 +7,3 @@ cache/
 __pycache__/
 .venv/
 
-# v4 training outputs while training runs (final versions are force-added)
-results/v4/deep_af.pt
-results/v4/training_log.json

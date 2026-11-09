@@ -1,0 +1,4383 @@
+{
+ "note": "Re-score the frozen v3 point autofocus test (24 points x 5 sway paths) with linear-phase registered NCC.\n\nSame stacks, methods and selected settings as evaluate_autofocus_v3; only the metric is added.\nA blind estimator cannot recover constant or linear ping phase (absolute phase, along-track shift),\nso the unregistered NCC also scores an unobservable image shift.\n  python src/reanalyze_v3_registered.py   ->  results/v4/v3_registered_reanalysis.json\n",
+ "summary": {
+  "uncorrected": {
+   "ncc": {
+    "all": 0.44237027613673024,
+    "0": 0.605638856872118,
+    "1": 0.32358279742891316,
+    "2": 0.3687980612404765
+   },
+   "registered_ncc": {
+    "all": 0.7411817961106336,
+    "0": 0.8298965400743036,
+    "1": 0.7424443456680105,
+    "2": 0.6563026027931586
+   }
+  },
+  "local_gpga": {
+   "ncc": {
+    "all": 0.5331285984041719,
+    "0": 0.7679022198460992,
+    "1": 0.35623327119286163,
+    "2": 0.315553124402173
+   },
+   "registered_ncc": {
+    "all": 0.9909098422668965,
+    "0": 0.9900624641154373,
+    "1": 0.9918182084018468,
+    "2": 0.98966150963967
+   }
+  },
+  "per_ping_entropy": {
+   "ncc": {
+    "all": 0.8295566384964574,
+    "0": 0.977230146230577,
+    "1": 0.7260872103514693,
+    "2": 0.5940879157508877
+   },
+   "registered_ncc": {
+    "all": 0.9927949986735491,
+    "0": 0.9938806915149658,
+    "1": 0.993071807694138,
+    "2": 0.9906253734605973
+   }
+  },
+  "oracle": {
+   "ncc": {
+    "all": 0.992924874199649,
+    "0": 0.9939610027332797,
+    "1": 0.9931206840228588,
+    "2": 0.99072777306929
+   },
+   "registered_ncc": {
+    "all": 0.9929248741996486,
+    "0": 0.9939610027332795,
+    "1": 0.9931206840228584,
+    "2": 0.9907277730692893
+   }
+  }
+ },
+ "rows": [
+  {
+   "point": 6,
+   "seed": 7101,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.6251096447723815,
+   "registered_ncc": 0.9628862979968954
+  },
+  {
+   "point": 6,
+   "seed": 7101,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.8956695733217016,
+   "registered_ncc": 0.999568161052673
+  },
+  {
+   "point": 6,
+   "seed": 7101,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9166042366601891,
+   "registered_ncc": 0.9989824784303812
+  },
+  {
+   "point": 6,
+   "seed": 7101,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9995771991521653,
+   "registered_ncc": 0.9995771991521663
+  },
+  {
+   "point": 6,
+   "seed": 7102,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.46673615773274424,
+   "registered_ncc": 0.6697870593110484
+  },
+  {
+   "point": 6,
+   "seed": 7102,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.0223007749422188,
+   "registered_ncc": 0.9991403621854293
+  },
+  {
+   "point": 6,
+   "seed": 7102,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.8082373724645736,
+   "registered_ncc": 0.9981326847378595
+  },
+  {
+   "point": 6,
+   "seed": 7102,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9991405366291861,
+   "registered_ncc": 0.9991405366291859
+  },
+  {
+   "point": 6,
+   "seed": 7103,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.734137285223166,
+   "registered_ncc": 0.9759213946978537
+  },
+  {
+   "point": 6,
+   "seed": 7103,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.5278637006364354,
+   "registered_ncc": 0.9975588643628911
+  },
+  {
+   "point": 6,
+   "seed": 7103,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.5970807003671051,
+   "registered_ncc": 0.9959187402764255
+  },
+  {
+   "point": 6,
+   "seed": 7103,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.997568446792051,
+   "registered_ncc": 0.9975684467920503
+  },
+  {
+   "point": 6,
+   "seed": 7104,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.5256822279310616,
+   "registered_ncc": 0.9260643945102156
+  },
+  {
+   "point": 6,
+   "seed": 7104,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.7106778719624209,
+   "registered_ncc": 0.9918803098080704
+  },
+  {
+   "point": 6,
+   "seed": 7104,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.7602029683213778,
+   "registered_ncc": 0.990731399574459
+  },
+  {
+   "point": 6,
+   "seed": 7104,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9918842789846369,
+   "registered_ncc": 0.9918842789846379
+  },
+  {
+   "point": 6,
+   "seed": 7105,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.31605528411357736,
+   "registered_ncc": 0.6958484756726347
+  },
+  {
+   "point": 6,
+   "seed": 7105,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.33439222143920405,
+   "registered_ncc": 0.9870170228929288
+  },
+  {
+   "point": 6,
+   "seed": 7105,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.41316902622314294,
+   "registered_ncc": 0.9849004229507444
+  },
+  {
+   "point": 6,
+   "seed": 7105,
+   "range_m": 31.1456617758879,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.987017509287757,
+   "registered_ncc": 0.9870175092877572
+  },
+  {
+   "point": 8,
+   "seed": 7101,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.2478706350116955,
+   "registered_ncc": 0.6351959702784065
+  },
+  {
+   "point": 8,
+   "seed": 7101,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.006566891835968157,
+   "registered_ncc": 0.9958243968016057
+  },
+  {
+   "point": 8,
+   "seed": 7101,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.13626946548438537,
+   "registered_ncc": 0.9956842537453741
+  },
+  {
+   "point": 8,
+   "seed": 7101,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9958419332669111,
+   "registered_ncc": 0.9958419332669117
+  },
+  {
+   "point": 8,
+   "seed": 7102,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.13773255188861505,
+   "registered_ncc": 0.6374249977262445
+  },
+  {
+   "point": 8,
+   "seed": 7102,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.0055847164049535715,
+   "registered_ncc": 0.9682707598261449
+  },
+  {
+   "point": 8,
+   "seed": 7102,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.11216938936318956,
+   "registered_ncc": 0.9681499731187453
+  },
+  {
+   "point": 8,
+   "seed": 7102,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.968296286875237,
+   "registered_ncc": 0.9682962868752372
+  },
+  {
+   "point": 8,
+   "seed": 7103,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.3638511666430173,
+   "registered_ncc": 0.6261512505840937
+  },
+  {
+   "point": 8,
+   "seed": 7103,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.015692141587490403,
+   "registered_ncc": 0.9965365152055654
+  },
+  {
+   "point": 8,
+   "seed": 7103,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.14676761215662879,
+   "registered_ncc": 0.996423291190814
+  },
+  {
+   "point": 8,
+   "seed": 7103,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9965545511528806,
+   "registered_ncc": 0.9965545511528803
+  },
+  {
+   "point": 8,
+   "seed": 7104,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.7250209374124389,
+   "registered_ncc": 0.7371450027980316
+  },
+  {
+   "point": 8,
+   "seed": 7104,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.9961125528958396,
+   "registered_ncc": 0.9965468063022904
+  },
+  {
+   "point": 8,
+   "seed": 7104,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.9960460551326445,
+   "registered_ncc": 0.996491522764483
+  },
+  {
+   "point": 8,
+   "seed": 7104,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9965562468674531,
+   "registered_ncc": 0.9965562468674536
+  },
+  {
+   "point": 8,
+   "seed": 7105,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.39439945580775726,
+   "registered_ncc": 0.6497980200039093
+  },
+  {
+   "point": 8,
+   "seed": 7105,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.8263479286057431,
+   "registered_ncc": 0.9866763892630417
+  },
+  {
+   "point": 8,
+   "seed": 7105,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.8253543574082185,
+   "registered_ncc": 0.9866441817983228
+  },
+  {
+   "point": 8,
+   "seed": 7105,
+   "range_m": 56.3010680442876,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9866881232360948,
+   "registered_ncc": 0.9866881232360946
+  },
+  {
+   "point": 16,
+   "seed": 7101,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.4532644265237314,
+   "registered_ncc": 0.6452064603554091
+  },
+  {
+   "point": 16,
+   "seed": 7101,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.5848970669952519,
+   "registered_ncc": 0.9930911054906999
+  },
+  {
+   "point": 16,
+   "seed": 7101,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.5766711531231187,
+   "registered_ncc": 0.9930843567688034
+  },
+  {
+   "point": 16,
+   "seed": 7101,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9934935866503182,
+   "registered_ncc": 0.9934935866503185
+  },
+  {
+   "point": 16,
+   "seed": 7102,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.14893779896870604,
+   "registered_ncc": 0.5712492985263348
+  },
+  {
+   "point": 16,
+   "seed": 7102,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.5841171203552481,
+   "registered_ncc": 0.9883484909922652
+  },
+  {
+   "point": 16,
+   "seed": 7102,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.6297498519994688,
+   "registered_ncc": 0.9887571698290017
+  },
+  {
+   "point": 16,
+   "seed": 7102,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9889710183037052,
+   "registered_ncc": 0.9889710183037044
+  },
+  {
+   "point": 16,
+   "seed": 7103,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.30222976098946647,
+   "registered_ncc": 0.7052798269804536
+  },
+  {
+   "point": 16,
+   "seed": 7103,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.2506929689467709,
+   "registered_ncc": 0.9910062276068589
+  },
+  {
+   "point": 16,
+   "seed": 7103,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.506731608881863,
+   "registered_ncc": 0.9973131944961577
+  },
+  {
+   "point": 16,
+   "seed": 7103,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9976102213226143,
+   "registered_ncc": 0.997610221322614
+  },
+  {
+   "point": 16,
+   "seed": 7104,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.17845521850097737,
+   "registered_ncc": 0.7412080666502856
+  },
+  {
+   "point": 16,
+   "seed": 7104,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.02706586855304058,
+   "registered_ncc": 0.9918182084018468
+  },
+  {
+   "point": 16,
+   "seed": 7104,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.8270221202361541,
+   "registered_ncc": 0.9980695031520435
+  },
+  {
+   "point": 16,
+   "seed": 7104,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9983048738869874,
+   "registered_ncc": 0.9983048738869864
+  },
+  {
+   "point": 16,
+   "seed": 7105,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.32358279742891316,
+   "registered_ncc": 0.6639387239993326
+  },
+  {
+   "point": 16,
+   "seed": 7105,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.19503352729392445,
+   "registered_ncc": 0.9693757543600399
+  },
+  {
+   "point": 16,
+   "seed": 7105,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.3536518229839077,
+   "registered_ncc": 0.9773146808221115
+  },
+  {
+   "point": 16,
+   "seed": 7105,
+   "range_m": 53.4438180406445,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9775856240112731,
+   "registered_ncc": 0.9775856240112726
+  },
+  {
+   "point": 17,
+   "seed": 7101,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.6656087498768647,
+   "registered_ncc": 0.7752375692429899
+  },
+  {
+   "point": 17,
+   "seed": 7101,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.9682784673541397,
+   "registered_ncc": 0.999485790772026
+  },
+  {
+   "point": 17,
+   "seed": 7101,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9695476831133869,
+   "registered_ncc": 0.9994399083607243
+  },
+  {
+   "point": 17,
+   "seed": 7101,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.999486124622502,
+   "registered_ncc": 0.9994861246225023
+  },
+  {
+   "point": 17,
+   "seed": 7102,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.1641350554114725,
+   "registered_ncc": 0.7340043917928298
+  },
+  {
+   "point": 17,
+   "seed": 7102,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.47475902585771484,
+   "registered_ncc": 0.9865534501966561
+  },
+  {
+   "point": 17,
+   "seed": 7102,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.4988146833053849,
+   "registered_ncc": 0.986093789139238
+  },
+  {
+   "point": 17,
+   "seed": 7102,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9865543224049572,
+   "registered_ncc": 0.9865543224049569
+  },
+  {
+   "point": 17,
+   "seed": 7103,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.6233523396716202,
+   "registered_ncc": 0.8442096276200283
+  },
+  {
+   "point": 17,
+   "seed": 7103,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.8172292197005081,
+   "registered_ncc": 0.971348187306475
+  },
+  {
+   "point": 17,
+   "seed": 7103,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.8243482752048299,
+   "registered_ncc": 0.971194184320937
+  },
+  {
+   "point": 17,
+   "seed": 7103,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9713499142464792,
+   "registered_ncc": 0.9713499142464791
+  },
+  {
+   "point": 17,
+   "seed": 7104,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.9344935094691756,
+   "registered_ncc": 0.9344952783461578
+  },
+  {
+   "point": 17,
+   "seed": 7104,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.94360546112628,
+   "registered_ncc": 0.9665873566310815
+  },
+  {
+   "point": 17,
+   "seed": 7104,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9449784051751771,
+   "registered_ncc": 0.9665435392080098
+  },
+  {
+   "point": 17,
+   "seed": 7104,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9665962121036191,
+   "registered_ncc": 0.9665962121036195
+  },
+  {
+   "point": 17,
+   "seed": 7105,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.4410995650134855,
+   "registered_ncc": 0.6326459294121953
+  },
+  {
+   "point": 17,
+   "seed": 7105,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.9287306455124155,
+   "registered_ncc": 0.9890243005268068
+  },
+  {
+   "point": 17,
+   "seed": 7105,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9312336374638392,
+   "registered_ncc": 0.9889587036417412
+  },
+  {
+   "point": 17,
+   "seed": 7105,
+   "range_m": 27.0459115436378,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9890295639341571,
+   "registered_ncc": 0.9890295639341574
+  },
+  {
+   "point": 20,
+   "seed": 7101,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.5670545610562827,
+   "registered_ncc": 0.855391257844158
+  },
+  {
+   "point": 20,
+   "seed": 7101,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.8401528450600084,
+   "registered_ncc": 0.9985763288871777
+  },
+  {
+   "point": 20,
+   "seed": 7101,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.8471764757718498,
+   "registered_ncc": 0.9984665019658072
+  },
+  {
+   "point": 20,
+   "seed": 7101,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.99858555025323,
+   "registered_ncc": 0.9985855502532318
+  },
+  {
+   "point": 20,
+   "seed": 7102,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.5918122374843533,
+   "registered_ncc": 0.602979871512359
+  },
+  {
+   "point": 20,
+   "seed": 7102,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.9391780234324416,
+   "registered_ncc": 0.9976321820604241
+  },
+  {
+   "point": 20,
+   "seed": 7102,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.941752264426285,
+   "registered_ncc": 0.9975622472209773
+  },
+  {
+   "point": 20,
+   "seed": 7102,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9976359564486578,
+   "registered_ncc": 0.9976359564486582
+  },
+  {
+   "point": 20,
+   "seed": 7103,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.12153423273938387,
+   "registered_ncc": 0.90156925583393
+  },
+  {
+   "point": 20,
+   "seed": 7103,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.012667765144595432,
+   "registered_ncc": 0.9981084997188279
+  },
+  {
+   "point": 20,
+   "seed": 7103,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.012488426202866056,
+   "registered_ncc": 0.998060483207067
+  },
+  {
+   "point": 20,
+   "seed": 7103,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9981098302357617,
+   "registered_ncc": 0.998109830235761
+  },
+  {
+   "point": 20,
+   "seed": 7104,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.5919901999024206,
+   "registered_ncc": 0.7438556896082941
+  },
+  {
+   "point": 20,
+   "seed": 7104,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.8543450049846568,
+   "registered_ncc": 0.9996261065784999
+  },
+  {
+   "point": 20,
+   "seed": 7104,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.860907498166499,
+   "registered_ncc": 0.9995201366243104
+  },
+  {
+   "point": 20,
+   "seed": 7104,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9996278098102718,
+   "registered_ncc": 0.9996278098102718
+  },
+  {
+   "point": 20,
+   "seed": 7105,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.24187709844333943,
+   "registered_ncc": 0.8702097557010833
+  },
+  {
+   "point": 20,
+   "seed": 7105,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.0019835220852041173,
+   "registered_ncc": 0.9735256793822454
+  },
+  {
+   "point": 20,
+   "seed": 7105,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.00320704515393204,
+   "registered_ncc": 0.9734831296996274
+  },
+  {
+   "point": 20,
+   "seed": 7105,
+   "range_m": 33.0574495202013,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9735282971854289,
+   "registered_ncc": 0.9735282971854289
+  },
+  {
+   "point": 21,
+   "seed": 7101,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.7019241902593131,
+   "registered_ncc": 0.7828311629835253
+  },
+  {
+   "point": 21,
+   "seed": 7101,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.9638754878877867,
+   "registered_ncc": 0.9816619793986826
+  },
+  {
+   "point": 21,
+   "seed": 7101,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9819473351844205,
+   "registered_ncc": 0.9819473351844213
+  },
+  {
+   "point": 21,
+   "seed": 7101,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9819734705450636,
+   "registered_ncc": 0.9819734705450642
+  },
+  {
+   "point": 21,
+   "seed": 7102,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.46156052774483014,
+   "registered_ncc": 0.801043659424407
+  },
+  {
+   "point": 21,
+   "seed": 7102,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.3546585963286692,
+   "registered_ncc": 0.9943764180813837
+  },
+  {
+   "point": 21,
+   "seed": 7102,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9950034559170161,
+   "registered_ncc": 0.9950034559170167
+  },
+  {
+   "point": 21,
+   "seed": 7102,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9950217767010903,
+   "registered_ncc": 0.9950217767010892
+  },
+  {
+   "point": 21,
+   "seed": 7103,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.6623165441927612,
+   "registered_ncc": 0.6927443942976548
+  },
+  {
+   "point": 21,
+   "seed": 7103,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.9229677791472074,
+   "registered_ncc": 0.9976734504161751
+  },
+  {
+   "point": 21,
+   "seed": 7103,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9970969855502616,
+   "registered_ncc": 0.9975958999359237
+  },
+  {
+   "point": 21,
+   "seed": 7103,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9978767033165198,
+   "registered_ncc": 0.9978767033165191
+  },
+  {
+   "point": 21,
+   "seed": 7104,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.4903078391367245,
+   "registered_ncc": 0.7676678017079326
+  },
+  {
+   "point": 21,
+   "seed": 7104,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.07562019727243503,
+   "registered_ncc": 0.9911006277040678
+  },
+  {
+   "point": 21,
+   "seed": 7104,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9909495903844903,
+   "registered_ncc": 0.9914074604249276
+  },
+  {
+   "point": 21,
+   "seed": 7104,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9914956768478281,
+   "registered_ncc": 0.9914956768478287
+  },
+  {
+   "point": 21,
+   "seed": 7105,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.527518050661788,
+   "registered_ncc": 0.8376126022540499
+  },
+  {
+   "point": 21,
+   "seed": 7105,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.7383874473188656,
+   "registered_ncc": 0.9977146461429006
+  },
+  {
+   "point": 21,
+   "seed": 7105,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9977213951814035,
+   "registered_ncc": 0.9979590490209455
+  },
+  {
+   "point": 21,
+   "seed": 7105,
+   "range_m": 30.1524403404923,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9979877579643284,
+   "registered_ncc": 0.9979877579643275
+  },
+  {
+   "point": 23,
+   "seed": 7101,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.12336554311051413,
+   "registered_ncc": 0.5245301800711498
+  },
+  {
+   "point": 23,
+   "seed": 7101,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.31877656858336695,
+   "registered_ncc": 0.9908134569269342
+  },
+  {
+   "point": 23,
+   "seed": 7101,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.36960673684941575,
+   "registered_ncc": 0.9911375820145002
+  },
+  {
+   "point": 23,
+   "seed": 7101,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9912123640807047,
+   "registered_ncc": 0.9912123640807049
+  },
+  {
+   "point": 23,
+   "seed": 7102,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.37773407318376245,
+   "registered_ncc": 0.6335533613042511
+  },
+  {
+   "point": 23,
+   "seed": 7102,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.0031971953312912933,
+   "registered_ncc": 0.9858075101907786
+  },
+  {
+   "point": 23,
+   "seed": 7102,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.6897657745851946,
+   "registered_ncc": 0.9860593661556651
+  },
+  {
+   "point": 23,
+   "seed": 7102,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9862407777175374,
+   "registered_ncc": 0.9862407777175369
+  },
+  {
+   "point": 23,
+   "seed": 7103,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.370046135320182,
+   "registered_ncc": 0.6274091778444658
+  },
+  {
+   "point": 23,
+   "seed": 7103,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.005887549729045529,
+   "registered_ncc": 0.9865181690502357
+  },
+  {
+   "point": 23,
+   "seed": 7103,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.006165785946275688,
+   "registered_ncc": 0.9871363543030587
+  },
+  {
+   "point": 23,
+   "seed": 7103,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9873035534351344,
+   "registered_ncc": 0.9873035534351342
+  },
+  {
+   "point": 23,
+   "seed": 7104,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.37426442866523896,
+   "registered_ncc": 0.7676821308482872
+  },
+  {
+   "point": 23,
+   "seed": 7104,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.00702231225129901,
+   "registered_ncc": 0.9948882818541155
+  },
+  {
+   "point": 23,
+   "seed": 7104,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.014039612324055576,
+   "registered_ncc": 0.9959885448730368
+  },
+  {
+   "point": 23,
+   "seed": 7104,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9961632729658288,
+   "registered_ncc": 0.9961632729658304
+  },
+  {
+   "point": 23,
+   "seed": 7105,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.4928329756718646,
+   "registered_ncc": 0.8340048389187726
+  },
+  {
+   "point": 23,
+   "seed": 7105,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.5525293615438398,
+   "registered_ncc": 0.9981323893411174
+  },
+  {
+   "point": 23,
+   "seed": 7105,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.5855736667850944,
+   "registered_ncc": 0.9982735868668958
+  },
+  {
+   "point": 23,
+   "seed": 7105,
+   "range_m": 66.1323890416894,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9983513093624138,
+   "registered_ncc": 0.9983513093624133
+  },
+  {
+   "point": 25,
+   "seed": 7101,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.6442899182165591,
+   "registered_ncc": 0.8294283437552955
+  },
+  {
+   "point": 25,
+   "seed": 7101,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.7429164275163691,
+   "registered_ncc": 0.9883998207262705
+  },
+  {
+   "point": 25,
+   "seed": 7101,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9882693598578018,
+   "registered_ncc": 0.9882770411832009
+  },
+  {
+   "point": 25,
+   "seed": 7101,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9884049675079182,
+   "registered_ncc": 0.9884049675079185
+  },
+  {
+   "point": 25,
+   "seed": 7102,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.5401839137386476,
+   "registered_ncc": 0.9817474180515952
+  },
+  {
+   "point": 25,
+   "seed": 7102,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.9470878899727145,
+   "registered_ncc": 0.9963873357547095
+  },
+  {
+   "point": 25,
+   "seed": 7102,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9964755210494726,
+   "registered_ncc": 0.9964814126851645
+  },
+  {
+   "point": 25,
+   "seed": 7102,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9965439209540837,
+   "registered_ncc": 0.9965439209540841
+  },
+  {
+   "point": 25,
+   "seed": 7103,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.7096842749894146,
+   "registered_ncc": 0.9058704286039398
+  },
+  {
+   "point": 25,
+   "seed": 7103,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.6419000255589069,
+   "registered_ncc": 0.9833717667585058
+  },
+  {
+   "point": 25,
+   "seed": 7103,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.983267507346385,
+   "registered_ncc": 0.9832962343039328
+  },
+  {
+   "point": 25,
+   "seed": 7103,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9834566803610636,
+   "registered_ncc": 0.9834566803610646
+  },
+  {
+   "point": 25,
+   "seed": 7104,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.6372758909996901,
+   "registered_ncc": 0.7649783913814681
+  },
+  {
+   "point": 25,
+   "seed": 7104,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.9754115552968984,
+   "registered_ncc": 0.9755375346574038
+  },
+  {
+   "point": 25,
+   "seed": 7104,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9755228483831629,
+   "registered_ncc": 0.9755306620166809
+  },
+  {
+   "point": 25,
+   "seed": 7104,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9755601224232726,
+   "registered_ncc": 0.9755601224232721
+  },
+  {
+   "point": 25,
+   "seed": 7105,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.7240329664542655,
+   "registered_ncc": 0.7809466314208512
+  },
+  {
+   "point": 25,
+   "seed": 7105,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.7668400401054177,
+   "registered_ncc": 0.9953424208802057
+  },
+  {
+   "point": 25,
+   "seed": 7105,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9952290752135307,
+   "registered_ncc": 0.9952290752135309
+  },
+  {
+   "point": 25,
+   "seed": 7105,
+   "range_m": 19.2641235197548,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9953511505200913,
+   "registered_ncc": 0.9953511505200908
+  },
+  {
+   "point": 26,
+   "seed": 7101,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.3942556851210487,
+   "registered_ncc": 0.5540107671044813
+  },
+  {
+   "point": 26,
+   "seed": 7101,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.011153365440103721,
+   "registered_ncc": 0.9976339634809295
+  },
+  {
+   "point": 26,
+   "seed": 7101,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.6716314242562214,
+   "registered_ncc": 0.997646183144287
+  },
+  {
+   "point": 26,
+   "seed": 7101,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9976704383636648,
+   "registered_ncc": 0.9976704383636646
+  },
+  {
+   "point": 26,
+   "seed": 7102,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.04704162199426074,
+   "registered_ncc": 0.5495699600057156
+  },
+  {
+   "point": 26,
+   "seed": 7102,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.003674309259598006,
+   "registered_ncc": 0.979660901773211
+  },
+  {
+   "point": 26,
+   "seed": 7102,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.057577126932044885,
+   "registered_ncc": 0.9797458114476232
+  },
+  {
+   "point": 26,
+   "seed": 7102,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9797730131396988,
+   "registered_ncc": 0.9797730131397
+  },
+  {
+   "point": 26,
+   "seed": 7103,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.22834073392995585,
+   "registered_ncc": 0.6563026027931586
+  },
+  {
+   "point": 26,
+   "seed": 7103,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.015245815764152584,
+   "registered_ncc": 0.9968648506240195
+  },
+  {
+   "point": 26,
+   "seed": 7103,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.04667178871627491,
+   "registered_ncc": 0.9968202838515571
+  },
+  {
+   "point": 26,
+   "seed": 7103,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9968892416114253,
+   "registered_ncc": 0.9968892416114246
+  },
+  {
+   "point": 26,
+   "seed": 7104,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.3201236255832361,
+   "registered_ncc": 0.5790779331632588
+  },
+  {
+   "point": 26,
+   "seed": 7104,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.8584636202518983,
+   "registered_ncc": 0.9948206676330188
+  },
+  {
+   "point": 26,
+   "seed": 7104,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.8783351782077277,
+   "registered_ncc": 0.9948435495304127
+  },
+  {
+   "point": 26,
+   "seed": 7104,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9949392779811586,
+   "registered_ncc": 0.9949392779811594
+  },
+  {
+   "point": 26,
+   "seed": 7105,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.5499165384982183,
+   "registered_ncc": 0.6739111104013766
+  },
+  {
+   "point": 26,
+   "seed": 7105,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.5642865452991247,
+   "registered_ncc": 0.9828463075578803
+  },
+  {
+   "point": 26,
+   "seed": 7105,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.7693548885816224,
+   "registered_ncc": 0.9830449653071407
+  },
+  {
+   "point": 26,
+   "seed": 7105,
+   "range_m": 78.050904927326,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9830825329309083,
+   "registered_ncc": 0.983082532930908
+  },
+  {
+   "point": 31,
+   "seed": 7101,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.679701822112309,
+   "registered_ncc": 0.9226170449973111
+  },
+  {
+   "point": 31,
+   "seed": 7101,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.4466198700682025,
+   "registered_ncc": 0.984737777381131
+  },
+  {
+   "point": 31,
+   "seed": 7101,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9852793486429158,
+   "registered_ncc": 0.9865363302565041
+  },
+  {
+   "point": 31,
+   "seed": 7101,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9866102240686799,
+   "registered_ncc": 0.9866102240686795
+  },
+  {
+   "point": 31,
+   "seed": 7102,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.7095950062229586,
+   "registered_ncc": 0.8188955480297726
+  },
+  {
+   "point": 31,
+   "seed": 7102,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.9706319981095092,
+   "registered_ncc": 0.9830282225694289
+  },
+  {
+   "point": 31,
+   "seed": 7102,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9794973675293798,
+   "registered_ncc": 0.9829270064923968
+  },
+  {
+   "point": 31,
+   "seed": 7102,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9854796837147869,
+   "registered_ncc": 0.9854796837147866
+  },
+  {
+   "point": 31,
+   "seed": 7103,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.6820915169184895,
+   "registered_ncc": 0.9426686303076631
+  },
+  {
+   "point": 31,
+   "seed": 7103,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.8377626645148106,
+   "registered_ncc": 0.992284044190668
+  },
+  {
+   "point": 31,
+   "seed": 7103,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.992313354513188,
+   "registered_ncc": 0.9942753587774376
+  },
+  {
+   "point": 31,
+   "seed": 7103,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9943419782997848,
+   "registered_ncc": 0.994341978299785
+  },
+  {
+   "point": 31,
+   "seed": 7104,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.08143480334457001,
+   "registered_ncc": 0.9735245532259587
+  },
+  {
+   "point": 31,
+   "seed": 7104,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.02531846995864917,
+   "registered_ncc": 0.9929400616561629
+  },
+  {
+   "point": 31,
+   "seed": 7104,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9951163640075452,
+   "registered_ncc": 0.9953608063275418
+  },
+  {
+   "point": 31,
+   "seed": 7104,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9953669156680907,
+   "registered_ncc": 0.9953669156680914
+  },
+  {
+   "point": 31,
+   "seed": 7105,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.49269043519584516,
+   "registered_ncc": 0.8012417282552544
+  },
+  {
+   "point": 31,
+   "seed": 7105,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.8687703606643501,
+   "registered_ncc": 0.9864159503808935
+  },
+  {
+   "point": 31,
+   "seed": 7105,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9768863574343771,
+   "registered_ncc": 0.984829077261661
+  },
+  {
+   "point": 31,
+   "seed": 7105,
+   "range_m": 24.6637854285175,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9866421249447557,
+   "registered_ncc": 0.9866421249447553
+  },
+  {
+   "point": 33,
+   "seed": 7101,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.7463219409510651,
+   "registered_ncc": 0.7609238361291427
+  },
+  {
+   "point": 33,
+   "seed": 7101,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.9553472411616517,
+   "registered_ncc": 0.9742370463733842
+  },
+  {
+   "point": 33,
+   "seed": 7101,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9775739350267769,
+   "registered_ncc": 0.9994109984556525
+  },
+  {
+   "point": 33,
+   "seed": 7101,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9994326160530461,
+   "registered_ncc": 0.9994326160530471
+  },
+  {
+   "point": 33,
+   "seed": 7102,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.4881365920203247,
+   "registered_ncc": 0.7665850012093204
+  },
+  {
+   "point": 33,
+   "seed": 7102,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.7347028223201771,
+   "registered_ncc": 0.9733823636597063
+  },
+  {
+   "point": 33,
+   "seed": 7102,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9857715312285843,
+   "registered_ncc": 0.9992902404745876
+  },
+  {
+   "point": 33,
+   "seed": 7102,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9993173506476445,
+   "registered_ncc": 0.9993173506476443
+  },
+  {
+   "point": 33,
+   "seed": 7103,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.18623589921974196,
+   "registered_ncc": 0.9370023551792254
+  },
+  {
+   "point": 33,
+   "seed": 7103,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.13705273610656107,
+   "registered_ncc": 0.9730579047915419
+  },
+  {
+   "point": 33,
+   "seed": 7103,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.8332607422728086,
+   "registered_ncc": 0.9846560826312052
+  },
+  {
+   "point": 33,
+   "seed": 7103,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9852808777748814,
+   "registered_ncc": 0.9852808777748804
+  },
+  {
+   "point": 33,
+   "seed": 7104,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.6839991768433209,
+   "registered_ncc": 0.9709615213155782
+  },
+  {
+   "point": 33,
+   "seed": 7104,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.7854884762478735,
+   "registered_ncc": 0.9937613818889119
+  },
+  {
+   "point": 33,
+   "seed": 7104,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.8701240312366345,
+   "registered_ncc": 0.9976773360184964
+  },
+  {
+   "point": 33,
+   "seed": 7104,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9981138182964567,
+   "registered_ncc": 0.998113818296457
+  },
+  {
+   "point": 33,
+   "seed": 7105,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.7358646558975797,
+   "registered_ncc": 0.9107567855267636
+  },
+  {
+   "point": 33,
+   "seed": 7105,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.855978371398186,
+   "registered_ncc": 0.9722900883176291
+  },
+  {
+   "point": 33,
+   "seed": 7105,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9445775155378455,
+   "registered_ncc": 0.983156168036438
+  },
+  {
+   "point": 33,
+   "seed": 7105,
+   "range_m": 25.5289466190343,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9831915038552388,
+   "registered_ncc": 0.9831915038552381
+  },
+  {
+   "point": 35,
+   "seed": 7101,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.7320976312481662,
+   "registered_ncc": 0.8620328241313808
+  },
+  {
+   "point": 35,
+   "seed": 7101,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.8665070305864991,
+   "registered_ncc": 0.9960915966739323
+  },
+  {
+   "point": 35,
+   "seed": 7101,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.8716558536040815,
+   "registered_ncc": 0.9960329708789527
+  },
+  {
+   "point": 35,
+   "seed": 7101,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9961078229962099,
+   "registered_ncc": 0.9961078229962091
+  },
+  {
+   "point": 35,
+   "seed": 7102,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.7483056445093973,
+   "registered_ncc": 0.772500140198985
+  },
+  {
+   "point": 35,
+   "seed": 7102,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.5460454757686876,
+   "registered_ncc": 0.9948373446247671
+  },
+  {
+   "point": 35,
+   "seed": 7102,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.8912806913249071,
+   "registered_ncc": 0.9947315372902893
+  },
+  {
+   "point": 35,
+   "seed": 7102,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9948407179236965,
+   "registered_ncc": 0.9948407179236975
+  },
+  {
+   "point": 35,
+   "seed": 7103,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.5141816456079746,
+   "registered_ncc": 0.7411555255709816
+  },
+  {
+   "point": 35,
+   "seed": 7103,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.33152280108487814,
+   "registered_ncc": 0.9986916580860354
+  },
+  {
+   "point": 35,
+   "seed": 7103,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.35061452192743364,
+   "registered_ncc": 0.9984656179280974
+  },
+  {
+   "point": 35,
+   "seed": 7103,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9987102527200318,
+   "registered_ncc": 0.998710252720032
+  },
+  {
+   "point": 35,
+   "seed": 7104,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.2972776441903237,
+   "registered_ncc": 0.7424443456680105
+  },
+  {
+   "point": 35,
+   "seed": 7104,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.35623327119286163,
+   "registered_ncc": 0.9991341173988323
+  },
+  {
+   "point": 35,
+   "seed": 7104,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.9851366978443615,
+   "registered_ncc": 0.9991024419904054
+  },
+  {
+   "point": 35,
+   "seed": 7104,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9991429701494763,
+   "registered_ncc": 0.9991429701494758
+  },
+  {
+   "point": 35,
+   "seed": 7105,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.2510619914343978,
+   "registered_ncc": 0.7170855852929278
+  },
+  {
+   "point": 35,
+   "seed": 7105,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.33465497432255303,
+   "registered_ncc": 0.9721312647409716
+  },
+  {
+   "point": 35,
+   "seed": 7105,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.35556281300472853,
+   "registered_ncc": 0.9718746654979991
+  },
+  {
+   "point": 35,
+   "seed": 7105,
+   "range_m": 40.5881221772777,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9721387276871508,
+   "registered_ncc": 0.9721387276871505
+  },
+  {
+   "point": 37,
+   "seed": 7101,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.7806276404326353,
+   "registered_ncc": 0.9857664157793862
+  },
+  {
+   "point": 37,
+   "seed": 7101,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.7689643995867806,
+   "registered_ncc": 0.9977642801839492
+  },
+  {
+   "point": 37,
+   "seed": 7101,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9941466024073166,
+   "registered_ncc": 0.9994796356583392
+  },
+  {
+   "point": 37,
+   "seed": 7101,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9998019118062049,
+   "registered_ncc": 0.9998019118062053
+  },
+  {
+   "point": 37,
+   "seed": 7102,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.8230816626079187,
+   "registered_ncc": 0.8895094324245262
+  },
+  {
+   "point": 37,
+   "seed": 7102,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.9761722041626297,
+   "registered_ncc": 0.9933535432671682
+  },
+  {
+   "point": 37,
+   "seed": 7102,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9924844700846748,
+   "registered_ncc": 0.9935389987448903
+  },
+  {
+   "point": 37,
+   "seed": 7102,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9935800271667746,
+   "registered_ncc": 0.9935800271667741
+  },
+  {
+   "point": 37,
+   "seed": 7103,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.3441905917742129,
+   "registered_ncc": 0.7213685205644251
+  },
+  {
+   "point": 37,
+   "seed": 7103,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.7699029775089573,
+   "registered_ncc": 0.9840190959100689
+  },
+  {
+   "point": 37,
+   "seed": 7103,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9814272194592022,
+   "registered_ncc": 0.9825753078636842
+  },
+  {
+   "point": 37,
+   "seed": 7103,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9845195213018364,
+   "registered_ncc": 0.9845195213018364
+  },
+  {
+   "point": 37,
+   "seed": 7104,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.2981685716912323,
+   "registered_ncc": 0.9659534104863857
+  },
+  {
+   "point": 37,
+   "seed": 7104,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.2148646672354069,
+   "registered_ncc": 0.9835131383503674
+  },
+  {
+   "point": 37,
+   "seed": 7104,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9807138051497224,
+   "registered_ncc": 0.984727928592845
+  },
+  {
+   "point": 37,
+   "seed": 7104,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.984997203069955,
+   "registered_ncc": 0.9849972030699553
+  },
+  {
+   "point": 37,
+   "seed": 7105,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.8139174032166407,
+   "registered_ncc": 0.9550351384000727
+  },
+  {
+   "point": 37,
+   "seed": 7105,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.8094472649289117,
+   "registered_ncc": 0.9854729266086211
+  },
+  {
+   "point": 37,
+   "seed": 7105,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9819155351214998,
+   "registered_ncc": 0.9859804830397696
+  },
+  {
+   "point": 37,
+   "seed": 7105,
+   "range_m": 24.5839675621368,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9867705084805153,
+   "registered_ncc": 0.9867705084805162
+  },
+  {
+   "point": 38,
+   "seed": 7101,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.19978659592696849,
+   "registered_ncc": 0.6707405294928053
+  },
+  {
+   "point": 38,
+   "seed": 7101,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.006680485161941329,
+   "registered_ncc": 0.9944982183782266
+  },
+  {
+   "point": 38,
+   "seed": 7101,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.06277910537550344,
+   "registered_ncc": 0.9957678430037359
+  },
+  {
+   "point": 38,
+   "seed": 7101,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9958426335383553,
+   "registered_ncc": 0.995842633538355
+  },
+  {
+   "point": 38,
+   "seed": 7102,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.28629238907349813,
+   "registered_ncc": 0.6096508897395221
+  },
+  {
+   "point": 38,
+   "seed": 7102,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.5689335401152239,
+   "registered_ncc": 0.9819994732614726
+  },
+  {
+   "point": 38,
+   "seed": 7102,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.6585854916828024,
+   "registered_ncc": 0.9827723514899541
+  },
+  {
+   "point": 38,
+   "seed": 7102,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9828607776456891,
+   "registered_ncc": 0.9828607776456894
+  },
+  {
+   "point": 38,
+   "seed": 7103,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.161274608441177,
+   "registered_ncc": 0.6438944446264047
+  },
+  {
+   "point": 38,
+   "seed": 7103,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.02271546557031112,
+   "registered_ncc": 0.9759403280187419
+  },
+  {
+   "point": 38,
+   "seed": 7103,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.15919896728388302,
+   "registered_ncc": 0.9770234036830163
+  },
+  {
+   "point": 38,
+   "seed": 7103,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9771301056930799,
+   "registered_ncc": 0.9771301056930799
+  },
+  {
+   "point": 38,
+   "seed": 7104,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.4051987732018645,
+   "registered_ncc": 0.6984141128890279
+  },
+  {
+   "point": 38,
+   "seed": 7104,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.24828473458967842,
+   "registered_ncc": 0.9794779574118809
+  },
+  {
+   "point": 38,
+   "seed": 7104,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.3262139385297334,
+   "registered_ncc": 0.9802670261900934
+  },
+  {
+   "point": 38,
+   "seed": 7104,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9804026756852134,
+   "registered_ncc": 0.9804026756852124
+  },
+  {
+   "point": 38,
+   "seed": 7105,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.3687980612404765,
+   "registered_ncc": 0.6618989734222294
+  },
+  {
+   "point": 38,
+   "seed": 7105,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.6972982401829151,
+   "registered_ncc": 0.9946017636087604
+  },
+  {
+   "point": 38,
+   "seed": 7105,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.6737153269079922,
+   "registered_ncc": 0.9946487276175793
+  },
+  {
+   "point": 38,
+   "seed": 7105,
+   "range_m": 66.7533077346428,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9946594855268648,
+   "registered_ncc": 0.9946594855268642
+  },
+  {
+   "point": 40,
+   "seed": 7101,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.1701076308017381,
+   "registered_ncc": 0.6748311446625073
+  },
+  {
+   "point": 40,
+   "seed": 7101,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.019911462281992656,
+   "registered_ncc": 0.9977778396255824
+  },
+  {
+   "point": 40,
+   "seed": 7101,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.12434539660930238,
+   "registered_ncc": 0.9976555146649069
+  },
+  {
+   "point": 40,
+   "seed": 7101,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9979866942525999,
+   "registered_ncc": 0.9979866942526006
+  },
+  {
+   "point": 40,
+   "seed": 7102,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.4293484213339219,
+   "registered_ncc": 0.6763685242053251
+  },
+  {
+   "point": 40,
+   "seed": 7102,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.20922729647164914,
+   "registered_ncc": 0.9841107407868747
+  },
+  {
+   "point": 40,
+   "seed": 7102,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.5368941176258848,
+   "registered_ncc": 0.9838631254004366
+  },
+  {
+   "point": 40,
+   "seed": 7102,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9844325044444395,
+   "registered_ncc": 0.9844325044444394
+  },
+  {
+   "point": 40,
+   "seed": 7103,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.17322349509776264,
+   "registered_ncc": 0.6345828860520027
+  },
+  {
+   "point": 40,
+   "seed": 7103,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.2286210753298854,
+   "registered_ncc": 0.9699911696172905
+  },
+  {
+   "point": 40,
+   "seed": 7103,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.9234079810522842,
+   "registered_ncc": 0.9702838899596171
+  },
+  {
+   "point": 40,
+   "seed": 7103,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9708687915357272,
+   "registered_ncc": 0.9708687915357278
+  },
+  {
+   "point": 40,
+   "seed": 7104,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.21079451486665077,
+   "registered_ncc": 0.6132541299144806
+  },
+  {
+   "point": 40,
+   "seed": 7104,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.02935272825053553,
+   "registered_ncc": 0.9851326793927451
+  },
+  {
+   "point": 40,
+   "seed": 7104,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.1316240214149057,
+   "registered_ncc": 0.9850909134811776
+  },
+  {
+   "point": 40,
+   "seed": 7104,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9854433712237174,
+   "registered_ncc": 0.9854433712237177
+  },
+  {
+   "point": 40,
+   "seed": 7105,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.532710145058837,
+   "registered_ncc": 0.655346630079816
+  },
+  {
+   "point": 40,
+   "seed": 7105,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.7334043897276628,
+   "registered_ncc": 0.9949865097060414
+  },
+  {
+   "point": 40,
+   "seed": 7105,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.5975795056724399,
+   "registered_ncc": 0.9947612917149459
+  },
+  {
+   "point": 40,
+   "seed": 7105,
+   "range_m": 64.5181691529424,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9953327820342545,
+   "registered_ncc": 0.9953327820342542
+  },
+  {
+   "point": 41,
+   "seed": 7101,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.4587836127521387,
+   "registered_ncc": 0.7365067841007868
+  },
+  {
+   "point": 41,
+   "seed": 7101,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.08435176743417956,
+   "registered_ncc": 0.9977173919946775
+  },
+  {
+   "point": 41,
+   "seed": 7101,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.9914559110632944,
+   "registered_ncc": 0.9973492609300527
+  },
+  {
+   "point": 41,
+   "seed": 7101,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9977735825752363,
+   "registered_ncc": 0.9977735825752365
+  },
+  {
+   "point": 41,
+   "seed": 7102,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.31801435690830826,
+   "registered_ncc": 0.6652257974638535
+  },
+  {
+   "point": 41,
+   "seed": 7102,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.08139610682185942,
+   "registered_ncc": 0.9768699839323687
+  },
+  {
+   "point": 41,
+   "seed": 7102,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.9747733653388723,
+   "registered_ncc": 0.977154889582118
+  },
+  {
+   "point": 41,
+   "seed": 7102,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9772076623417606,
+   "registered_ncc": 0.9772076623417595
+  },
+  {
+   "point": 41,
+   "seed": 7103,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.12178218585680581,
+   "registered_ncc": 0.7677839868253539
+  },
+  {
+   "point": 41,
+   "seed": 7103,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.3299631361383007,
+   "registered_ncc": 0.996480604328232
+  },
+  {
+   "point": 41,
+   "seed": 7103,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.9960302795718003,
+   "registered_ncc": 0.9969069646804295
+  },
+  {
+   "point": 41,
+   "seed": 7103,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9969188685546879,
+   "registered_ncc": 0.9969188685546884
+  },
+  {
+   "point": 41,
+   "seed": 7104,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.30148164722799625,
+   "registered_ncc": 0.7729737304265797
+  },
+  {
+   "point": 41,
+   "seed": 7104,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.008612632415530704,
+   "registered_ncc": 0.9955353811193176
+  },
+  {
+   "point": 41,
+   "seed": 7104,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.9889553212397906,
+   "registered_ncc": 0.9954681206178029
+  },
+  {
+   "point": 41,
+   "seed": 7104,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9956171399822579,
+   "registered_ncc": 0.9956171399822571
+  },
+  {
+   "point": 41,
+   "seed": 7105,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.8164911082682804,
+   "registered_ncc": 0.8728682375507001
+  },
+  {
+   "point": 41,
+   "seed": 7105,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.9671451002020776,
+   "registered_ncc": 0.9814611037189981
+  },
+  {
+   "point": 41,
+   "seed": 7105,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.9783003798113475,
+   "registered_ncc": 0.9814791934190329
+  },
+  {
+   "point": 41,
+   "seed": 7105,
+   "range_m": 36.0188451765247,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9819414095799338,
+   "registered_ncc": 0.9819414095799331
+  },
+  {
+   "point": 42,
+   "seed": 7101,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.1236456187330599,
+   "registered_ncc": 0.7560880337787611
+  },
+  {
+   "point": 42,
+   "seed": 7101,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.15147252414346185,
+   "registered_ncc": 0.9931032642292219
+  },
+  {
+   "point": 42,
+   "seed": 7101,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.15988466034416873,
+   "registered_ncc": 0.993071807694138
+  },
+  {
+   "point": 42,
+   "seed": 7101,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9931206840228588,
+   "registered_ncc": 0.9931206840228584
+  },
+  {
+   "point": 42,
+   "seed": 7102,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.016592961940037034,
+   "registered_ncc": 0.83090564213728
+  },
+  {
+   "point": 42,
+   "seed": 7102,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.03377911734831595,
+   "registered_ncc": 0.9885741558147909
+  },
+  {
+   "point": 42,
+   "seed": 7102,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.04066767702240285,
+   "registered_ncc": 0.9885401455652446
+  },
+  {
+   "point": 42,
+   "seed": 7102,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9885983046206839,
+   "registered_ncc": 0.9885983046206838
+  },
+  {
+   "point": 42,
+   "seed": 7103,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.350743768683035,
+   "registered_ncc": 0.5818397099988816
+  },
+  {
+   "point": 42,
+   "seed": 7103,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.7212191165569078,
+   "registered_ncc": 0.9775521294885129
+  },
+  {
+   "point": 42,
+   "seed": 7103,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.72416317129213,
+   "registered_ncc": 0.9775571890221652
+  },
+  {
+   "point": 42,
+   "seed": 7103,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9775720097809701,
+   "registered_ncc": 0.9775720097809708
+  },
+  {
+   "point": 42,
+   "seed": 7104,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.674755371393005,
+   "registered_ncc": 0.7001227758447831
+  },
+  {
+   "point": 42,
+   "seed": 7104,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.9069565706317624,
+   "registered_ncc": 0.9759455635449421
+  },
+  {
+   "point": 42,
+   "seed": 7104,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.9079772119501178,
+   "registered_ncc": 0.9759412053869456
+  },
+  {
+   "point": 42,
+   "seed": 7104,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9759694919598108,
+   "registered_ncc": 0.9759694919598115
+  },
+  {
+   "point": 42,
+   "seed": 7105,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.21840773646753076,
+   "registered_ncc": 0.7231460619329275
+  },
+  {
+   "point": 42,
+   "seed": 7105,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.5937775346520416,
+   "registered_ncc": 0.9935221708677792
+  },
+  {
+   "point": 42,
+   "seed": 7105,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.5981339823790323,
+   "registered_ncc": 0.9934805020383556
+  },
+  {
+   "point": 42,
+   "seed": 7105,
+   "range_m": 48.7818739983624,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9935267121980025,
+   "registered_ncc": 0.9935267121980029
+  },
+  {
+   "point": 43,
+   "seed": 7101,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.6563590699467939,
+   "registered_ncc": 0.7625608356236491
+  },
+  {
+   "point": 43,
+   "seed": 7101,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.9526547411436175,
+   "registered_ncc": 0.9803384986420871
+  },
+  {
+   "point": 43,
+   "seed": 7101,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9802481267129229,
+   "registered_ncc": 0.9807382016700871
+  },
+  {
+   "point": 43,
+   "seed": 7101,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9812722572372464,
+   "registered_ncc": 0.9812722572372465
+  },
+  {
+   "point": 43,
+   "seed": 7102,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.3808915442018564,
+   "registered_ncc": 0.887867772789777
+  },
+  {
+   "point": 43,
+   "seed": 7102,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.43348162721835704,
+   "registered_ncc": 0.9940492081712425
+  },
+  {
+   "point": 43,
+   "seed": 7102,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9938626919805306,
+   "registered_ncc": 0.9942223842850415
+  },
+  {
+   "point": 43,
+   "seed": 7102,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9946186592979914,
+   "registered_ncc": 0.994618659297991
+  },
+  {
+   "point": 43,
+   "seed": 7103,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.6192875138418154,
+   "registered_ncc": 0.7440648453480885
+  },
+  {
+   "point": 43,
+   "seed": 7103,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.5244434567071239,
+   "registered_ncc": 0.9808328596304953
+  },
+  {
+   "point": 43,
+   "seed": 7103,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9953347075679049,
+   "registered_ncc": 0.9973843641674369
+  },
+  {
+   "point": 43,
+   "seed": 7103,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9979377716083551,
+   "registered_ncc": 0.9979377716083542
+  },
+  {
+   "point": 43,
+   "seed": 7104,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.443640987259975,
+   "registered_ncc": 0.7932431432143306
+  },
+  {
+   "point": 43,
+   "seed": 7104,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.3125083325353924,
+   "registered_ncc": 0.9615147313144252
+  },
+  {
+   "point": 43,
+   "seed": 7104,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9907702742195668,
+   "registered_ncc": 0.9908219255298304
+  },
+  {
+   "point": 43,
+   "seed": 7104,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.991239117085609,
+   "registered_ncc": 0.9912391170856084
+  },
+  {
+   "point": 43,
+   "seed": 7105,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.5192971200907902,
+   "registered_ncc": 0.8303647363933117
+  },
+  {
+   "point": 43,
+   "seed": 7105,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.533948946867711,
+   "registered_ncc": 0.9973066335880935
+  },
+  {
+   "point": 43,
+   "seed": 7105,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9971662525666147,
+   "registered_ncc": 0.9971817271744031
+  },
+  {
+   "point": 43,
+   "seed": 7105,
+   "range_m": 28.3825809892408,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9977149418858836,
+   "registered_ncc": 0.997714941885884
+  },
+  {
+   "point": 47,
+   "seed": 7101,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.6193967402401913,
+   "registered_ncc": 0.8457711254443876
+  },
+  {
+   "point": 47,
+   "seed": 7101,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.8249839566491469,
+   "registered_ncc": 0.9987668398085383
+  },
+  {
+   "point": 47,
+   "seed": 7101,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.8320911567567607,
+   "registered_ncc": 0.9985958701150693
+  },
+  {
+   "point": 47,
+   "seed": 7101,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9987687971980035,
+   "registered_ncc": 0.9987687971980029
+  },
+  {
+   "point": 47,
+   "seed": 7102,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.11119302577090484,
+   "registered_ncc": 0.6907742360836551
+  },
+  {
+   "point": 47,
+   "seed": 7102,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.5288638760230564,
+   "registered_ncc": 0.9957883490952458
+  },
+  {
+   "point": 47,
+   "seed": 7102,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.5467912173537133,
+   "registered_ncc": 0.9954605161961083
+  },
+  {
+   "point": 47,
+   "seed": 7102,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9957908757444986,
+   "registered_ncc": 0.9957908757444991
+  },
+  {
+   "point": 47,
+   "seed": 7103,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.6268653818483131,
+   "registered_ncc": 0.6743924056642189
+  },
+  {
+   "point": 47,
+   "seed": 7103,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.5084613557448444,
+   "registered_ncc": 0.9873475962951774
+  },
+  {
+   "point": 47,
+   "seed": 7103,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.5256434218215132,
+   "registered_ncc": 0.9870794566836796
+  },
+  {
+   "point": 47,
+   "seed": 7103,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9873493567433725,
+   "registered_ncc": 0.9873493567433727
+  },
+  {
+   "point": 47,
+   "seed": 7104,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.26463394191858997,
+   "registered_ncc": 0.8047802522567324
+  },
+  {
+   "point": 47,
+   "seed": 7104,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.14232508589406073,
+   "registered_ncc": 0.9955027868234579
+  },
+  {
+   "point": 47,
+   "seed": 7104,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.7862533748907629,
+   "registered_ncc": 0.9953468003520951
+  },
+  {
+   "point": 47,
+   "seed": 7104,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9955084315321292,
+   "registered_ncc": 0.9955084315321293
+  },
+  {
+   "point": 47,
+   "seed": 7105,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "uncorrected",
+   "ncc": 0.6384415352196681,
+   "registered_ncc": 0.8632333074024804
+  },
+  {
+   "point": 47,
+   "seed": 7105,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "local_gpga",
+   "ncc": 0.896979334425102,
+   "registered_ncc": 0.9852367391386121
+  },
+  {
+   "point": 47,
+   "seed": 7105,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "per_ping_entropy",
+   "ncc": 0.9006256946180059,
+   "registered_ncc": 0.9851312173333602
+  },
+  {
+   "point": 47,
+   "seed": 7105,
+   "range_m": 29.011574359156,
+   "range_bin": 0,
+   "method": "oracle",
+   "ncc": 0.9852453348221664,
+   "registered_ncc": 0.9852453348221661
+  },
+  {
+   "point": 48,
+   "seed": 7101,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.706861270727473,
+   "registered_ncc": 0.7715518405547706
+  },
+  {
+   "point": 48,
+   "seed": 7101,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.6369918467978536,
+   "registered_ncc": 0.9976618198023292
+  },
+  {
+   "point": 48,
+   "seed": 7101,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.5513115203449575,
+   "registered_ncc": 0.9989964321951721
+  },
+  {
+   "point": 48,
+   "seed": 7101,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9992534564616711,
+   "registered_ncc": 0.9992534564616709
+  },
+  {
+   "point": 48,
+   "seed": 7102,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.4246423201983149,
+   "registered_ncc": 0.6994781124748288
+  },
+  {
+   "point": 48,
+   "seed": 7102,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.7939994995438284,
+   "registered_ncc": 0.9815792397505103
+  },
+  {
+   "point": 48,
+   "seed": 7102,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.8812341723011035,
+   "registered_ncc": 0.9834820071786967
+  },
+  {
+   "point": 48,
+   "seed": 7102,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9839120238458926,
+   "registered_ncc": 0.9839120238458938
+  },
+  {
+   "point": 48,
+   "seed": 7103,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.46863495383382553,
+   "registered_ncc": 0.5461923922707603
+  },
+  {
+   "point": 48,
+   "seed": 7103,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.3395625042509203,
+   "registered_ncc": 0.9686740021476843
+  },
+  {
+   "point": 48,
+   "seed": 7103,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.38294643387878147,
+   "registered_ncc": 0.968643283653435
+  },
+  {
+   "point": 48,
+   "seed": 7103,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9691346048602407,
+   "registered_ncc": 0.9691346048602405
+  },
+  {
+   "point": 48,
+   "seed": 7104,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.554879461851181,
+   "registered_ncc": 0.6242620709742402
+  },
+  {
+   "point": 48,
+   "seed": 7104,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.5323082499406329,
+   "registered_ncc": 0.9658940050394382
+  },
+  {
+   "point": 48,
+   "seed": 7104,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.6235505631037733,
+   "registered_ncc": 0.9672020426302596
+  },
+  {
+   "point": 48,
+   "seed": 7104,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9675572091946236,
+   "registered_ncc": 0.9675572091946241
+  },
+  {
+   "point": 48,
+   "seed": 7105,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.45523758261938807,
+   "registered_ncc": 0.6738330712323648
+  },
+  {
+   "point": 48,
+   "seed": 7105,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.6815680895542202,
+   "registered_ncc": 0.9895857177647835
+  },
+  {
+   "point": 48,
+   "seed": 7105,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.6737024023213645,
+   "registered_ncc": 0.9892786001730263
+  },
+  {
+   "point": 48,
+   "seed": 7105,
+   "range_m": 71.5387960389459,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9896344180269024,
+   "registered_ncc": 0.989634418026902
+  },
+  {
+   "point": 49,
+   "seed": 7101,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.5091740370254438,
+   "registered_ncc": 0.7088506736919973
+  },
+  {
+   "point": 49,
+   "seed": 7101,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.5145272284486612,
+   "registered_ncc": 0.9942036520172618
+  },
+  {
+   "point": 49,
+   "seed": 7101,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.9827939497180307,
+   "registered_ncc": 0.99443219119299
+  },
+  {
+   "point": 49,
+   "seed": 7101,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.994525663926327,
+   "registered_ncc": 0.9945256639263268
+  },
+  {
+   "point": 49,
+   "seed": 7102,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.3415425817386405,
+   "registered_ncc": 0.5877074070610977
+  },
+  {
+   "point": 49,
+   "seed": 7102,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.594198341063055,
+   "registered_ncc": 0.98966150963967
+  },
+  {
+   "point": 49,
+   "seed": 7102,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.9895028993214746,
+   "registered_ncc": 0.9906253734605973
+  },
+  {
+   "point": 49,
+   "seed": 7102,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.99072777306929,
+   "registered_ncc": 0.9907277730692893
+  },
+  {
+   "point": 49,
+   "seed": 7103,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.3665080284918084,
+   "registered_ncc": 0.6553187841759346
+  },
+  {
+   "point": 49,
+   "seed": 7103,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.12570678651951414,
+   "registered_ncc": 0.9969500506399283
+  },
+  {
+   "point": 49,
+   "seed": 7103,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.9086693878532158,
+   "registered_ncc": 0.9978530824094524
+  },
+  {
+   "point": 49,
+   "seed": 7103,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9979892905813291,
+   "registered_ncc": 0.9979892905813293
+  },
+  {
+   "point": 49,
+   "seed": 7104,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.09505785689930406,
+   "registered_ncc": 0.7357354465235053
+  },
+  {
+   "point": 49,
+   "seed": 7104,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.007860077847798295,
+   "registered_ncc": 0.9974832272735087
+  },
+  {
+   "point": 49,
+   "seed": 7104,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.8055811615978363,
+   "registered_ncc": 0.9985070773889427
+  },
+  {
+   "point": 49,
+   "seed": 7104,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9986200014036568,
+   "registered_ncc": 0.9986200014036568
+  },
+  {
+   "point": 49,
+   "seed": 7105,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.28629321156571463,
+   "registered_ncc": 0.6678373303646365
+  },
+  {
+   "point": 49,
+   "seed": 7105,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.315553124402173,
+   "registered_ncc": 0.9745763020966703
+  },
+  {
+   "point": 49,
+   "seed": 7105,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.8530563454889821,
+   "registered_ncc": 0.9754212341678348
+  },
+  {
+   "point": 49,
+   "seed": 7105,
+   "range_m": 56.5485923163679,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9755218764998687,
+   "registered_ncc": 0.9755218764998697
+  },
+  {
+   "point": 55,
+   "seed": 7101,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.5228007359945818,
+   "registered_ncc": 0.5605945151690078
+  },
+  {
+   "point": 55,
+   "seed": 7101,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.5631665136981888,
+   "registered_ncc": 0.9841457286596437
+  },
+  {
+   "point": 55,
+   "seed": 7101,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.8717519148096031,
+   "registered_ncc": 0.9840793233357177
+  },
+  {
+   "point": 55,
+   "seed": 7101,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9841827555717739,
+   "registered_ncc": 0.9841827555717745
+  },
+  {
+   "point": 55,
+   "seed": 7102,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.1524609506736345,
+   "registered_ncc": 0.6454495026589321
+  },
+  {
+   "point": 55,
+   "seed": 7102,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.005375180313576911,
+   "registered_ncc": 0.9843571484976502
+  },
+  {
+   "point": 55,
+   "seed": 7102,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.012805427255688659,
+   "registered_ncc": 0.9843911541943923
+  },
+  {
+   "point": 55,
+   "seed": 7102,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9844194337728098,
+   "registered_ncc": 0.9844194337728104
+  },
+  {
+   "point": 55,
+   "seed": 7103,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.41632238981833103,
+   "registered_ncc": 0.6708150254652907
+  },
+  {
+   "point": 55,
+   "seed": 7103,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.3254119748650124,
+   "registered_ncc": 0.99696781428336
+  },
+  {
+   "point": 55,
+   "seed": 7103,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.3266271291953874,
+   "registered_ncc": 0.9969441709289694
+  },
+  {
+   "point": 55,
+   "seed": 7103,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9969701803470733,
+   "registered_ncc": 0.9969701803470733
+  },
+  {
+   "point": 55,
+   "seed": 7104,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.6745440317968766,
+   "registered_ncc": 0.7382664317707296
+  },
+  {
+   "point": 55,
+   "seed": 7104,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.9655710997690492,
+   "registered_ncc": 0.993479169880963
+  },
+  {
+   "point": 55,
+   "seed": 7104,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.9656148189972424,
+   "registered_ncc": 0.9934582910000017
+  },
+  {
+   "point": 55,
+   "seed": 7104,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9935409097354743,
+   "registered_ncc": 0.9935409097354744
+  },
+  {
+   "point": 55,
+   "seed": 7105,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.19737841384085622,
+   "registered_ncc": 0.75992519749815
+  },
+  {
+   "point": 55,
+   "seed": 7105,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.1867800262079717,
+   "registered_ncc": 0.9955614412579753
+  },
+  {
+   "point": 55,
+   "seed": 7105,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.18792265841958816,
+   "registered_ncc": 0.995533422416847
+  },
+  {
+   "point": 55,
+   "seed": 7105,
+   "range_m": 75.7547529650311,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.995569670051247,
+   "registered_ncc": 0.9955696700512464
+  },
+  {
+   "point": 56,
+   "seed": 7101,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.739197179987666,
+   "registered_ncc": 0.7427050508696669
+  },
+  {
+   "point": 56,
+   "seed": 7101,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.7692242766709932,
+   "registered_ncc": 0.9990897052348663
+  },
+  {
+   "point": 56,
+   "seed": 7101,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.7781289748506499,
+   "registered_ncc": 0.9989074090540406
+  },
+  {
+   "point": 56,
+   "seed": 7101,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9990973566840532,
+   "registered_ncc": 0.9990973566840531
+  },
+  {
+   "point": 56,
+   "seed": 7102,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.8531689399881709,
+   "registered_ncc": 0.8848783492603749
+  },
+  {
+   "point": 56,
+   "seed": 7102,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.9730335330905292,
+   "registered_ncc": 0.9799834030751019
+  },
+  {
+   "point": 56,
+   "seed": 7102,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.9730356583007856,
+   "registered_ncc": 0.9798962820847449
+  },
+  {
+   "point": 56,
+   "seed": 7102,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9799834606049854,
+   "registered_ncc": 0.9799834606049855
+  },
+  {
+   "point": 56,
+   "seed": 7103,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.38383638706371126,
+   "registered_ncc": 0.8081194516239917
+  },
+  {
+   "point": 56,
+   "seed": 7103,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.030074401513631176,
+   "registered_ncc": 0.9674976530360963
+  },
+  {
+   "point": 56,
+   "seed": 7103,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.030923681118625593,
+   "registered_ncc": 0.967383678220682
+  },
+  {
+   "point": 56,
+   "seed": 7103,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.967506555410054,
+   "registered_ncc": 0.9675065554100538
+  },
+  {
+   "point": 56,
+   "seed": 7104,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.2795600186766318,
+   "registered_ncc": 0.7701494085427072
+  },
+  {
+   "point": 56,
+   "seed": 7104,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.6281900613470741,
+   "registered_ncc": 0.9703412378812492
+  },
+  {
+   "point": 56,
+   "seed": 7104,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.6401616535939371,
+   "registered_ncc": 0.9701094322549105
+  },
+  {
+   "point": 56,
+   "seed": 7104,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9703458538941416,
+   "registered_ncc": 0.9703458538941413
+  },
+  {
+   "point": 56,
+   "seed": 7105,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "uncorrected",
+   "ncc": 0.5599300920873841,
+   "registered_ncc": 0.8840819699470409
+  },
+  {
+   "point": 56,
+   "seed": 7105,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "local_gpga",
+   "ncc": 0.7154595126726756,
+   "registered_ncc": 0.9927215660868055
+  },
+  {
+   "point": 56,
+   "seed": 7105,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "per_ping_entropy",
+   "ncc": 0.7260872103514693,
+   "registered_ncc": 0.9925181896529602
+  },
+  {
+   "point": 56,
+   "seed": 7105,
+   "range_m": 38.790618493568,
+   "range_bin": 1,
+   "method": "oracle",
+   "ncc": 0.9927290643764393,
+   "registered_ncc": 0.9927290643764388
+  },
+  {
+   "point": 59,
+   "seed": 7101,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.23427551114013068,
+   "registered_ncc": 0.7031493003874247
+  },
+  {
+   "point": 59,
+   "seed": 7101,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.008855877427778441,
+   "registered_ncc": 0.9967291123130291
+  },
+  {
+   "point": 59,
+   "seed": 7101,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.011182888128017356,
+   "registered_ncc": 0.9966327977840566
+  },
+  {
+   "point": 59,
+   "seed": 7101,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.996735283531064,
+   "registered_ncc": 0.9967352835310641
+  },
+  {
+   "point": 59,
+   "seed": 7102,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.3650597218616868,
+   "registered_ncc": 0.6098374246870925
+  },
+  {
+   "point": 59,
+   "seed": 7102,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.5946615882915194,
+   "registered_ncc": 0.9810748883892322
+  },
+  {
+   "point": 59,
+   "seed": 7102,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.5940879157508877,
+   "registered_ncc": 0.9810529593232811
+  },
+  {
+   "point": 59,
+   "seed": 7102,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9810846534421973,
+   "registered_ncc": 0.9810846534421973
+  },
+  {
+   "point": 59,
+   "seed": 7103,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.14640159909048772,
+   "registered_ncc": 0.6792127517452292
+  },
+  {
+   "point": 59,
+   "seed": 7103,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.022015536186497927,
+   "registered_ncc": 0.976628644919569
+  },
+  {
+   "point": 59,
+   "seed": 7103,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.8436066703053923,
+   "registered_ncc": 0.9766083383614682
+  },
+  {
+   "point": 59,
+   "seed": 7103,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.97663418025927,
+   "registered_ncc": 0.9766341802592713
+  },
+  {
+   "point": 59,
+   "seed": 7104,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.3691032120881891,
+   "registered_ncc": 0.7886877574219666
+  },
+  {
+   "point": 59,
+   "seed": 7104,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.4191901335262384,
+   "registered_ncc": 0.98126926970009
+  },
+  {
+   "point": 59,
+   "seed": 7104,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.421699146509034,
+   "registered_ncc": 0.9812548494438073
+  },
+  {
+   "point": 59,
+   "seed": 7104,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9812705590175727,
+   "registered_ncc": 0.9812705590175723
+  },
+  {
+   "point": 59,
+   "seed": 7105,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "uncorrected",
+   "ncc": 0.4969681572487701,
+   "registered_ncc": 0.6593127437350991
+  },
+  {
+   "point": 59,
+   "seed": 7105,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "local_gpga",
+   "ncc": 0.7310382711138667,
+   "registered_ncc": 0.9951139813382873
+  },
+  {
+   "point": 59,
+   "seed": 7105,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "per_ping_entropy",
+   "ncc": 0.7301540846007085,
+   "registered_ncc": 0.9951113405144836
+  },
+  {
+   "point": 59,
+   "seed": 7105,
+   "range_m": 59.4232902292075,
+   "range_bin": 2,
+   "method": "oracle",
+   "ncc": 0.9951167022129515,
+   "registered_ncc": 0.9951167022129508
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "python": "3.13.18",
+ "platform": "Linux-6.18.44-fc-v310-x86_64-with-glibc2.39",
+ "cpu": "Intel Xeon @ 2.10GHz, 2 threads (cloud container), no GPU",
+ "packages": {
+  "torch": "2.15.0+cpu",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "numba": "0.68.1"
+ },
+ "training": {
+  "steps": 3000,
+  "batch": 12,
+  "parameters": 412482,
+  "seconds": 3829.390465653,
+  "note": "wall time includes validation passes and a period shared with test-cache generation"
+ }
+}
