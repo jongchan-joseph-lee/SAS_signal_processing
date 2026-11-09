@@ -1,29 +1,51 @@
-# SAS Signal Processing
+# Synthetic Aperture Sonar Imaging and Navigation-Error Sensitivity
 
-공개 합성개구 소나(Synthetic Aperture Sonar, SAS) 시뮬레이션 자료(PoSSM)의 원시 신호(raw IQ)로 영상 형성과 항법 오차 보정을 직접 구현하고, 기준 영상과 비교해 처리 단계별로 검증한 프로젝트입니다.
-
-## Overview
-
-- **문제**: 공개 SAS 자료는 대부분 처리된 영상만 제공해 처리 체인 자체를 검증하기 어렵습니다. PoSSM은 원시 신호, 기준 영상(ASASIN SLC), 산란체 · 객체 정답 위치를 함께 제공합니다.
-- **방법**: 정합필터 → 송수신 분리(bistatic) 역투영 → 항법 오차 민감도 분석 → 항법 오차 보정(local GPGA, 핑별 엔트로피 최소화). 보정은 개발용 자료로 조건과 성공 기준을 정한 뒤 시험 자료로 한 번 평가했습니다.
-- **결과**: 수신기 이동을 반영해 산란체 위치 오차를 15.1 mm에서 1.8 mm로 줄였습니다. 좌우 방향 항법 오차 2 mm RMS만으로 영상 일치도(complex NCC)가 0.50까지 떨어졌고, 보정은 NCC를 0.442에서 0.830으로 회복했지만 거리가 멀수록 효과가 줄었습니다(사전 기준 0.90 미달).
+공개 합성개구 소나(Synthetic Aperture Sonar, SAS) 시뮬레이션 자료의 원시 신호(raw IQ)로 영상 형성과 항법 오차 보정을 직접 구현하고, 기준 영상과 비교해 항법 오차의 영향을 측정한 벤치마크
 
 <p align="center"><img src="docs/figures/scene_comparison.png" width="95%" alt="Provided ASASIN SLC, own backprojection, and own backprojection with 2 mm sway error"></p>
 
+## Background
+
+- SAS는 이동하며 수신한 여러 핑을 합성해 고해상도 영상을 만드는 방식으로, SAR에서 발전함 (Hayes & Gough, 2009)
+- 영상 형성의 전제
+  - 송수신 중 플랫폼이 멈춰 있다는 정지 가정(stop-and-hop)은 저속 · 짧은 펄스에서만 성립함 (Hawkins & Gough, 2004)
+  - 핑 간 좌우 위치를 수십 μm 수준으로 알아야 함 → 미세항법(micronavigation)이 필요함 (Bellettini & Pinto, 2002)
+- 항법 오차 보정(autofocus)
+  - 위상 기울기 보정(PGA)이 SAR 위상 보정의 표준으로 쓰임 (Wahl 등, 1994)
+  - 스트립맵 SAS용 PGA가 제안됨. 현장 자료에서는 공간 가변 흐림으로 보정이 어려움 (Callow)
+  - 영상 엔트로피 최소화로 위상 오차를 추정하는 방법이 쓰임 (Xi, Liu & Ni, 1999)
+- 공개 SAS 자료는 대부분 처리된 영상만 제공함 → PoSSM은 원시 신호 · 기준 영상 · 산란체 위치를 함께 제공함 (Philtron, Johnson & Brown)
+
+## Benchmark Setup
+
+| 항목 | 내용 |
+|---|---|
+| 자료 | PoSSM (MGDS) · 11장면 (60 m × 90 m) · 원시 GDF + 기준 영상(ASASIN SLC) · 무잡음 시뮬레이션 |
+| 영상 형성 | 정합필터 → 송수신 분리(bistatic) 역투영, 정지 가정 vs 수신기 이동 반영 |
+| 항법 오차 | 처리용 항적에 진행(surge) · 좌우(sway) 오차와 음속 편향을 넣어 민감도 측정 |
+| 보정 | local GPGA · 핑별 엔트로피 최소화 |
+| 지표 | 산란체 위치 오차(mm) · 기준 영상과의 복소 상관(complex NCC) |
+| 평가 규칙 | 개발용 자료로 조건 · 성공 기준을 정한 뒤 시험 자료로 1회 평가 |
+
 ## Results
 
-| 단계 | 결과 | 사전 기준 |
-|---|---|---|
-| 수신기 이동 반영 | 위치 오차 중앙값 15.1 → 1.8 mm | — |
-| 처리 설정 (Hann + Gaussian) | 기준 영상 NCC 0.672 → 0.875 | — |
-| 항법 오차 민감도 | 좌우 2 mm RMS에서 NCC 0.50 (진행 방향 0.99) | — |
-| 항법 오차 보정 (핑별 엔트로피) | NCC 0.442 → 0.830 | 0.90 미달, 미채택 |
+| 비교 | 결과 |
+|---|---|
+| 정지 가정 vs 수신기 이동 반영 | 산란체 위치 오차 15.1 → 1.8 mm |
+| 처리 설정 (Hann + Gaussian 창) | 기준 영상 NCC 0.672 → 0.875 |
+| 항법 오차 민감도 (2 mm RMS) | 좌우 NCC 0.50 · 진행 방향 0.99 |
+| 항법 오차 보정 (핑별 엔트로피) | NCC 0.442 → 0.830 (사전 기준 0.90) |
+| 거리별 보정 효과 | NCC 0.977 (15–35 m) → 0.726 (35–55 m) → 0.594 (55–80 m) |
 
-<details>
-<summary>영상 형성 · 처리 설정</summary>
+### 영상 형성
 
 <p align="center"><img src="docs/figures/motion_compensation.png" width="95%" alt="Position error of 24 scatterers with stop-and-hop versus receiver-motion model"></p>
 <p align="center"><sub>정지 가정(stop-and-hop)과 수신기 이동 반영 모델의 위치 오차 (산란체 24개)</sub></p>
+
+- 처리 설정 후 NCC 상승(0.672 → 0.875)은 기준 영상과 창 처리가 비슷해진 결과이며, 영상 품질 향상을 뜻하지는 않음 (진행 방향 3 dB 주엽 폭 24.4 → 26.8 mm)
+
+<details>
+<summary>처리 설정 (보간 · 창 · PSF)</summary>
 
 <p align="center"><img src="docs/figures/window_ablation_dev.png" width="80%" alt="Development-point NCC for interpolation and window settings"></p>
 <p align="center"><sub>개발용 3점에서 보간 배율과 창 설정 비교</sub></p>
@@ -36,16 +58,28 @@
 
 </details>
 
+### 항법 오차 민감도
+
 <p align="center"><img src="docs/figures/navigation_sensitivity.png" width="95%" alt="NCC versus navigation error and sound speed bias"></p>
 <p align="center"><sub>항적 오차(진행 · 좌우 · 동시)와 음속 편향에 따른 영상 일치도 (24점 × 5경로)</sub></p>
+
+- 좌우 방향 오차가 진행 방향 오차보다 영상에 훨씬 민감함 (2 mm RMS에서 NCC 0.50 vs 0.99)
+
+### 항법 오차 보정
 
 <p align="center"><img src="docs/figures/autofocus_by_range.png" width="95%" alt="Autofocus NCC by range band and clean-input protection"></p>
 <p align="center"><sub>거리 구간별 항법 오차 보정 결과</sub></p>
 
+| 거리 | 15–35 m | 35–55 m | 55–80 m |
+|---|---|---|---|
+| 보정 후 NCC | 0.977 | 0.726 | 0.594 |
+
+- 결과 수치: [`results/v2/`](results/v2/), [`results/v3/`](results/v3/) · 사전 고정 조건: [`results/v3/protocol.json`](results/v3/protocol.json) · 보고서: [`report_v3/report.html`](report_v3/report.html)
+
 <details>
 <summary>부록: 객체 탐지 시도 (사전 기준 미달)</summary>
 
-후보 생성 + Random Forest로 시험 4장면 물체 36개 중 9개를 찾았습니다(재현율 0.25, 장면당 오경보 2.75, 사전 기준 0.8 미달).
+- 후보 생성 + Random Forest로 시험 4장면 물체 36개 중 9개 탐지 (재현율 0.25, 장면당 오경보 2.75, 사전 기준 0.8 미달)
 
 <p align="center"><img src="docs/figures/detection_froc.png" width="95%" alt="Point FROC on four test scenes"></p>
 <p align="center"><sub>시험 4장면 점 단위 FROC와 고정 운영점</sub></p>
@@ -55,21 +89,48 @@
 
 </details>
 
-- 처리 설정 후 기준 영상과의 일치도가 오른 것(0.672 → 0.875)은 기준 영상이 비슷한 창 처리를 거쳤을 가능성을 시사하며, 영상 품질이 좋아졌다는 뜻은 아닙니다. 창 적용으로 주엽은 넓어졌습니다(진행 방향 3 dB 폭 24.4 → 26.8 mm).
-- 보정 효과는 거리가 멀수록 줄었습니다: NCC 0.977 (15–35 m), 0.726 (35–55 m), 0.594 (55–80 m).
-- 결과 수치: [`results/v2/`](results/v2/), [`results/v3/`](results/v3/) · 사전 고정 조건: [`results/v3/protocol.json`](results/v3/protocol.json) · 보고서: [`report_v3/report.html`](report_v3/report.html)
+## Takeaways
 
-## Next Steps
+- 수신기 이동 반영\
+  → 정지 가정 대비 위치 오차 약 1/8 (15.1 → 1.8 mm). mm급 영상 형성의 전제 조건
+- 항법 오차의 영향\
+  → 좌우 방향 mm 단위 오차가 영상 품질을 좌우함. 미세항법 정확도 요구(Bellettini & Pinto, 2002)를 수치로 확인
+- 지표 기반 보정\
+  → 근거리에서는 거의 완전 회복(NCC 0.98), 거리가 멀수록 효과 감소
 
-1. 먼 거리(35 m 이상)에서 보정 효과가 줄어드는 원인 분석
-2. 잡음을 넣은 시뮬레이션으로 같은 처리 순서 재평가, 이후 실측 SAS 자료로 확장
-3. 기준 영상과 장면 전체 차이를 만드는 처리 단계(거리별 진폭 규약, 보간, 창) 분리
+## Limitations → Next Steps
+
+- 먼 거리(35 m 이상)에서 보정 효과 감소\
+  → 합성개구 길이 · 신호 대 잡음비 · 공간 가변 오차 요인 분리, 스트립맵 PGA(Callow) 방식 비교
+- 지표 기반 보정의 한계 (연산량 · 파라미터 민감도 · 선명도 지표의 국소해)\
+  → 딥러닝 기반 보정(Gerg & Monga, 2020; 2021)과 같은 자료에서 비교
+- 무잡음 시뮬레이션 한 종류\
+  → 잡음을 넣은 시뮬레이션으로 재평가 후 실측 SAS로 확장. 시뮬레이션 자료의 충실도 문제(Blanford & Williams, 2024) 고려
+- 항법 오차를 원시 신호가 아닌 처리용 항적에 넣어 생성\
+  → 원시 신호 단계에서 항법 오차를 넣은 시뮬레이션으로 검증
+- 기준 영상과의 장면 전체 차이 원인 미분리\
+  → 거리별 진폭 규약 · 보간 · 창 처리를 단계별로 분리 비교
+- 부록 탐지 시험 표본이 작음 (4장면, 물체 36개)\
+  → 장면 · 물체 수를 늘려 재평가
+
+## References
+
+- Bellettini, A., & Pinto, M. A. (2002). Theoretical accuracy of synthetic aperture sonar micronavigation using a displaced phase-center antenna. *IEEE Journal of Oceanic Engineering*, 27(4), 780–789.
+- Blanford, T. E., & Williams, D. P. (2024). Understanding model fidelity for training synthetic aperture sonar image classifiers. *Proc. ICUA 2024*, Institute of Acoustics, 46(1).
+- Callow, H. J. Signal processing for synthetic aperture sonar image enhancement. PhD thesis, University of Canterbury. [ir.canterbury.ac.nz/handle/10092/7140](https://ir.canterbury.ac.nz/handle/10092/7140)
+- Gerg, I. D., & Monga, V. (2020). Deep autofocus for synthetic aperture sonar. [arXiv:2010.15687](https://arxiv.org/abs/2010.15687)
+- Gerg, I. D., & Monga, V. (2021). Real-time, deep synthetic aperture sonar (SAS) autofocus. [arXiv:2103.10312](https://arxiv.org/abs/2103.10312)
+- Hawkins, D. W., & Gough, P. T. (2004). Temporal Doppler effects in SAS. *Proceedings of the Institute of Acoustics*, 26(5).
+- Hayes, M. P., & Gough, P. T. (2009). Synthetic aperture sonar: A review of current status. *IEEE Journal of Oceanic Engineering*, 34(3), 207–224.
+- Philtron, J., Johnson, S., & Brown, D. PoSSM simulated synthetic aperture sonar data. Marine Geoscience Data System. [doi:10.60521/331898](https://doi.org/10.60521/331898)
+- Wahl, D. E., Eichel, P. H., Ghiglia, D. C., & Jakowatz, C. V. (1994). Phase gradient autofocus: A robust tool for high resolution SAR phase correction. *IEEE Transactions on Aerospace and Electronic Systems*, 30(3), 827–835.
+- Xi, L., Liu, G., & Ni, J. (1999). Autofocusing of ISAR images based on entropy minimization. *IEEE Transactions on Aerospace and Electronic Systems*, 35(4), 1240–1252.
 
 ## Dataset
 
-- [PoSSM simulated SAS data package](https://doi.org/10.60521/331898) (Philtron, Johnson & Brown, MGDS, CC BY-NC-SA 3.0 US) — 11장면, 원시 GDF와 복소 기준 영상(SLC)
-- 무잡음 시뮬레이션이며, 장면 속 객체는 통발 · 암석 · 원통입니다(실제 기뢰 아님).
-- 원자료(약 2.4 GB)는 저장소에 포함하지 않으며 실행 시 내려받습니다.
+- [PoSSM simulated SAS data package](https://doi.org/10.60521/331898) (Philtron, Johnson & Brown, MGDS, CC BY-NC-SA 3.0 US): 11장면, 원시 GDF와 복소 기준 영상(SLC)
+- 무잡음 시뮬레이션이며, 장면 속 객체는 통발 · 암석 · 원통임 (실제 기뢰 아님)
+- 원자료(약 2.4 GB)는 저장소에 포함하지 않으며 실행 시 내려받음
 
 ## Getting Started
 
@@ -80,7 +141,8 @@ python src/run_v3.py --download      # 자료 취득부터 보정 · 탐지 · �
 python src/run_v3.py --report-only   # 저장된 결과로 보고서만 다시 생성
 ```
 
-현재 버전은 v3이며 `requirements_v3.txt`를 씁니다(`requirements.txt`는 v1 · v2 재현용). Python 3.12, CPU, RAM 약 10 GB 기준이고, 단계별 실행 방법은 [`docs/README_v3.md`](docs/README_v3.md)에 있습니다.
+- 현재 버전은 v3이며 `requirements_v3.txt`를 씀 (`requirements.txt`는 v1 · v2 재현용)
+- Python 3.12, CPU, RAM 약 10 GB 기준. 단계별 실행 방법은 [`docs/README_v3.md`](docs/README_v3.md)
 
 ## Project Structure
 
@@ -92,12 +154,6 @@ python src/run_v3.py --report-only   # 저장된 결과로 보고서만 다시 �
 | `docs` | 그림, 단계별 상세 문서 |
 | `references` | 자료 설명서, 객체 위치표 |
 
-## Limitations
-
-- 무잡음 시뮬레이션 자료 한 종류의 결과입니다. 실측 SAS, 잡음 환경, 실제 기뢰는 다루지 않았습니다.
-- 항법 오차는 원시 신호가 아닌 처리용 가정 항적을 바꿔 만들었습니다.
-- 부록의 탐지 시험은 4장면 36개 객체로 표본이 작습니다.
-
 ## License
 
-코드는 MIT License를 따릅니다. PoSSM에서 파생된 결과 · 그림 · 보고서 · 학습 모델은 CC BY-NC-SA 3.0 US를 따릅니다. 참고 방법론은 [`THIRD_PARTY.md`](THIRD_PARTY.md)에 있습니다.
+코드는 MIT License를 따름. PoSSM에서 파생된 결과 · 그림 · 보고서 · 학습 모델은 CC BY-NC-SA 3.0 US를 따름. 참고 방법론은 [`THIRD_PARTY.md`](THIRD_PARTY.md)에 있음.
