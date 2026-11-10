@@ -1,0 +1,11 @@
+{
+ "base_protocol_sha256": "e5e3c9921015a55e6bf583971cb7fd90ca0ee8b9aec07a24171c94b5f09c8676",
+ "fold": "F4",
+ "changed": {
+  "clean_fraction": [
+   0.25,
+   0.1
+  ]
+ },
+ "note": "post-hoc ablation after v5 test results; everything else as v5"
+}
