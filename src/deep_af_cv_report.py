@@ -1,7 +1,9 @@
 """Aggregate the v5 scene cross-validation and analyse failure patches.
 
-  python src/deep_af_cv_report.py   ->  results/v5/summary.json
+  python src/deep_af_cv_report.py                     ->  results/v5/summary.json
+  python src/deep_af_cv_report.py --variant clean0.1  ->  results/v5_ablation/summary_clean0.1.json (post-hoc, clean fraction 0.1)
 """
+import argparse
 import json
 import numpy as np
 from scipy.stats import spearmanr
@@ -13,10 +15,14 @@ FAMILY = {'scene01': 'uniform', 'scene06': 'uniform', 'scene02': 'rough', 'scene
 METHODS = ['uncorrected', 'local_gpga', 'per_ping_entropy', 'deep', 'deep_entropy', 'oracle']
 
 
-def rows_all():
+def fold_dir(f, variant=None):
+    return OUT / f if variant is None else ROOT / 'results/v5_ablation' / f'{f}_{variant}'
+
+
+def rows_all(variant=None):
     rows = []
     for f in FOLDS:
-        rows += json.loads((OUT / f / 'rows.json').read_text())['rows']
+        rows += json.loads((fold_dir(f, variant) / 'rows.json').read_text())['rows']
     return rows
 
 
@@ -50,7 +56,8 @@ def features(items):
 
 
 def main():
-    rows = rows_all(); scenes = sorted({r['scene'] for r in rows}); S = {'protocol_sha256': sha(OUT / 'protocol.json')}
+    ap = argparse.ArgumentParser(); ap.add_argument('--variant', default=None); a = ap.parse_args()
+    rows = rows_all(a.variant); scenes = sorted({r['scene'] for r in rows}); S = {'protocol_sha256': sha(OUT / 'protocol.json'), 'variant': a.variant or 'v5 protocol'}
     S['by_scene'] = {s: {**{m: med(rows, m, [s]) for m in METHODS}, 'paired_deep_minus_entropy': {k: v for k, v in paired(rows, scenes=[s]).items() if k != 'patch_median'},
                          'clean_loss': {m: med(rows, m, [s], clean=True) for m in ['local_gpga', 'per_ping_entropy', 'deep', 'deep_entropy']},
                          'family': FAMILY[s]} for s in scenes}
@@ -77,7 +84,8 @@ def main():
                                                                  [np.median([r['registered_ncc'] for r in rows if r['method'] == 'deep' and f'{r["scene"]}:{r["patch"]}' == k and r['case'] != 'clean_control']) for k in keys])[0])}
                              for f in ['speckle_contrast', 'ping_coherence', 'pings', 'y_m']}
     S['failures_lt_-0.05'] = {s: int(sum(pm[k] < -0.05 for k in keys if k.startswith(s))) for s in scenes}
-    (OUT / 'summary.json').write_text(json.dumps(S, indent=1) + '\n')
+    dest = OUT / 'summary.json' if a.variant is None else ROOT / 'results/v5_ablation' / f'summary_{a.variant}.json'
+    dest.write_text(json.dumps(S, indent=1) + '\n')
     for s, v in S['by_scene'].items():
         p = v['paired_deep_minus_entropy']
         print(s, v['family'], 'deep %.3f ent %.3f gpga %.3f | d %.3f [%.3f, %.3f] | clean deep %.3f ent %.3f' % (v['deep'], v['per_ping_entropy'], v['local_gpga'], p['median'], *p['ci95'], v['clean_loss']['deep'], v['clean_loss']['per_ping_entropy']))
