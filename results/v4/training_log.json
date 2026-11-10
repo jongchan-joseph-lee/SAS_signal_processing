@@ -1,0 +1,96 @@
+{
+ "protocol_sha256": "461a271c82e05458aa454110dfb87b6f3541ede44b2f5e415df54e576881a8ae",
+ "params": 412482,
+ "args": {
+  "steps": 3000,
+  "batch": 12,
+  "crop": 64,
+  "eval_every": 250
+ },
+ "evals": [
+  {
+   "step": 250,
+   "train_loss": 0.5441781029105186,
+   "val_median_registered_ncc": 0.8753753530996775,
+   "val_mean": 0.8351062616083453,
+   "seconds": 198.53535230099988
+  },
+  {
+   "step": 500,
+   "train_loss": 0.33409794127941134,
+   "val_median_registered_ncc": 0.9136199972265646,
+   "val_mean": 0.871555343084173,
+   "seconds": 392.11181889
+  },
+  {
+   "step": 750,
+   "train_loss": 0.41818133759498594,
+   "val_median_registered_ncc": 0.9152674476334726,
+   "val_mean": 0.8800676685185065,
+   "seconds": 582.6959362149996
+  },
+  {
+   "step": 1000,
+   "train_loss": 0.2667398243546486,
+   "val_median_registered_ncc": 0.937700318703758,
+   "val_mean": 0.9076939191288093,
+   "seconds": 2263.4302437829997
+  },
+  {
+   "step": 1250,
+   "train_loss": 0.2476062829643488,
+   "val_median_registered_ncc": 0.9481130273638195,
+   "val_mean": 0.9073807372047329,
+   "seconds": 2465.764559662
+  },
+  {
+   "step": 1500,
+   "train_loss": 0.21907445418834687,
+   "val_median_registered_ncc": 0.9496355257588944,
+   "val_mean": 0.9255481578636119,
+   "seconds": 2667.3379244779994
+  },
+  {
+   "step": 1750,
+   "train_loss": 0.2111228370666504,
+   "val_median_registered_ncc": 0.9579149819312198,
+   "val_mean": 0.9442379476488508,
+   "seconds": 2863.135614835
+  },
+  {
+   "step": 2000,
+   "train_loss": 0.21965025228261947,
+   "val_median_registered_ncc": 0.9607840253909606,
+   "val_mean": 0.9463804660983752,
+   "seconds": 3062.720998821
+  },
+  {
+   "step": 2250,
+   "train_loss": 0.2051191358268261,
+   "val_median_registered_ncc": 0.9565030229369043,
+   "val_mean": 0.9331587663577853,
+   "seconds": 3254.1938638409997
+  },
+  {
+   "step": 2500,
+   "train_loss": 0.1919245201051235,
+   "val_median_registered_ncc": 0.9591894006900465,
+   "val_mean": 0.9434835608178667,
+   "seconds": 3444.632723571
+  },
+  {
+   "step": 2750,
+   "train_loss": 0.18961810396611692,
+   "val_median_registered_ncc": 0.9579172397630469,
+   "val_mean": 0.9368743709107504,
+   "seconds": 3641.879322651
+  },
+  {
+   "step": 3000,
+   "train_loss": 0.17633625338971615,
+   "val_median_registered_ncc": 0.9576143767028742,
+   "val_mean": 0.9390258258746812,
+   "seconds": 3829.390465653
+  }
+ ]
+}

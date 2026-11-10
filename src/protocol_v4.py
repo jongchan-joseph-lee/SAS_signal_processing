@@ -1,0 +1,45 @@
+"""Write-once protocol for the v4 deep autofocus benchmark. Run before any validation or test output."""
+from pathlib import Path
+import datetime, hashlib, json
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / 'results/v4'
+PROTOCOL = {
+ 'version': 4,
+ 'question': 'Does a learned estimator correct per-ping sway phase on seabed patches better or faster than local GPGA and per-ping entropy?',
+ 'data': 'PoSSM synthetic, noiseless; seabed-only ROIs away from inserted objects',
+ 'scene_split': {'source': 'references/scene_split_v2.csv (fixed in v2, before this work)',
+                 'train': ['scene02', 'scene03', 'scene07', 'scene08'],
+                 'validation': ['scene01', 'scene06'],
+                 'test': ['scene04', 'scene05', 'scene09', 'scene10']},
+ 'patch': {'grid_m': 0.005, 'size_px': 81, 'center_x_m': [10, 50], 'center_y_m': [15, 80],
+           'min_distance_to_object_m': 4.0, 'rng_seed': '4000 + scene number',
+           'count_per_scene': {'train': 150, 'validation': 30, 'test': 25}},
+ 'training_corruption': 'phase only on clean ping stacks: theta_k = (4 pi / lambda) * (y / R) * d_k; d from the v3 sway model '
+                        '(navigation_path) with seeds >= 20000, RMS uniform 0-3 mm, 10% zero; lambda = c / 300 kHz, R from 6 m altitude',
+ 'evaluation_corruption': 'geometric sway injection as v3: 2 mm RMS, IQ unchanged; validation seeds [7001, 7002]; test seeds [7101..7105]; clean control amount 0',
+ 'methods': {'uncorrected': {}, 'local_gpga': {'iterations': 1}, 'per_ping_entropy': {'regularization': 0.0001, 'maxiter': 100},
+             'deep': 'learned estimator, weights chosen on validation only', 'deep_entropy': 'per-ping entropy started from the deep estimate (single start)',
+             'oracle': 'per-ping phase from the clean ping stack; upper bound, uses truth'},
+ 'gauge': 'constant and linear ping phase are not observable (absolute phase, along-track shift)',
+ 'primary_metric': 'linear-phase registered complex NCC vs clean BP of the same ROI (best of 721 slopes in [-pi, pi])',
+ 'secondary_metrics': ['unregistered complex NCC (v3 metric)', 'clean-control max NCC loss', 'estimator seconds per patch (CPU)'],
+ 'selection': 'checkpoint, iterations and deep_entropy use chosen by validation median registered NCC; test run once',
+ 'report': ['median and IQR per method', 'per test scene', 'paired deep - entropy difference with patch-cluster bootstrap 95% CI (2000)'],
+ 'no_claim': 'no real-data or noisy-data performance; ROI centres are chosen from object-free seabed, not by a detector',
+}
+
+
+def write():
+    OUT.mkdir(parents=True, exist_ok=True); p = OUT / 'protocol.json'
+    if p.exists():
+        old = json.loads(p.read_text()); assert old['protocol'] == PROTOCOL, 'Existing protocol differs; do not overwrite'
+        return old
+    rec = {'created_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'protocol': PROTOCOL}
+    p.write_text(json.dumps(rec, indent=2) + '\n'); return rec
+
+
+def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+if __name__ == '__main__': write(); print('Frozen protocol:', sha(OUT / 'protocol.json'))

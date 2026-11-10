@@ -15,12 +15,12 @@ ERAS = [
         ("1994", "Phase gradient autofocus", "Wahl et al."),
         ("1999", "Entropy minimisation", "Xi, Liu & Ni"),
         ("—", "Stripmap PGA for SAS", "Callow")]),
-    ("Open issues", "next steps", [
+    ("Deep autofocus", "learning-based", [
         ("2020", "Deep autofocus", "Gerg & Monga"),
-        ("2024", "Simulation fidelity", "Blanford & Williams"),
-        ("—", "Public raw SAS data", "PoSSM (MGDS)")]),
+        ("2021", "Real-time deep autofocus", "Gerg & Monga"),
+        ("2024", "Simulation fidelity", "Blanford & Williams")]),
 ]
-USED = ["receiver-motion backprojection\nsway / surge sensitivity", "local GPGA\nper-ping entropy", "PoSSM raw IQ + reference SLC\n(deep autofocus: next step)"]
+USED = ["receiver-motion backprojection\nsway / surge sensitivity", "local GPGA\nper-ping entropy", "CNN + transformer autofocus\nPoSSM raw IQ, 11 scenes"]
 
 fig, ax = plt.subplots(figsize=(14, 6.2))
 ax.set_xlim(0, 14); ax.set_ylim(0, 6.2); ax.axis("off")

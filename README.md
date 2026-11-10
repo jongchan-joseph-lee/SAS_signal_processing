@@ -1,6 +1,6 @@
 # Synthetic Aperture Sonar Imaging and Navigation-Error Sensitivity
 
-공개 합성개구 소나(Synthetic Aperture Sonar, SAS) 시뮬레이션 자료의 원시 신호(raw IQ)로 영상 형성과 항법 오차 보정을 직접 구현하고, 기준 영상과 비교해 항법 오차의 영향을 측정한 벤치마크
+공개 합성개구 소나(Synthetic Aperture Sonar, SAS) 시뮬레이션 자료의 원시 신호(raw IQ)로 영상 형성과 항법 오차 보정을 직접 구현하고, 기준 영상과 비교해 항법 오차의 영향과 딥러닝 보정(deep autofocus)의 효과를 측정한 벤치마크
 
 <p align="center"><img src="docs/figures/scene_comparison.png" width="95%" alt="Provided ASASIN SLC, own backprojection, and own backprojection with 2 mm sway error"></p>
 
@@ -14,6 +14,7 @@
   - 위상 기울기 보정(PGA)이 SAR 위상 보정의 표준으로 쓰임 (Wahl 등, 1994)
   - 스트립맵 SAS용 PGA가 제안됨. 현장 자료에서는 공간 가변 흐림으로 보정이 어려움 (Callow)
   - 영상 엔트로피 최소화로 위상 오차를 추정하는 방법이 쓰임 (Xi, Liu & Ni, 1999)
+  - 흐린 영상에서 위상 오차를 바로 추정하는 딥러닝 보정이 제안됨. 위상 오차를 합성한 영상으로 학습함 (Gerg & Monga, 2020; 2021)
 - 공개 SAS 자료는 대부분 처리된 영상만 제공함 → PoSSM은 원시 신호 · 기준 영상 · 산란체 위치를 함께 제공함 (Philtron, Johnson & Brown)
 
 ## Benchmark Setup
@@ -23,9 +24,10 @@
 | 자료 | PoSSM (MGDS) · 11장면 (60 m × 90 m) · 원시 GDF + 기준 영상(ASASIN SLC) · 무잡음 시뮬레이션 |
 | 영상 형성 | 정합필터 → 송수신 분리(bistatic) 역투영, 정지 가정 vs 수신기 이동 반영 |
 | 항법 오차 | 처리용 항적에 진행(surge) · 좌우(sway) 오차와 음속 편향을 넣어 민감도 측정 |
-| 보정 | local GPGA · 핑별 엔트로피 최소화 |
-| 지표 | 산란체 위치 오차(mm) · 기준 영상과의 복소 상관(complex NCC) |
-| 평가 규칙 | 개발용 자료로 조건 · 성공 기준을 정한 뒤 시험 자료로 1회 평가 |
+| 보정 | local GPGA · 핑별 엔트로피 최소화 · 딥러닝 보정(CNN + transformer) |
+| 딥러닝 보정 자료 | 해저면 0.4 m 조각 · 학습 4장면 600조각 → 검증 2장면 60조각 → 시험 4장면 100조각 × 5경로 (v2 장면 분할) |
+| 지표 | 산란체 위치 오차(mm) · 기준 영상과의 복소 상관(complex NCC) · 진행 방향 평행이동을 맞춘 NCC(registered NCC) |
+| 평가 규칙 | 개발 · 검증 자료로 조건을 정한 뒤 시험 자료로 1회 평가 ([`results/v3/protocol.json`](results/v3/protocol.json), [`results/v4/protocol.json`](results/v4/protocol.json)) |
 
 ## Results
 
@@ -34,8 +36,8 @@
 | 정지 가정 vs 수신기 이동 반영 | 산란체 위치 오차 15.1 → 1.8 mm |
 | 처리 설정 (Hann + Gaussian 창) | 기준 영상 NCC 0.672 → 0.875 |
 | 항법 오차 민감도 (2 mm RMS) | 좌우 NCC 0.50 · 진행 방향 0.99 |
-| 항법 오차 보정 (핑별 엔트로피) | NCC 0.442 → 0.830 (사전 기준 0.90) |
-| 거리별 보정 효과 | NCC 0.977 (15–35 m) → 0.726 (35–55 m) → 0.594 (55–80 m) |
+| 항법 오차 보정, 고립점 (평행이동 정렬 NCC) | 보정 없음 0.741 → GPGA 0.991 · 엔트로피 0.993 (정답 위상 0.993) |
+| 딥러닝 보정, 해저면 시험 500건 | CNN 0.928 · 엔트로피 0.940 (차이 −0.006, 95% CI −0.014–0.002) · 처리 시간 약 1/2 |
 
 ### 영상 형성
 
@@ -67,14 +69,48 @@
 
 ### 항법 오차 보정
 
-<p align="center"><img src="docs/figures/autofocus_by_range.png" width="95%" alt="Autofocus NCC by range band and clean-input protection"></p>
-<p align="center"><sub>거리 구간별 항법 오차 보정 결과</sub></p>
+<p align="center"><img src="docs/figures/registered_ncc_reanalysis.png" width="95%" alt="Point autofocus NCC by range band, unregistered versus registered"></p>
+<p align="center"><sub>고립점 시험(24점 × 5경로)의 거리 구간별 결과. 같은 보정 결과에 지표만 다르게 적용</sub></p>
 
 | 거리 | 15–35 m | 35–55 m | 55–80 m |
 |---|---|---|---|
-| 보정 후 NCC | 0.977 | 0.726 | 0.594 |
+| 엔트로피, 기존 NCC | 0.977 | 0.726 | 0.594 |
+| 엔트로피, 평행이동 정렬 NCC | 0.994 | 0.993 | 0.991 |
 
-- 결과 수치: [`results/v2/`](results/v2/), [`results/v3/`](results/v3/) · 사전 고정 조건: [`results/v3/protocol.json`](results/v3/protocol.json) · 보고서: [`report_v3/report.html`](report_v3/report.html)
+- 핑 간 선형 위상은 영상을 진행 방향으로 평행이동시킴. 기준 없이 보정하는 방법으로는 복원할 수 없는 성분임
+- 기존 NCC는 이 평행이동까지 오차로 셈 → v3에서 보고한 먼 거리 효과 감소는 보정 실패가 아니라 지표에 섞인 평행이동임
+- 평행이동을 맞추면 GPGA · 엔트로피 모두 정답 위상 수준에 도달함 (거리 무관)
+
+### 딥러닝 보정 (deep autofocus)
+
+<p align="center"><img src="docs/figures/deep_autofocus_model.png" width="95%" alt="Deep autofocus model: per-ping maps, CNN, transformer, iterative phase update"></p>
+<p align="center"><sub>모델 구조 (41만 파라미터). 핑마다 나머지 핑과의 위상 · 진폭 관계를 CNN으로 요약하고, transformer로 핑 간 정보를 섞어 위상을 갱신</sub></p>
+
+- 강한 점이 없는 해저면에서는 GPGA가 약함 → 딥러닝 보정의 비교 대상으로 해저면 조각을 사용
+- 학습: 학습 장면(거친 해저면)의 오차 없는 조각에 핑별 위상 오차를 합성 (Gerg & Monga 방식)
+- 시험: 학습에 없던 물결 · 혼합 해저면 4장면, 처리용 항적에 2 mm 좌우 오차를 넣어 생성 (v3와 같은 방식)
+
+<p align="center"><img src="docs/figures/deep_autofocus_results.png" width="95%" alt="Seabed test results: registered NCC by method, by scene, accuracy versus time"></p>
+<p align="center"><sub>시험 4장면 100조각 × 5경로 결과</sub></p>
+
+| 방법 | NCC 중앙값 | 하위 10% | 오차 없는 입력 손실 (중앙값) | 처리 시간 |
+|---|---|---|---|---|
+| 보정 없음 | 0.687 | – | 0 | – |
+| GPGA | 0.752 | 0.563 | 0.144 | 0.6 ms |
+| 엔트로피 | 0.940 | 0.706 | 0.038 | 345 ms |
+| **CNN** | **0.928** | **0.721** | **0.021** | **173 ms** |
+| CNN → 엔트로피 | 0.941 | 0.720 | 0.038 | 296 ms |
+| 정답 위상 | 0.993 | – | 0 | – |
+
+- CNN과 엔트로피의 차이는 통계적으로 구분되지 않음 (−0.006, 95% CI −0.014–0.002). 처리 시간은 약 절반
+- 물결 해저면 scene04에서 CNN이 약함 (0.854 vs 엔트로피 0.927) → 학습에 없던 해저 유형에 대한 일반화 한계
+- 모든 방법이 정답 위상(0.993)과 0.05 이상 차이 → 해저면 조각 보정에 개선 여지가 남음
+- 처리 시간은 CPU 2코어 기준. 학습 3,000단계 약 1시간 ([`results/v4/environment.json`](results/v4/environment.json))
+
+<p align="center"><img src="docs/figures/deep_autofocus_example.png" width="95%" alt="Seabed test patch: reference, sway-corrupted, entropy, deep"></p>
+<p align="center"><sub>시험 조각 예시 (scene05, 엔트로피 결과가 중앙값에 가까운 조각)</sub></p>
+
+- 결과 수치: [`results/v2/`](results/v2/), [`results/v3/`](results/v3/), [`results/v4/`](results/v4/) · 사전 고정 조건: [`results/v3/protocol.json`](results/v3/protocol.json), [`results/v4/protocol.json`](results/v4/protocol.json) · 보고서: [`report_v3/report.html`](report_v3/report.html)
 
 <details>
 <summary>부록: 객체 탐지 시도 (사전 기준 미달)</summary>
@@ -95,15 +131,21 @@
   → 정지 가정 대비 위치 오차 약 1/8 (15.1 → 1.8 mm). mm급 영상 형성의 전제 조건
 - 항법 오차의 영향\
   → 좌우 방향 mm 단위 오차가 영상 품질을 좌우함. 미세항법 정확도 요구(Bellettini & Pinto, 2002)를 수치로 확인
-- 지표 기반 보정\
-  → 근거리에서는 거의 완전 회복(NCC 0.98), 거리가 멀수록 효과 감소
+- 보정 평가 지표\
+  → 기준 없는 보정은 진행 방향 평행이동을 복원할 수 없음. 평행이동을 맞춰 비교하면 고립점 보정은 거리와 무관하게 정답 위상 수준
+- 딥러닝 보정\
+  → 해저면에서 엔트로피와 같은 수준의 정확도를 약 절반의 처리 시간으로 냄. 정확도 우위는 확인되지 않음
 
 ## Limitations → Next Steps
 
-- 먼 거리(35 m 이상)에서 보정 효과 감소\
-  → 합성개구 길이 · 신호 대 잡음비 · 공간 가변 오차 요인 분리, 스트립맵 PGA(Callow) 방식 비교
-- 지표 기반 보정의 한계 (연산량 · 파라미터 민감도 · 선명도 지표의 국소해)\
-  → 딥러닝 기반 보정(Gerg & Monga, 2020; 2021)과 같은 자료에서 비교
+- 학습에 없던 해저 유형(물결)에서 CNN 성능 저하 (scene04 0.854)\
+  → 해저 유형을 섞어 학습, 장면 수 확대
+- 오차 없는 입력도 보정 후 영상이 달라짐 (CNN 손실 중앙값 0.021, 엔트로피 0.038)\
+  → 오차 크기를 먼저 추정해 보정 여부 결정, 오차 없는 입력의 손실을 학습 목표에 포함
+- 모든 방법이 정답 위상과 0.05 이상 차이\
+  → 큰 조각 · 장면 전체 보정, 공간 가변 오차 추정으로 확장
+- 처리 시간이 CPU 2코어 기준\
+  → GPU 일괄 추론으로 실시간성 평가 (Gerg & Monga, 2021)
 - 무잡음 시뮬레이션 한 종류\
   → 잡음을 넣은 시뮬레이션으로 재평가 후 실측 SAS로 확장. 시뮬레이션 자료의 충실도 문제(Blanford & Williams, 2024) 고려
 - 항법 오차를 원시 신호가 아닌 처리용 항적에 넣어 생성\
@@ -136,24 +178,34 @@
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
-pip install -r requirements_v3.txt
-python src/run_v3.py --download      # 자료 취득부터 보정 · 탐지 · 보고서까지
-python src/run_v3.py --report-only   # 저장된 결과로 보고서만 다시 생성
+pip install -r requirements_v4.txt
+python src/run_v3.py --download      # v3: 자료 취득부터 보정 · 탐지 · 보고서까지
+python src/run_v3.py --report-only   # v3: 저장된 결과로 보고서만 다시 생성
 ```
 
-- 현재 버전은 v3이며 `requirements_v3.txt`를 씀 (`requirements.txt`는 v1 · v2 재현용)
-- Python 3.12, CPU, RAM 약 10 GB 기준. 단계별 실행 방법은 [`docs/README_v3.md`](docs/README_v3.md)
+```bash
+# v4: 딥러닝 보정 (11장면 원자료 필요: python src/acquire_all_scenes.py 후 장면별 prepare_possm.py)
+python src/deep_af_prepare.py --split train        # validation, test도 같은 방식
+python src/deep_af_train.py --steps 3000 --batch 12
+python src/deep_af_eval.py --stage validation      # 반복 횟수 선택
+python src/deep_af_eval.py --stage test            # 시험 1회
+python src/reanalyze_v3_registered.py              # v3 고립점 결과를 평행이동 정렬 NCC로 재채점
+python src/fig_v4.py
+```
+
+- v3는 `requirements_v3.txt`, v4는 `requirements_v4.txt`(torch 추가)를 씀 (`requirements.txt`는 v1 · v2 재현용)
+- CPU · RAM 약 8 GB 기준. 단계별 실행 방법은 [`docs/README_v3.md`](docs/README_v3.md)
 
 ## Project Structure
 
 | 폴더 | 내용 |
 |---|---|
 | `src` | 자료 취득, 영상 형성, 보정, 탐지, 검증 스크립트 |
-| `results` | 결과 수치 (JSON · NPZ), 사전 고정 조건, 소규모 탐지기 |
+| `results` | 결과 수치 (JSON · NPZ), 사전 고정 조건, 소규모 탐지기, 딥러닝 보정 모델 (`v4/deep_af.pt`) |
 | `report_v3` | 현재 결과 보고서 (HTML). `report_v1` · `report_v2`는 이전 단계 기록 |
 | `docs` | 그림, 단계별 상세 문서 |
 | `references` | 자료 설명서, 객체 위치표 |
 
 ## License
 
-코드는 MIT License를 따름. PoSSM에서 파생된 결과 · 그림 · 보고서 · 학습 모델은 CC BY-NC-SA 3.0 US를 따름. 참고 방법론은 [`THIRD_PARTY.md`](THIRD_PARTY.md)에 있음.
+코드는 MIT License를 따름. PoSSM에서 파생된 결과 · 그림 · 보고서 · 학습 모델(딥러닝 보정 포함)은 CC BY-NC-SA 3.0 US를 따름. 참고 방법론은 [`THIRD_PARTY.md`](THIRD_PARTY.md)에 있음.
