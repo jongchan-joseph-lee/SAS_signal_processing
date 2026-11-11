@@ -25,9 +25,9 @@
 | 영상 형성 | 정합필터 → 송수신 분리(bistatic) 역투영, 정지 가정 vs 수신기 이동 반영 |
 | 항법 오차 | 처리용 항적에 진행(surge) · 좌우(sway) 오차와 음속 편향을 넣어 민감도 측정 |
 | 보정 | local GPGA · 핑별 엔트로피 최소화 · 딥러닝 보정(CNN + transformer) |
-| 딥러닝 보정 자료 | 해저면 0.4 m 조각 · 학습 4장면 600조각 → 검증 2장면 60조각 → 시험 4장면 100조각 × 5경로 (v2 장면 분할) |
+| 딥러닝 보정 자료 | 해저면 0.4 m 조각 · v4: 학습 4장면 → 검증 2장면 → 시험 4장면 (v2 장면 분할) · v5: 10장면을 2장면씩 돌려가며 시험하는 장면 교차검증 (250조각 × 5경로) |
 | 지표 | 산란체 위치 오차(mm) · 기준 영상과의 복소 상관(complex NCC) · 진행 방향 평행이동을 맞춘 NCC(registered NCC) |
-| 평가 규칙 | 개발 · 검증 자료로 조건을 정한 뒤 시험 자료로 1회 평가 ([`results/v3/protocol.json`](results/v3/protocol.json), [`results/v4/protocol.json`](results/v4/protocol.json)) |
+| 평가 규칙 | 개발 · 검증 자료로 조건을 정한 뒤 시험 자료로 1회 평가 ([`results/v3/protocol.json`](results/v3/protocol.json), [`results/v4/protocol.json`](results/v4/protocol.json), [`results/v5/protocol.json`](results/v5/protocol.json)) |
 
 ## Results
 
@@ -37,7 +37,7 @@
 | 처리 설정 (Hann + Gaussian 창) | 기준 영상 NCC 0.672 → 0.875 |
 | 항법 오차 민감도 (2 mm RMS) | 좌우 NCC 0.50 · 진행 방향 0.99 |
 | 항법 오차 보정, 고립점 (평행이동 정렬 NCC) | 보정 없음 0.741 → GPGA 0.991 · 엔트로피 0.993 (정답 위상 0.993) |
-| 딥러닝 보정, 해저면 시험 500건 | CNN 0.928 · 엔트로피 0.940 (차이 −0.006, 95% CI −0.014–0.002) · 처리 시간 약 1/2 |
+| 딥러닝 보정, 해저면 10장면 교차검증 1,250건 | CNN 0.959 · 엔트로피 0.960 (차이 +0.001, 95% CI −0.001–0.004) · 처리 시간 약 1/2 · 오차 없는 입력 손실 약 1/4 |
 
 ### 영상 형성
 
@@ -103,14 +103,40 @@
 | 정답 위상 | 0.993 | – | 0 | – |
 
 - CNN과 엔트로피의 차이는 통계적으로 구분되지 않음 (−0.006, 95% CI −0.014–0.002). 처리 시간은 약 절반
-- 물결 해저면 scene04에서 CNN이 약함 (0.854 vs 엔트로피 0.927) → 학습에 없던 해저 유형에 대한 일반화 한계
+- 물결 해저면 scene04에서 CNN이 약함 (0.854 vs 엔트로피 0.927) → 아래 장면 교차검증(v5)으로 원인 확인
 - 모든 방법이 정답 위상(0.993)과 0.05 이상 차이 → 해저면 조각 보정에 개선 여지가 남음
 - 처리 시간은 CPU 2코어 기준. 학습 3,000단계 약 1시간 ([`results/v4/environment.json`](results/v4/environment.json))
 
 <p align="center"><img src="docs/figures/deep_autofocus_example.png" width="95%" alt="Seabed test patch: reference, sway-corrupted, entropy, deep"></p>
 <p align="center"><sub>시험 조각 예시 (scene05, 엔트로피 결과가 중앙값에 가까운 조각)</sub></p>
 
-- 결과 수치: [`results/v2/`](results/v2/), [`results/v3/`](results/v3/), [`results/v4/`](results/v4/) · 사전 고정 조건: [`results/v3/protocol.json`](results/v3/protocol.json), [`results/v4/protocol.json`](results/v4/protocol.json) · 보고서: [`report_v3/report.html`](report_v3/report.html)
+#### 장면 교차검증 (v5)
+
+- v4 학습은 4회, 추론은 8회 반복 → 5–8회째 단계 정보가 학습되지 않은 채 쓰임 → 학습 · 추론 모두 8회로 맞춤
+- 10장면을 2장면씩 5묶음으로 나눔. 묶음마다 나머지 8장면으로 학습하고 해당 2장면으로 시험 → 모든 장면이 학습에 없던 상태로 1회씩 시험됨
+- 묶음마다 물결 · 혼합 장면이 학습에 들어가도록 나눔
+- 학습 자료 중 오차 없는 조각 비율 2가지 비교: 25% (사전 고정 조건) · 10% (v4와 같음, 25% 결과를 본 뒤 추가)
+
+<p align="center"><img src="docs/figures/deep_autofocus_cv.png" width="95%" alt="Scene cross-validation: paired difference per held-out scene, NCC by seafloor type, damage to error-free input"></p>
+<p align="center"><sub>장면 교차검증 결과 (10장면 × 25조각 × 5경로). (a) 장면별 CNN − 엔트로피 차이와 95% CI, (b) 해저 유형별 NCC, (c) 오차 없는 입력 손실</sub></p>
+
+| 해저 유형 | 시험 장면 | 엔트로피 | CNN (25%) | CNN (10%) | 차이, 10% (95% CI) |
+|---|---|---|---|---|---|
+| 거친 (rough) | 02 · 03 · 07 · 08 | 0.961 | 0.966 | **0.973** | +0.008 (0.004–0.015) |
+| 혼합 (mixed) | 05 · 10 | 0.962 | 0.903 | **0.945** | −0.002 (−0.011–0.004) |
+| 물결 (ripple) | 04 · 09 | 0.925 | 0.868 | **0.905** | −0.003 (−0.019–0.009) |
+| 균일 (uniform) | 01 · 06 | 0.975 | 0.967 | **0.961** | −0.010 (−0.017 – −0.003) |
+| 전체 | 10장면 | 0.960 | 0.950 | **0.959** | +0.001 (−0.001–0.004) |
+| 오차 없는 입력 손실 | | 0.023 | 0.003 | 0.006 | |
+
+- 반복 횟수를 맞추고 다른 해저 유형을 학습에 넣으면 scene04 차이가 줄어듦 (v4 −0.032 → −0.012, 95% CI −0.033–0.001). 같은 물결 해저면인 scene09는 +0.007 → 물결 해저면 전체의 열세는 아님
+- 거친 해저면은 CNN이 엔트로피보다 조금 높고, 균일 해저면은 조금 낮음. 혼합 · 물결은 구분되지 않음
+- 오차 없는 조각 25%: 오차 없는 입력 손실은 가장 작지만(0.003) 보정이 약해짐 (전체 차이 −0.004, 95% CI −0.008 – −0.001) → 보존과 보정 사이의 교환관계(trade-off). 10%에서는 두 지표 모두 엔트로피 이상
+- 조각 특징(speckle 대비, 핑 간 결맞음, 핑 수, 거리)과 차이의 상관은 약함 (|ρ| ≤ 0.13)
+- CNN → 엔트로피는 엔트로피 단독과 같은 해로 수렴 (차이 0.000)
+- 10% 조건은 25% 시험 결과를 본 뒤 추가한 사후 비교임 ([`results/v5_ablation/`](results/v5_ablation/))
+
+- 결과 수치: [`results/v2/`](results/v2/), [`results/v3/`](results/v3/), [`results/v4/`](results/v4/), [`results/v5/`](results/v5/) · 사전 고정 조건: [`results/v3/protocol.json`](results/v3/protocol.json), [`results/v4/protocol.json`](results/v4/protocol.json), [`results/v5/protocol.json`](results/v5/protocol.json) · 보고서: [`report_v3/report.html`](report_v3/report.html)
 
 <details>
 <summary>부록: 객체 탐지 시도 (사전 기준 미달)</summary>
@@ -134,14 +160,16 @@
 - 보정 평가 지표\
   → 기준 없는 보정은 진행 방향 평행이동을 복원할 수 없음. 평행이동을 맞춰 비교하면 고립점 보정은 거리와 무관하게 정답 위상 수준
 - 딥러닝 보정\
-  → 해저면에서 엔트로피와 같은 수준의 정확도를 약 절반의 처리 시간으로 냄. 정확도 우위는 확인되지 않음
+  → 학습에 없던 10장면 교차검증에서 엔트로피와 같은 정확도(0.959 vs 0.960)를 약 절반의 처리 시간으로 냄. 오차 없는 입력 손실은 약 1/4
+- 학습 · 추론 조건 일치\
+  → 반복 횟수 불일치를 고치자 v4 scene04 열세가 크게 줄어듦. 오차 없는 조각 비율이 보존과 보정 사이의 균형을 정함
 
 ## Limitations → Next Steps
 
-- 학습에 없던 해저 유형(물결)에서 CNN 성능 저하 (scene04 0.854)\
-  → 해저 유형을 섞어 학습, 장면 수 확대
-- 오차 없는 입력도 보정 후 영상이 달라짐 (CNN 손실 중앙값 0.021, 엔트로피 0.038)\
-  → 오차 크기를 먼저 추정해 보정 여부 결정, 오차 없는 입력의 손실을 학습 목표에 포함
+- 균일 해저면에서 CNN이 엔트로피보다 조금 낮음 (차이 −0.010)\
+  → 해저 유형별 장면 수 확대 (현재 유형당 2–4장면)
+- 오차 없는 조각 비율 10%는 시험 결과를 본 뒤 추가한 조건\
+  → 새 장면이나 잡음을 넣은 시뮬레이션에서 사전 고정 조건으로 재확인
 - 모든 방법이 정답 위상과 0.05 이상 차이\
   → 큰 조각 · 장면 전체 보정, 공간 가변 오차 추정으로 확장
 - 처리 시간이 CPU 2코어 기준\
@@ -191,6 +219,13 @@ python src/deep_af_eval.py --stage validation      # 반복 횟수 선택
 python src/deep_af_eval.py --stage test            # 시험 1회
 python src/reanalyze_v3_registered.py              # v3 고립점 결과를 평행이동 정렬 NCC로 재채점
 python src/fig_v4.py
+
+# v5: 장면 교차검증
+python src/deep_af_prepare_cv.py --kind train      # test도 같은 방식
+python src/deep_af_cv.py --fold F1                 # F1–F5
+python src/deep_af_cv_ablation.py --fold F1 --clean-fraction 0.1   # 사후 비교
+python src/deep_af_cv_report.py                    # --variant clean0.1
+python src/fig_v5.py
 ```
 
 - v3는 `requirements_v3.txt`, v4는 `requirements_v4.txt`(torch 추가)를 씀 (`requirements.txt`는 v1 · v2 재현용)
@@ -201,7 +236,7 @@ python src/fig_v4.py
 | 폴더 | 내용 |
 |---|---|
 | `src` | 자료 취득, 영상 형성, 보정, 탐지, 검증 스크립트 |
-| `results` | 결과 수치 (JSON · NPZ), 사전 고정 조건, 소규모 탐지기, 딥러닝 보정 모델 (`v4/deep_af.pt`) |
+| `results` | 결과 수치 (JSON · NPZ), 사전 고정 조건, 소규모 탐지기, 딥러닝 보정 모델 (`v4/deep_af.pt`, `v5/F*/deep_af.pt`) |
 | `report_v3` | 현재 결과 보고서 (HTML). `report_v1` · `report_v2`는 이전 단계 기록 |
 | `docs` | 그림, 단계별 상세 문서 |
 | `references` | 자료 설명서, 객체 위치표 |
